@@ -1,0 +1,1 @@
+{"dynamicFields":[],"staticFields":{"title":"wer","short_descr":"werwer"}}

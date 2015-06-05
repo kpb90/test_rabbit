@@ -1,0 +1,64 @@
+<div class = "basket_wrp_table">
+    <table class = "basket_table">
+      <tr>
+        <th></th>
+        <th style = "width:130px; text-align: center">Изделие</th>
+        <th style = "width:120px;">Размер</th>
+        <th style = "width:65px;"><nobr>Цена ({{currency}})</nobr></th>
+        <th style = "width:100px;">Количество</th>
+        <th style = "width:55px;">Итого ({{currency}})</th>
+        <th style = "width:10px;"></th>
+      </tr>
+      <tr ng-repeat="(cart_item_id, item) in basket">
+        <td><span ng-click="remove_item(cart_item_id)" class = "boxclose"></span></td>
+        <td class = "title_img" style = "width:130px;">
+          <div class = "basket_title"><a href="/carlsberg{{item.title_latin}}">{{item.title}}</a></div>
+          <a href="/carlsberg{{item.title_latin}}"><img ng-if="item.img" ng-src="{{item.img}}"></a>
+        </td>
+        <td colspan="5" style = "padding:0">
+          <table>
+            <tr ng-repeat="(index_select_size, select_size) in item.select_size">
+              <td style = "width:120px;">
+             <!-- !{{index_select_size}}!
+              !{{basket[cart_item_id]['select_size']}}!
+              !{{basket[cart_item_id]['select_size'][index_select_size]}}!
+  <select ng-model = "basket[cart_item_id]['select_size'][index_select_size]" ng-change="update_size(cart_item_id, select_size, index_select_size)">
+              -->
+              <span class = "size">{{select_size}}</span>
+              <!--
+               <select ng-model = "update_size_val" ng-change="update_size(update_size_val, cart_item_id, index_select_size)"  disabled>
+                <option ng-repeat="size in item.size" ng-value="size"  ng-selected="select_size==size">{{size}}</option>
+                </select>
+              -->
+              </td>
+              <td style = "width: 65px; text-align: center"><span ng-if="(item.size.length > 1&&select_size)||!item.size.length" class = "price">{{item.price}}<span></td>
+              <td style = "width:100px; text-align: center">
+                <input ng-if="(item.size.length > 1&&select_size)||!item.size.length" type="text" ng-model = "basket[cart_item_id]['quantity'][index_select_size]" ng-change = "update_quantity(cart_item_id, index_select_size)">
+              </td>
+              <td style = "width:55px;"><span  ng-if="(item.size.length > 1&&select_size)||!item.size.length" class = 'common_row_price'>{{basket[cart_item_id]['common_row_price'][index_select_size]}}</span></td>
+              <td style = "width:10px;"><span  ng-if="item.size.length > 1&&select_size" class = "boxclose remove_size" ng-click="remove_size(cart_item_id, index_select_size)"></span></td>
+            </tr>
+          </table>
+          <div ng-if="item.size.length > 0">
+           <select ng-if="item.select_size.length > 1||(item.select_size.length==1&&item.select_size[0]!='')" style = "width:151px; float:right;" ng-model = "basket[cart_item_id].new_size" ng-change="add_size(cart_item_id)">
+                <option value="-1" ng-selected=true>Добавить размер</option>
+                <option ng-repeat="size in item.size" ng-value="size">{{size}}</option>
+          </select>
+          <select ng-if="!item.select_size.length||(item.select_size.length==1&&item.select_size[0]=='')"  style = "width:151px; float:right;" ng-model = "basket[cart_item_id].new_size" ng-change="add_size(cart_item_id)">
+                <option value="-1" ng-selected=true>Укажите размер</option>
+                <option ng-repeat="size in item.size" ng-value="size">{{size}}</option>
+          </select>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="basket_common_price">Общее количество: {{common_count}}</div>
+    <div class="basket_common_price">Общая сумма: {{common_price}} {{currency}}</div>
+  <div class="basket_common_price">Вид расходов: 76674 </div>
+    <div style = "position:relative;"><span class = "error_basket" style = "color: red;position: relative;clear: both;float: right;width: 280px;margin-top: 4px;" ng-show="f.not_valid_cost_center">{{f.not_valid_cost_center}}</span></div>
+    <input ng-blur="validation()" id = 'cost_center' ng-class="f.not_valid_cost_center ? 'cost_center not_valid' : 'cost_center'" placeholder = "Центр затрат" style = "clear:both;width: 280px;text-align: left;padding-left: 5px;float: right;margin: 9px 0 0;border: 1px solid grey;" type="text" ng-model="text.cost_center" mask="?9999_9999" >
+    <textarea placeholder = "Комментарии" style = "clear:both;width: 280px;text-align: left;padding-left: 5px;float: right;margin: 9px 0 0;border: 1px solid grey;" NAME="person" SIZE=35 MAXLENGTH=255 ng-model="text.comment"></textarea>
+    {{comment}}
+    <div style = "clear:both"></div>
+      <a href="javascript:;" class="send_order_show readmore carlsberg" ng-click = "send_order();">Отправить заявку</a>
+  </div>

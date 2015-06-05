@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+	<label class="control-label">{{initDataForDynamicFields['nameOfField'][dynamicField['nameOfField']]}}</label>
+</div>
+<div class="col-sm-10" ng-switch on="dynamicField.viewOfField">
+	<input ng-switch-when="value" class="form-control" type = "text" ng-model="dynamicField.value"> 
+	<div ng-switch-when="intervalOfValues">
+		<div class = 'col-sm-6'>
+			<input class="form-control" type = "text" ng-model="dynamicField.value1">
+		</div>
+		<div class = 'col-sm-6'>
+			<input class="form-control" type = "text" ng-model="dynamicField.value2">                      
+		</div>
+	</div>
+</div>
+<div class="col-sm-1">
+	{{initDataForDynamicFields['unitsOfField'][dynamicField['unitsOfField']]}}
+</div>
+<div class="col-sm-1">
+	<span ng-click = "removeDynamicField(indexDynamicField)" class="glyphicon glyphicon-remove pointer"></span>
+</div>

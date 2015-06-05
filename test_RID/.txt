@@ -1,0 +1,3 @@
+{"dynamicFields":[{"nameOfField":"1","viewOfField":"","unitsOfField":"","securityOfField":"2","typeOfField":"text","$$hashKey":"object:38","value":""},{"nameOfField":"лчлчлч","viewOfField":"","unitsOfField":"","securityOfField":"1","typeOfField":"file","$$hashKey":"object:144"}],"staticFields":{"title":"","short_descr":"","selectBranch":"","selectSecurity":""}}
+
+{"dynamicFields":[{"nameOfField":"1","viewOfField":"","unitsOfField":"","securityOfField":"2","typeOfField":"text","$$hashKey":"object:38","value":""},{"nameOfField":"лчлчлч","viewOfField":"","unitsOfField":"","securityOfField":"1","typeOfField":"file","$$hashKey":"object:144"}],"staticFields":{"title":"","short_descr":"","selectBranch":"","selectSecurity":""}}

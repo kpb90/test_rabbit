@@ -1,0 +1,21 @@
+<div class="form-group" ng-if="paramsConstruct.typeOfField!='file'">
+	<label>Название поля</label>
+	<select class="form-control" ng-model = "selectParamsConstruct.nameOfField">
+		<option value=''>Выберите название поля</option>
+		<option  ng-repeat="(i, titleNameOfField) in paramsConstruct.nameOfField" value = "{{i}}">{{paramsConstruct.nameOfField[i]}}</option>
+	</select>
+</div>
+<div class="form-group" ng-if="paramsConstruct.typeOfField=='string'">
+	<label>Тип поля</label>
+	<select class="form-control" ng-model = "selectParamsConstruct.viewOfField">
+		<option value = "">Выберите тип поля</option>
+		<option ng-repeat="(i, titleNameOfField) in paramsConstruct.viewOfField" value = "{{i}}">{{paramsConstruct.viewOfField[i]}}</option>
+	</select>
+</div>
+<div class="form-group" ng-if="paramsConstruct.typeOfField=='string'">
+	<label>Единицы измерения</label>
+	<select class="form-control" ng-model = "selectParamsConstruct.unitsOfField">
+		<option value = "">Выберите единицы измерения</option>
+		<option  ng-repeat="(i, titleUnitsOfField) in paramsConstruct.unitsOfField" value = "{{i}}">{{paramsConstruct.unitsOfField[i]}}</option>
+	</select>
+</div> 
