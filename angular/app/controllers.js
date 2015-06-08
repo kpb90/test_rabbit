@@ -10,7 +10,65 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
         'staticFields': {}
     };
 
-   $http.get('/index.php?task=getRID&id=all').success(function (data,status) {
+    $scope.modified_form = {'dynamicFields': {'remove':[],'update':[],'add':[]},
+                        'staticFields':{'update':{}}
+                       }
+    
+/*    
+    $scope.$watch(function() { return angular.toJson($scope.form);}, function(v) {
+         //console.log ($scope.init_form);
+         // console.log ($scope.form);
+         //   console.log (difference($scope.init_form, $scope.form));
+    });
+*/
+/*
+    $scope.differenceStaticFields = function (template, override) {
+        var ret = {};
+        for (var name in template) {
+            if (name in override) {
+                if (_.isObject(override[name]) && !_.isArray(override[name])) {
+                    var diff = difference(template[name], override[name]);
+                    if (!_.isEmpty(diff)) {
+                        ret[name] = diff;
+                    }
+                } else if (!_.isEqual(template[name], override[name])) {
+                    ret[name] = override[name];
+                }
+            }
+        }
+        return ret;
+    }
+*/
+    $scope.differenceDynamicFields = function (source, destination) {
+        for (var i = 0; i < source.length; i++) {
+            var founded = false;
+            for (var j = 0; j < destination.length; j++) {
+                if (source[i].id==destination[j].id) {
+                    if (source[i].modified!=destination[j].modified) {
+                        $scope.modified_form.dynamicFields.update.push(destination[j]);
+                    }
+                    destination.splice(j, 1);
+                    founded = true;
+                    break;
+                }
+            }
+            if (founded == false) {
+                $scope.modified_form.dynamicFields.remove.push(source[i]);
+            }
+            //source[i].$$hashKey
+            
+            source.splice(i, 1);
+            i--;
+        }
+
+        for (var j = 0; j < destination.length; j++) {
+            $scope.modified_form.dynamicFields.add.push(destination[j]);
+        }
+        source = null;
+        destination = null;
+    }
+
+   $http.get('index.php?task=getRID&id=all').success(function (data,status) {
         if (data) {
             $scope.allRID = data['allRID'];
             $scope.allTemplateRID = data['allTemplateRID'];
@@ -20,16 +78,17 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     });
 
     $scope.getConcreteRID = function (RID)  {
-        $http.get('/index.php?task=getRID&id='+RID).success(function (data,status) {
+        $http.get('index.php?task=getRID&id='+RID).success(function (data,status) {
                 if (data) {
                     $scope.form = data;
+                    $scope.init_form=angular.copy($scope.form);
                 }
             }).error(function (data,status){
             });
     }
 
     $scope.getTemplateRID = function (RID)  {
-        $http.get('/index.php?task=getTemplateRID&id='+RID).success(function (data,status) {
+        $http.get('index.php?task=getTemplateRID&id='+RID).success(function (data,status) {
                 if (data) {
                     $scope.form = data;
                 }
@@ -76,15 +135,67 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
         }, function() {
             $log.info('Modal dismissed at: ' + new Date());
         });
-
     }
+
 
     $scope.removeDynamicField = function(index) {
       $scope.form.dynamicFields.splice (index,1);
     }
 
+    $scope.addLinkRID = function(typeOfLink) {
+        var modalInstance = $modal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'addLinkRIDContent.html',
+            controller: 'ModalInstanceLinkRIDCtrl',
+            resolve: {
+                // pass params to modal
+                params: function() {
+                    return {'typeOfLink':typeOfLink, 'allRID':$scope.allRID};
+                },
+            }
+        });
+
+        modalInstance.result.then(function(paramsModalInstanceLink) {
+            //$scope.selectParamsConstruct = selectParamsConstruct;
+          //      $scope.form.staticFields.linked
+        //$scope.form.staticFields.inheritable
+            
+
+        }, function() {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
+
+    }
+
 });
 
+appControllers.controller('ModalInstanceLinkRIDCtrl', function($scope, $modalInstance, params) {
+    $scope.paramsModalInstanceLink = params;
+    $scope.selectInstanceLink = function (selectedLink) {
+        switch ($scope.paramsModalInstanceLink.typeOfLink) {
+            case 'related':
+               // var pos = $scope.paramsModalInstanceLink.related.indexOf(selectedLink);
+               // if (pos > -1) {
+                 //  $scope.paramsModalInstanceLink.related.splice(index, 1);
+              //  } else {
+                 //   $index 
+               // }
+            break;
+            case 'inheritable':
+                //$scope.paramsModalInstanceLink.inheritable
+            break;
+        }
+        console.log (selectedLink);
+    }
+
+    $scope.ok = function() {
+         $modalInstance.close($scope.paramsModalInstanceLink);
+    };
+
+    $scope.cancel = function() {
+        $modalInstance.dismiss('cancel');
+    };
+});
 
 appControllers.controller('ModalInstanceCtrl', function($scope, $modalInstance, paramsConstruct) {
 	var keysOfParamsConstruct = Object.keys(paramsConstruct);
@@ -133,6 +244,11 @@ appControllers.controller('ModalInstanceCtrl', function($scope, $modalInstance, 
 
 appControllers.controller('RIDFormCtrl', function($scope, $http) {
     $scope.saveModelForm = function () {
+                  $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
+                  console.log ($scope.init_form.dynamicFields);
+                  console.log ($scope.form.dynamicFields);
+                 console.log ($scope.modified_form.dynamicFields);
+                 return;
         var fd = new FormData();
         fd.append('form', JSON.stringify($scope.form));
 

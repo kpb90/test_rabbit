@@ -52,6 +52,15 @@
               <button  type="button" class="btn btn-primary" ng-repeat="(objTitleTypeOfFieldKey, objTitleTypeOfFieldTitle) in objTitleTypeOfField" ng-click="addDynamicFields(objTitleTypeOfFieldKey)">{{objTitleTypeOfFieldTitle}}</button>
             </span>
           </div>
+          <div class="form-group">
+            <label>Зависимости</label>
+              <button  type="button" class="btn btn-primary" ng-click="addLinkRID('related')">Связанные РИД</button>
+              <button  type="button" class="btn btn-primary" ng-click="addLinkRID('inheritable')">Наследуемые РИД</button>
+          </div>
+          <div class="form-group">
+            <label>Пользователи, которые видят данный РИД:</label>
+              Петя, Вася, Коля
+          </div>
               <button type="submit" class="btn btn-default" ng-click = "saveModelForm()">Продолжить</button>
               <button type="submit" class="btn btn-default" ng-click = "saveTemplateForm()">Сохранить шаблон</button>
         </form>
@@ -105,6 +114,21 @@
        </div>
      </form>
    </div>
+ </div>
+ <div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Добавить</button>
+  <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
+</div>
+</script>
+
+<script type="text/ng-template" id="addLinkRIDContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">Добавление зависимостей</h3>
+  </div>
+  <div class="modal-body">
+    <select multiple class="form-control" ng-model="selectedValues">
+      <option ng-repeat  = "(i, v) in paramsModalInstanceLink.allRID" ng-click = "selectInstanceLink(i)">{{v}}</option>
+    </select>
  </div>
  <div class="modal-footer">
   <button class="btn btn-primary" ng-click="ok()">Добавить</button>

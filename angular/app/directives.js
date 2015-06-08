@@ -19,6 +19,15 @@ appDirectives.directive("fileread", [function () {
     }
 }]);
 
+appDirectives.directive('fancy', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, elm, attrs) {
+            var jqueryElm = $(elm[0]);
+            $(jqueryElm).fancybox();
+        }
+    };
+})
 
 
 
