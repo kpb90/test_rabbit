@@ -1,0 +1,51 @@
+<script type="text/ng-template" id="settingsAclOfRID.html">
+  <div class="modal-header">
+    <h2 class="modal-title">Настройка доступа</h2>
+  </div>
+  <div class="modal-body">
+      <div class="form-group">
+            <label>Доступ к РИД</label>
+            <select class="form-control" ng-model = "params.selectCommonSecurity">
+              <option value = "">Общий доступ к  РИД</option>
+              <option ng-selected="params.selectCommonSecurity==i" ng-repeat="(i, titleSecurity) in params.security" value = "{{i}}">{{titleSecurity}}</option>
+            </select>
+      </div>
+      <div class="form-group">
+            <label>Отдельные пользователи, которым доступен РИД</label>
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Введите email" ng-model = 'user.email'>
+              </div>
+              <div class="form-group">
+                <select class="form-control" ng-model = "user.idAcl">
+                  <option value = "">Выберите уровень доступа</option>
+                  <option  ng-repeat="(i, titleSecurity) in params.security" value = "{{i}}">{{titleSecurity}}</option>
+                </select>
+              </div>
+              <button ng-click = "addUserForAcl(user.email, user.idAcl)" type="submit" class="btn btn-default">Добавить</button>
+            </form>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>email</th>
+                  <th>Уровень доступа</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat = "(i,v) in params.users">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{v.email}}</td>
+                  <td>{{params.security[v.idAcl]}}</td>
+                  <td><span ng-click = "removeUserFromAcl(i)" class="glyphicon glyphicon-remove pointer"></span></td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+ </div>
+ <div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Сохранить</button>
+  <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
+</div>
+</script>

@@ -1,0 +1,38 @@
+<script type="text/ng-template" id="addDynamicFields.html">
+  <div class="modal-header">
+    <h3 class="modal-title">Параметры создаваемого поля</h3>
+  </div>
+  <div class="modal-body">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    <div class="container" style="width:100%;">
+      <div class="row">
+        <form class = "col-sm-6">
+         <div ng-switch on="paramsConstruct.typeOfField">
+          <div ng-switch-when="string" class = "row">
+            <div ng-include src='"angular/templates/modal_string.html"'></div>
+          </div>
+          <div ng-switch-when="text" class = "row">
+           <div ng-include src='"angular/templates/modal_text.html"'></div>
+         </div>
+         <div ng-switch-when="file" class = "row">
+           <div ng-include src='"angular/templates/modal_file.html"'></div>
+         </div>
+         <div ng-switch-default></div>
+         <div class = "row">
+           <div class="form-group">
+            <label>Уровень доступа</label>
+            <select class="form-control" ng-model = "selectParamsConstruct.securityOfField">
+              <option value=''>Выберите уровень доступа</option>
+              <option  ng-repeat="(i, titlesecurityOfField) in paramsConstruct.securityOfField" value = "{{i}}">{{paramsConstruct.securityOfField[i]}}</option>
+            </select>
+          </div>
+        </div>
+       </div>
+     </form>
+   </div>
+ </div>
+ <div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Добавить</button>
+  <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
+</div>
+</script>

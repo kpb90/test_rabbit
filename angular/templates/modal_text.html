@@ -1,7 +1,4 @@
 <div class="form-group" ng-if="paramsConstruct.typeOfField!='file'">
 	<label>Название поля</label>
-	<select class="form-control" ng-model = "selectParamsConstruct.nameOfField">
-	<option value=''>Выберите название поля</option>
-		<option  ng-repeat="(i, titleNameOfField) in paramsConstruct.nameOfField" value = "{{i}}">{{paramsConstruct.nameOfField[i]}}</option>
-	</select>
+	 <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus >
 </div>

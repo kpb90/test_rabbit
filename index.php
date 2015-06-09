@@ -92,6 +92,9 @@ echo  '<html>
 	        <script src="angular/app/directives.js?ver=6"></script>
 	        <script src="angular/app/services.js?ver=6"></script>
 	        <script src="angular/app/filters.js?ver=6"></script>
+	        <script src="angular/app/acl.js?ver=6"></script>
+	        <script src="angular/app/dynamic_fields_of_rid.js?ver=6"></script>
+	        <script src="angular/app/add_link_for_rid.js?ver=6"></script>
 	        
 
 			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.maskedinput/1.3.1/jquery.maskedinput.min.js"></script>

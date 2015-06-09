@@ -1,6 +1,7 @@
 <div class="panel panel-primary" ng-controller="AddRIDFormCtrl">
   <div class="panel-heading">
-    <h3 class="panel-title" style="text-align:center;font-weight:bold;">РИД (Результат интеллектуальной деятельности)</h3>
+    <h3 class="panel-title" style="text-align:center;font-weight:bold;">РИД (Результат интеллектуальной деятельности)
+</h3>
   </div>
   <div class="panel-body">
     <div class="container" style="width:100%;">
@@ -21,15 +22,8 @@
                 <option  ng-repeat="(i, titleBranch) in initDataForStaticFields.branches" value = "{{i}}">{{titleBranch}}</option>
               </select>
           </div>
-          <div class="form-group">
-              <label>Кто будет видеть данный РИД</label>
-              <select class="form-control" ng-model = "form.staticFields.selectSecurity">
-                <option value = "">Выберите кому доступен РИД</option>
-                <option  ng-repeat="(i, titleSecurity) in initDataForStaticFields.security" value = "{{i}}">{{titleSecurity}}</option>
-              </select>
-          </div>
           <!-- {{form.dynamicFields}}-->
-          <div class="form-group" ng-repeat="(indexDynamicField, dynamicField) in form.dynamicFields ">
+          <div class="form-group" ng-repeat="(indexDynamicField, dynamicField) in form.dynamicFields" ng-controller = "DynamicFieldsCtrl">
             <div ng-switch on="dynamicField.typeOfField">
               <div style = "position: absolute;float: right;right: 0;margin-right: 0;">
                 (видимость: <span style = "color: blue;">{{initDataForDynamicFields['securityOfField'][dynamicField['securityOfField']]}}</span>)
@@ -46,20 +40,16 @@
               <div ng-switch-default></div>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-controller = "DynamicFieldsCtrl">
             <label>Добавить поле</label>
             <span style = "margin-right:5px;" ng-repeat="objTitleTypeOfField  in initDataForStaticFields.typeOfField">
               <button  type="button" class="btn btn-primary" ng-repeat="(objTitleTypeOfFieldKey, objTitleTypeOfFieldTitle) in objTitleTypeOfField" ng-click="addDynamicFields(objTitleTypeOfFieldKey)">{{objTitleTypeOfFieldTitle}}</button>
             </span>
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-controller ="AddLinkForRIDCtrl">
             <label>Зависимости</label>
-              <button  type="button" class="btn btn-primary" ng-click="addLinkRID('related')">Связанные РИД</button>
-              <button  type="button" class="btn btn-primary" ng-click="addLinkRID('inheritable')">Наследуемые РИД</button>
-          </div>
-          <div class="form-group">
-            <label>Пользователи, которые видят данный РИД:</label>
-              Петя, Вася, Коля
+              <button  type="button" class="btn btn-primary" ng-click="addLinkRID('selectionRelated')">Связанные РИД</button>
+              <button  type="button" class="btn btn-primary" ng-click="addLinkRID('selectionInheritable')">Наследуемые РИД</button>
           </div>
               <button type="submit" class="btn btn-default" ng-click = "saveModelForm()">Продолжить</button>
               <button type="submit" class="btn btn-default" ng-click = "saveTemplateForm()">Сохранить шаблон</button>
@@ -67,71 +57,31 @@
          <div class = "col-sm-2">
          </div>
          <div class = "col-sm-4 list-group">
+              <a href="#" class="list-group-item active" ng-controller="AclOfRIDFormCtrl" ng-click = "tuneAcl()">
+                <span style = "cursor:pointer;" class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Настройка уровня доступа
+              </a>     
               <a href="#" class="list-group-item active">
                 Сохраненные РИД
               </a>            
-            <a href="#" class="list-group-item" ng-repeat  = "(i, v) in allRID" ng-click = "getConcreteRID(v)">{{v}}</a>
-            <a href="#" class="list-group-item active">
+              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in allRID" ng-click = "getConcreteRID(v)">{{v}}</a>
+              <a href="#" class="list-group-item active">
                 Сохраненные шаблоны РИД
               </a>            
-            <a href="#" class="list-group-item" ng-repeat  = "(i, v) in allTemplateRID" ng-click = "getTemplateRID(v)">{{v}}</a>
-            
+              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in allTemplateRID" ng-click = "getTemplateRID(v)">{{v}}</a>
+              <a href="#" class="list-group-item active" ng-if = "form.staticFields.selectionRelated.length">
+                Связанные РИД
+              </a>         
+              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in form.staticFields.selectionRelated" ng-click = "getConcreteRID(allRID[v])">{{allRID[v]}}</a>
+              <a href="#" class="list-group-item active" ng-if = "form.staticFields.selectionInheritable.length">
+                Наследуемые РИД  
+              </a>         
+              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in form.staticFields.selectionInheritable" ng-click = "getConcreteRID(allRID[v])">{{allRID[v]}}</a>
          </div>
       </div>
     </div>
   </div>
 </div>
 
-<script type="text/ng-template" id="myModalContent.html">
-  <div class="modal-header">
-    <h3 class="modal-title">Параметры создаваемого поля</h3>
-  </div>
-  <div class="modal-body">
-    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-    <div class="container" style="width:100%;">
-      <div class="row">
-        <form class = "col-sm-6">
-         <div ng-switch on="paramsConstruct.typeOfField">
-          <div ng-switch-when="string" class = "row">
-            <div ng-include src='"angular/templates/modal_string.html"'></div>
-          </div>
-          <div ng-switch-when="text" class = "row">
-           <div ng-include src='"angular/templates/modal_text.html"'></div>
-         </div>
-         <div ng-switch-when="file" class = "row">
-           <div ng-include src='"angular/templates/modal_file.html"'></div>
-         </div>
-         <div ng-switch-default></div>
-         <div class = "row">
-           <div class="form-group">
-            <label>Уровень доступа</label>
-            <select class="form-control" ng-model = "selectParamsConstruct.securityOfField">
-              <option value=''>Выберите уровень доступа</option>
-              <option  ng-repeat="(i, titlesecurityOfField) in paramsConstruct.securityOfField" value = "{{i}}">{{paramsConstruct.securityOfField[i]}}</option>
-            </select>
-          </div>
-        </div>
-       </div>
-     </form>
-   </div>
- </div>
- <div class="modal-footer">
-  <button class="btn btn-primary" ng-click="ok()">Добавить</button>
-  <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
-</div>
-</script>
-
-<script type="text/ng-template" id="addLinkRIDContent.html">
-  <div class="modal-header">
-    <h3 class="modal-title">Добавление зависимостей</h3>
-  </div>
-  <div class="modal-body">
-    <select multiple class="form-control" ng-model="selectedValues">
-      <option ng-repeat  = "(i, v) in paramsModalInstanceLink.allRID" ng-click = "selectInstanceLink(i)">{{v}}</option>
-    </select>
- </div>
- <div class="modal-footer">
-  <button class="btn btn-primary" ng-click="ok()">Добавить</button>
-  <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
-</div>
-</script>
+<div ng-include src='"angular/templates/modal_add_link.html"'></div>
+<div ng-include src='"angular/templates/modal_dynamic_fields.html"'></div>
+<div ng-include src='"angular/templates/modal_acl.html"'></div>
