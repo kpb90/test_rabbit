@@ -1,1 +1,0 @@
-{"dynamicFields":[],"staticFields":{"title":"Определение судостроения 2","short_descr":"это рид, которое определяет судостроение","selectBranch":"0","selectSecurity":"2"}}
