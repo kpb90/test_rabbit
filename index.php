@@ -1,51 +1,67 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-//error_reporting(E_ALL);
-//ini_set('display_errors','Off');
+
+use RID;
+use RID\Db;
+
+error_reporting(E_ALL);
+ini_set('display_errors','On');
 /*
 
 var_dump(json_decode(file_get_contents('php://input'), true));
 var_dump(json_decode($_REQUEST['form'], true));
 var_dump($_FILES);
 */
+ $DbRIDSelect = new Db\DbRIDSelect(new Db\DbRID);
+ if ($_REQUEST) {
+	switch ($_REQUEST['module']) {
+		case 'addRID':
+			switch ($_REQUEST['task']) {
+				case 'getInitDataForRID':
+					$initDataForRid = $DbRIDSelect->getInitDataForRID();		
+					if ($initDataForRid) {
+						echo json_encode($initDataForRid);
+					}
+				break;
+				case 'saveRID':
+					$form = json_decode($_REQUEST['form']);
+					unlink('test_RID/'.$form->staticFields->title.'.txt');
+					addToLog($_REQUEST['form'],'test_RID/'.$form->staticFields->title.'.txt');
+				break;
+				case 'saveTemplateRID':
+					$form = json_decode($_REQUEST['form']);
+					unlink('template_RID/'.$form->staticFields->title.'.txt');
+					addToLog($_REQUEST['form'],'template_RID/'.rand(1,10000).'.txt');
+				break;
+				case 'getTemplateRID':
+					$file = 'template_RID/'.urldecode($_REQUEST['id']).'.txt';
+					echo file_get_contents($file);
+				break;
+				case 'getRID':
+					if ($_REQUEST['id']=='all') {
+						$files = array ();
+						$files2 = array ();
+						foreach (scandir('test_RID/') as $item) {
+							if ($item == '.' || $item == '..') continue;
+							$files[]=str_replace ('.txt','',$item);
+						}
+						foreach (scandir('template_RID/') as $item) {
+							if ($item == '.' || $item == '..') continue;
+							$files2[]=str_replace ('.txt','',$item);
+						}
+						echo json_encode(array('allRID'=>$files, 'allTemplateRID'=>$files2));
+					} else {
+						$file = 'test_RID/'.urldecode($_REQUEST['id']).'.txt';
+						echo file_get_contents($file);
+					}
+				break;
 
-if ($_REQUEST) {
-	switch ($_REQUEST['task']) {
-		case 'saveRID':
-			$form = json_decode($_REQUEST['form']);
-			unlink('test_RID/'.$form->staticFields->title.'.txt');
-			addToLog($_REQUEST['form'],'test_RID/'.$form->staticFields->title.'.txt');
-		break;
-		case 'saveTemplateRID':
-			$form = json_decode($_REQUEST['form']);
-			unlink('template_RID/'.$form->staticFields->title.'.txt');
-			addToLog($_REQUEST['form'],'template_RID/'.rand(1,10000).'.txt');
-		break;
-		case 'getTemplateRID':
-			$file = 'template_RID/'.urldecode($_REQUEST['id']).'.txt';
-			echo file_get_contents($file);
-		break;
-		case 'getRID':
-			if ($_REQUEST['id']=='all') {
-				$files = array ();
-				$files2 = array ();
-				foreach (scandir('test_RID/') as $item) {
-					if ($item == '.' || $item == '..') continue;
-					$files[]=str_replace ('.txt','',$item);
-				}
-				foreach (scandir('template_RID/') as $item) {
-					if ($item == '.' || $item == '..') continue;
-					$files2[]=str_replace ('.txt','',$item);
-				}
-				echo json_encode(array('allRID'=>$files, 'allTemplateRID'=>$files2));
-			} else {
-				$file = 'test_RID/'.urldecode($_REQUEST['id']).'.txt';
-				echo file_get_contents($file);
+				default:
+					# code...
+				break;
 			}
 		break;
-
 		default:
-			# code...
 		break;
 	}
 	exit;
@@ -59,8 +75,8 @@ function addToLog($message,$filename = "log.txt") {
 		fclose($handle);			
 	}
 echo  '<html>
-		<head>
-			 <meta charset="utf-8">
+		<head lang="en">
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 			 <meta http-equiv="Cache-Control" content="no-cache">
 			 <style>
 			 	.glyphicon-remove {
@@ -77,6 +93,7 @@ echo  '<html>
 			<script type="text/javascript" src="js/underscore-min.js"></script>
 		</head>
 		<body>
+
 			<script src="angular/js/angular/angular.min.js"></script>
 	        <script src="angular/js/angular-route/angular-route.js"></script>
 	        <script src="angular/js/angular-resource/angular-resource.js"></script>

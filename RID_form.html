@@ -26,7 +26,7 @@
           <div class="form-group" ng-repeat="(indexDynamicField, dynamicField) in form.dynamicFields" ng-controller = "DynamicFieldsCtrl">
             <div ng-switch on="dynamicField.typeOfField">
               <div style = "position: absolute;float: right;right: 0;margin-right: 0;">
-                (видимость: <span style = "color: blue;">{{initDataForDynamicFields['securityOfField'][dynamicField['securityOfField']]}}</span>)
+                (видимость: <span style = "color: blue;">{{initDataForDynamicFields['security'][dynamicField['security']]}}</span>)
               </div>
               <div ng-switch-when="string" class = "row">
                 <div ng-include src='"angular/templates/string.html"'></div>

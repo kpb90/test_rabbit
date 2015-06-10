@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="rabbitmq_test">
+	<table_data name="level_2">
+	<row>
+		<field name="id">3725</field>
+		<field name="data">6.1.Eb1tU0sH1iV8cTolb8jsbRG1UqXaBF6tWV</field>
+		<field name="publisher">6</field>
+		<field name="consumer">1</field>
+		<field name="date">2015-05-29 13:40:07</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>

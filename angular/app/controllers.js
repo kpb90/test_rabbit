@@ -6,26 +6,20 @@ appControllers.controller('AppCtrl', function($scope, $parse, $http, $location) 
 });
 
 appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http) {
-    $scope.initDataForStaticFields = {
-        'branches':['Судостроение','Музыка','Кино', 'Наука'],
-        'security': ['Уровень 1', 'Уровень 2', 'Уровень 3', 'Уровень 4','Уровень 5'],
-        'typeOfField': [{'string': 'Строковый'}, {'file': 'Файл'}, {'text': 'Текстовый'}]
-    }
 
-    $scope.initDataForDynamicFields = {
-        'nameOfField': ['Вязкость', 'Вес', 'Объем'],
-        'viewOfField': {
-            'value': 'Значение',
-            'intervalOfValues': 'Диапазон значений'
-        },
-        'unitsOfField': {
-                            'Вязкость':['м3', 'см3'],
-                            'Вес':['кг', 'граммы', 'милиграммы'],
-                            'Объем':['м3'],
-                        },
-        'securityOfField': ['Уровень 1', 'Уровень 2', 'Уровень 3', 'Уровень 4','Уровень 5'],
+    (function () {
+       $http.get('/index.php?module=addRID&task=getInitDataForRID').success(function (data,status) {
+            $scope.initDataForStaticFields = data['initDataForStaticFields'];
+             data['initDataForDynamicFields']['nameOfField'] = $.map(data['initDataForDynamicFields']['nameOfField'], function(value, index) {
+                                                                    return [value];
+                                                                });
+            $scope.initDataForDynamicFields = data['initDataForDynamicFields'];
+            $scope.initDataForDynamicFields['security'] = $scope.initDataForStaticFields['security'];
+            console.log (data);
+        }).error(function (data,status){
+        });
 
-    };
+    })();
 
     $scope.form = {
         'dynamicFields': [],
@@ -44,24 +38,6 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
          // console.log ($scope.form);
          //   console.log (difference($scope.init_form, $scope.form));
     });
-*/
-/*
-    $scope.differenceStaticFields = function (template, override) {
-        var ret = {};
-        for (var name in template) {
-            if (name in override) {
-                if (_.isObject(override[name]) && !_.isArray(override[name])) {
-                    var diff = difference(template[name], override[name]);
-                    if (!_.isEmpty(diff)) {
-                        ret[name] = diff;
-                    }
-                } else if (!_.isEqual(template[name], override[name])) {
-                    ret[name] = override[name];
-                }
-            }
-        }
-        return ret;
-    }
 */
     $scope.differenceDynamicFields = function (source, destination) {
         for (var i = 0; i < source.length; i++) {
@@ -92,7 +68,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
         destination = null;
     }
 
-   $http.get('index.php?task=getRID&id=all').success(function (data,status) {
+   $http.get('index.php?module=addRID&task=getRID&id=all').success(function (data,status) {
         if (data) {
             $scope.allRID = data['allRID'];
             $scope.allTemplateRID = data['allTemplateRID'];
@@ -102,7 +78,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     });
 
     $scope.getConcreteRID = function (RID)  {
-        $http.get('index.php?task=getRID&id='+RID).success(function (data,status) {
+        $http.get('index.php?module=addRID&task=getRID&id='+RID).success(function (data,status) {
                 if (data) {
                     $scope.form = data;
                     $scope.init_form=angular.copy($scope.form);
@@ -112,7 +88,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     }
 
     $scope.getTemplateRID = function (RID)  {
-        $http.get('index.php?task=getTemplateRID&id='+RID).success(function (data,status) {
+        $http.get('index.php?module=addRID&task=getTemplateRID&id='+RID).success(function (data,status) {
                 if (data) {
                     $scope.form = data;
                 }
@@ -138,7 +114,7 @@ appControllers.controller('RIDFormCtrl', function($scope, $http) {
             }
         }
 
-        $http.post('/index.php?task=saveRID', fd, {
+        $http.post('index.php?module=addRID&task=saveRID', fd, {
                      withCredentials: true,
                      headers: {'Content-Type': undefined },
                      transformRequest: angular.identity
@@ -173,7 +149,7 @@ appControllers.controller('RIDFormCtrl', function($scope, $http) {
 
         fd.append('form', JSON.stringify(copyForm));
 
-        $http.post('/index.php?task=saveTemplateRID', fd, {
+        $http.post('index.php?module=addRID&task=saveTemplateRID', fd, {
                      withCredentials: true,
                      headers: {'Content-Type': undefined },
                      transformRequest: angular.identity

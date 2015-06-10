@@ -1,0 +1,23 @@
+php_value allow_call_time_pass_reference true
+php_value display_errors on
+
+AddCharset UTF-8 .html
+AddDefaultCharset UTF-8
+
+<Files .htpasswd> 
+   deny from all 
+</Files> 
+
+ErrorDocument 404 /missing.html
+
+FileETag none
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^.htaccess$ - [F]
+RewriteRule carlsberg/$ /index.php
+RewriteCond %{REQUEST_URI} (/|\.htm|\.php|\.html|/[^.]*)$  [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) /index.php
+
