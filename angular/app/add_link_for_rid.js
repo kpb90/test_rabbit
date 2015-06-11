@@ -8,14 +8,14 @@ var appAddLinkForRID = angular.module('appAddLinkForRID', ['ui.bootstrap'])
             controller: 'ModalInstanceLinkRIDCtrl',
             resolve: {
                 params: function() {
-                    return {'selection':$scope.form.staticFields[typeOfLink], 'allRID':$scope.allRID};
+                    return {'selection':$scope.form.dynamicFields[typeOfLink], 'allRID':$scope.allRID};
                 },
             }
         });
 
         modalInstance.result.then(function(paramsModalInstanceLink) {
-         $scope.form.staticFields[typeOfLink] = paramsModalInstanceLink['selection'];
-         console.log ($scope.form.staticFields[typeOfLink]);
+         $scope.form.dynamicFields[typeOfLink] = paramsModalInstanceLink['selection'];
+         console.log ($scope.form.dynamicFields[typeOfLink]);
 
         }, function() {
             $log.info('Modal dismissed at: ' + new Date());

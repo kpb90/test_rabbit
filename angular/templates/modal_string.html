@@ -1,15 +1,16 @@
-<div class="form-group" ng-if="paramsConstruct.typeOfField!='file'">
+<div class="form-group">
 	<label>Название поля</label>
-	 <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus > 
+	 <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField as titleNameOfField.title for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus > 
 </div>
-<div class="form-group" ng-if="paramsConstruct.typeOfField=='string'">
+<div class="form-group">
 	<label>Тип поля</label>
 	<select class="form-control" ng-model = "selectParamsConstruct.viewOfField">
 		<option value = "">Выберите тип поля</option>
-		<option ng-repeat="(i, titleNameOfField) in paramsConstruct.viewOfField" value = "{{i}}">{{paramsConstruct.viewOfField[i]}}</option>
+		<option ng-repeat="(i, titleNameOfField) in paramsConstruct.viewOfField" value = "{{titleNameOfField.id}}">{{titleNameOfField.value}}</option>
 	</select>
 </div>
-<div class="form-group" ng-if="paramsConstruct.typeOfField=='string'">
+<div class="form-group">
 	<label>Единицы измерения</label>
-	 <input placeholder = "Выберите единицы измерения" class="form-control" type="text" ng-model="selectParamsConstruct.unitsOfField" typeahead="titleUnitsOfField for titleUnitsOfField in paramsConstruct.unitsOfField[selectParamsConstruct.nameOfField] | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus >
+		 <input ng-if = "selectParamsConstruct.nameOfField.title" placeholder = "Выберите единицы измерения" class="form-control" type="text" ng-model="selectParamsConstruct.unitsOfField" typeahead="titleUnitsOfField as titleUnitsOfField.u_title for titleUnitsOfField in paramsConstruct.unitsOfField[selectParamsConstruct.nameOfField.title] | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus >
+		 <input ng-if = "!selectParamsConstruct.nameOfField.id" placeholder = "Выберите единицы измерения" class="form-control" type="text" ng-model="selectParamsConstruct.unitsOfField">
 </div> 

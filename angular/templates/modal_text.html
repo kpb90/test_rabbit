@@ -1,4 +1,4 @@
-<div class="form-group" ng-if="paramsConstruct.typeOfField!='file'">
+<div class="form-group">
 	<label>Название поля</label>
-	 <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus >
+	  <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField as titleNameOfField.title for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus > 
 </div>

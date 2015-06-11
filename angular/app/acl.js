@@ -9,14 +9,14 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
             controller: 'ModalInstanceAclOfRIDCtrl',
             resolve: {
                 params: function() {
-                    return {'security':$scope.initDataForStaticFields.security,'users':$scope.form.staticFields['users'],'selectCommonSecurity':$scope.form.staticFields['selectCommonSecurity']};
+                    return {'security':$scope.initDataForStaticFields.security,'users':$scope.form.dynamicFields['users'],'selectCommonSecurity':$scope.form.staticFields['selectCommonSecurity']};
                 },
             }
         });
 
         modalInstance.result.then(function(paramsAclOfRID) {
         	console.log (paramsAclOfRID);
-        	$scope.form.staticFields['users'] = paramsAclOfRID.users;
+        	$scope.form.dynamicFields['users'] = paramsAclOfRID.users;
         	$scope.form.staticFields['selectCommonSecurity'] = paramsAclOfRID.selectCommonSecurity;
         }, function() {
             $log.info('Modal dismissed at: ' + new Date());

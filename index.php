@@ -12,18 +12,23 @@ var_dump(json_decode(file_get_contents('php://input'), true));
 var_dump(json_decode($_REQUEST['form'], true));
 var_dump($_FILES);
 */
- $DbRIDSelect = new Db\DbRIDSelect(new Db\DbRID);
+ $dbRID = new Db\DbRID;
+
+ $dbRIDSelect = new Db\DbRIDSelect($dbRID);
+ $dbRIDModified = new Db\DbRIDModified($dbRID);
+
  if ($_REQUEST) {
 	switch ($_REQUEST['module']) {
 		case 'addRID':
 			switch ($_REQUEST['task']) {
 				case 'getInitDataForRID':
-					$initDataForRid = $DbRIDSelect->getInitDataForRID();		
+					$initDataForRid = $dbRIDSelect->getInitDataForRID();		
 					if ($initDataForRid) {
 						echo json_encode($initDataForRid);
 					}
 				break;
 				case 'saveRID':
+ 					$dbRIDModified->operation ('saveRID', $_REQUEST);
 					$form = json_decode($_REQUEST['form']);
 					unlink('test_RID/'.$form->staticFields->title.'.txt');
 					addToLog($_REQUEST['form'],'test_RID/'.$form->staticFields->title.'.txt');
@@ -38,22 +43,10 @@ var_dump($_FILES);
 					echo file_get_contents($file);
 				break;
 				case 'getRID':
-					if ($_REQUEST['id']=='all') {
-						$files = array ();
-						$files2 = array ();
-						foreach (scandir('test_RID/') as $item) {
-							if ($item == '.' || $item == '..') continue;
-							$files[]=str_replace ('.txt','',$item);
-						}
-						foreach (scandir('template_RID/') as $item) {
-							if ($item == '.' || $item == '..') continue;
-							$files2[]=str_replace ('.txt','',$item);
-						}
-						echo json_encode(array('allRID'=>$files, 'allTemplateRID'=>$files2));
-					} else {
-						$file = 'test_RID/'.urldecode($_REQUEST['id']).'.txt';
-						echo file_get_contents($file);
-					}
+						$RID = $dbRIDSelect->getRID();
+						echo json_encode($RID);
+						//$file = 'test_RID/ляляля.txt';
+						//echo file_get_contents($file);
 				break;
 
 				default:

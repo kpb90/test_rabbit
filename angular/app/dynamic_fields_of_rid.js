@@ -2,7 +2,7 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
 
 .controller('DynamicFieldsCtrl', function($scope, $http, $modal, $log) {
 
-    $scope.addDynamicFields = function(indexTypeOfField) {
+    $scope.addDynamicFields = function(selectTypeOfField) {
         var modalInstance = $modal.open({
             animation: $scope.animationsEnabled,
             templateUrl: 'addDynamicFields.html',
@@ -10,7 +10,7 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
             resolve: {
                 // pass params to modal
                 paramsConstruct: function() {
-                    $scope.initDataForDynamicFields['typeOfField'] = indexTypeOfField;
+                    $scope.initDataForDynamicFields['selectTypeOfField'] = selectTypeOfField;
                     return $scope.initDataForDynamicFields;
                 }
             }
@@ -19,14 +19,14 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
         modalInstance.result.then(function(selectParamsConstruct) {
             //$scope.selectParamsConstruct = selectParamsConstruct;
             console.log (selectParamsConstruct);
-            $scope.form.dynamicFields.push(selectParamsConstruct);
+            $scope.form.dynamicFields['addField'].push(selectParamsConstruct);
         }, function() {
             $log.info('Modal dismissed at: ' + new Date());
         });
     }
 
     $scope.removeDynamicField = function(index) {
-      $scope.form.dynamicFields.splice (index,1);
+      $scope.form.dynamicFields['addField'].splice (index,1);
     }
 })
 
@@ -40,7 +40,7 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
 	}
     
 	$scope.paramsConstruct = paramsConstruct;
-	$scope.selectParamsConstruct['typeOfField'] = paramsConstruct['typeOfField'];
+	$scope.selectParamsConstruct['selectTypeOfField'] = paramsConstruct['selectTypeOfField'];
 
     $scope.ok = function() {
         if (isValid()) {
@@ -54,7 +54,7 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
     };
 
     var isValid = function () {
-    	switch ($scope.selectParamsConstruct['typeOfField']) {
+    	switch ($scope.selectParamsConstruct['selectTypeOfField']['key']) {
     		case 'string':
     			return $scope.selectParamsConstruct['nameOfField'] != '' && $scope.selectParamsConstruct['viewOfField'] != ''
     		case 'text':
@@ -66,7 +66,8 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
     }
 
     $scope.cancel = function() {
-        $modalInstance.dismiss('cancel');
+        console.log ($scope.selectParamsConstruct);
+       // $modalInstance.dismiss('cancel');
     };
 
     $scope.closeAlert = function(index) {
