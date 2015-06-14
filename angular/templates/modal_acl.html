@@ -17,12 +17,12 @@
                 <input type="email" class="form-control" placeholder="Введите email" ng-model = 'user.email'>
               </div>
               <div class="form-group">
-                <select class="form-control" ng-model = "user.idAcl">
+                <select class="form-control" ng-model = "user.idACL">
                   <option value = "">Выберите уровень доступа</option>
                   <option  ng-repeat="(i, titleSecurity) in params.security" value = "{{i}}">{{titleSecurity}}</option>
                 </select>
               </div>
-              <button ng-click = "addUserForAcl(user.email, user.idAcl)" type="submit" class="btn btn-default">Добавить</button>
+              <button ng-click = "addUserForAcl(user.email, user.idACL)" type="submit" class="btn btn-default">Добавить</button>
             </form>
             <table class="table table-striped">
               <thead>
@@ -37,7 +37,7 @@
                 <tr ng-repeat = "(i,v) in params.users">
                   <th scope="row">{{i+1}}</th>
                   <td>{{v.email}}</td>
-                  <td>{{params.security[v.idAcl]}}</td>
+                  <td>{{params.security[v.idACL]}}</td>
                   <td><span ng-click = "removeUserFromAcl(i)" class="glyphicon glyphicon-remove pointer"></span></td>
                 </tr>
               </tbody>

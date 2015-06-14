@@ -3,7 +3,7 @@
 	<label ng-if="!dynamicField['nameOfField']['id']" class="control-label">{{dynamicField['nameOfField']}}</label>
  </div>
  <div class="col-sm-11">
- 	<textarea class="form-control" ng-model="dynamicField.value"></textarea>
+ 	<textarea class="form-control" ng-model="dynamicField.value[0].value"></textarea>
  </div>
  <div class="col-sm-1">
  	<span ng-click = "removeDynamicField(indexDynamicField)" class="glyphicon glyphicon-remove pointer"></span>

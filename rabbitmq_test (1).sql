@@ -2,10 +2,10 @@
 -- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jun 11, 2015 at 07:52 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.9
+-- Хост: localhost
+-- Время создания: Июн 14 2015 г., 21:46
+-- Версия сервера: 5.5.43-0ubuntu0.14.04.1
+-- Версия PHP: 5.5.9-1ubuntu4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `rabbitmq_test`
+-- База данных: `rabbitmq_test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ACL`
+-- Структура таблицы `ACL`
 --
 
 CREATE TABLE IF NOT EXISTS `ACL` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `ACL` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `ACL`
+-- Дамп данных таблицы `ACL`
 --
 
 INSERT INTO `ACL` (`id`, `title`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `ACL` (`id`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Author`
+-- Структура таблицы `Author`
 --
 
 CREATE TABLE IF NOT EXISTS `Author` (
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `Author` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `AuthorTemplateRID`
+-- Структура таблицы `AuthorTemplateRID`
 --
 
 CREATE TABLE IF NOT EXISTS `AuthorTemplateRID` (
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `AuthorTemplateRID` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Author_RID`
+-- Структура таблицы `Author_RID`
 --
 
 CREATE TABLE IF NOT EXISTS `Author_RID` (
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `Author_RID` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Branch`
+-- Структура таблицы `Branch`
 --
 
 CREATE TABLE IF NOT EXISTS `Branch` (
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `Branch` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `Branch`
+-- Дамп данных таблицы `Branch`
 --
 
 INSERT INTO `Branch` (`id`, `title`) VALUES
@@ -110,7 +110,7 @@ INSERT INTO `Branch` (`id`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Branch_RID`
+-- Структура таблицы `Branch_RID`
 --
 
 CREATE TABLE IF NOT EXISTS `Branch_RID` (
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `Branch_RID` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `FieldRID`
+-- Структура таблицы `FieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `FieldRID` (
@@ -143,22 +143,21 @@ CREATE TABLE IF NOT EXISTS `FieldRID` (
   KEY `idTitleFieldRID` (`idTitleFieldRID`),
   KEY `idACL` (`idACL`),
   KEY `idRID` (`idRID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=124 ;
 
 --
--- Dumping data for table `FieldRID`
+-- Дамп данных таблицы `FieldRID`
 --
 
 INSERT INTO `FieldRID` (`id`, `idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`, `idTitleFieldRID`, `idACL`, `idRID`) VALUES
-(79, 1, 5, 1, 2, 2, 63),
-(82, 1, 5, 1, 2, 4, 63),
-(83, 1, 2, 1, 3, 5, 63),
-(84, 1, 4, 2, 2, 4, 63);
+(120, 2, NULL, NULL, 10, 5, 63),
+(121, 1, 2, 1, 3, 2, 63),
+(123, 3, NULL, NULL, 2, 1, 63);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inheritableRID`
+-- Структура таблицы `inheritableRID`
 --
 
 CREATE TABLE IF NOT EXISTS `inheritableRID` (
@@ -173,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `inheritableRID` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `RelativeRID`
+-- Структура таблицы `RelativeRID`
 --
 
 CREATE TABLE IF NOT EXISTS `RelativeRID` (
@@ -189,29 +188,30 @@ CREATE TABLE IF NOT EXISTS `RelativeRID` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `RID`
+-- Структура таблицы `RID`
 --
 
 CREATE TABLE IF NOT EXISTS `RID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(300) NOT NULL,
   `short_descr` text NOT NULL,
-  `idACL` int(11) NOT NULL,
+  `idACL` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `idACL` (`idACL`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
 
 --
--- Dumping data for table `RID`
+-- Дамп данных таблицы `RID`
 --
 
 INSERT INTO `RID` (`id`, `title`, `short_descr`, `idACL`) VALUES
-(63, 'Ляляz', 'ляляляsdf', 1);
+(63, 'Ляляz', 'ляляляsdf', 1),
+(66, 'Тестовый РИд', 'Тестирование динамических полей', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TemplateFieldRID`
+-- Структура таблицы `TemplateFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `TemplateFieldRID` (
@@ -234,28 +234,37 @@ CREATE TABLE IF NOT EXISTS `TemplateFieldRID` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TitleFieldRID`
+-- Структура таблицы `TitleFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `TitleFieldRID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `TitleFieldRID`
+-- Дамп данных таблицы `TitleFieldRID`
 --
 
 INSERT INTO `TitleFieldRID` (`id`, `title`) VALUES
 (1, 'Вязкость'),
 (2, 'Вес'),
-(3, 'Объем');
+(3, 'Объем'),
+(4, 'ляляля'),
+(5, 'дециметры'),
+(6, 'Тяжесть 2'),
+(7, 'czxczxc'),
+(8, 'mmm'),
+(9, 'mmmm'),
+(10, 'fmlsdmfl'),
+(11, 'лля'),
+(12, 'аыва');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TitleFieldRID_Units`
+-- Структура таблицы `TitleFieldRID_Units`
 --
 
 CREATE TABLE IF NOT EXISTS `TitleFieldRID_Units` (
@@ -265,10 +274,10 @@ CREATE TABLE IF NOT EXISTS `TitleFieldRID_Units` (
   PRIMARY KEY (`id`),
   KEY `idTitleFieldRID` (`idTitleFieldRID`),
   KEY `idUnits` (`idUnits`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `TitleFieldRID_Units`
+-- Дамп данных таблицы `TitleFieldRID_Units`
 --
 
 INSERT INTO `TitleFieldRID_Units` (`id`, `idTitleFieldRID`, `idUnits`) VALUES
@@ -277,12 +286,15 @@ INSERT INTO `TitleFieldRID_Units` (`id`, `idTitleFieldRID`, `idUnits`) VALUES
 (4, 2, 4),
 (5, 2, 5),
 (6, 3, 1),
-(7, 3, 2);
+(7, 3, 2),
+(8, 4, 6),
+(9, 5, 7),
+(10, 6, 8);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TypeFieldRID`
+-- Структура таблицы `TypeFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `TypeFieldRID` (
@@ -293,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `TypeFieldRID` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `TypeFieldRID`
+-- Дамп данных таблицы `TypeFieldRID`
 --
 
 INSERT INTO `TypeFieldRID` (`id`, `key`, `title`) VALUES
@@ -304,7 +316,7 @@ INSERT INTO `TypeFieldRID` (`id`, `key`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `TypeValueFieldRID`
+-- Структура таблицы `TypeValueFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `TypeValueFieldRID` (
@@ -315,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `TypeValueFieldRID` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `TypeValueFieldRID`
+-- Дамп данных таблицы `TypeValueFieldRID`
 --
 
 INSERT INTO `TypeValueFieldRID` (`id`, `key`, `value`) VALUES
@@ -325,17 +337,17 @@ INSERT INTO `TypeValueFieldRID` (`id`, `key`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Units`
+-- Структура таблицы `Units`
 --
 
 CREATE TABLE IF NOT EXISTS `Units` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `Units`
+-- Дамп данных таблицы `Units`
 --
 
 INSERT INTO `Units` (`id`, `title`) VALUES
@@ -343,42 +355,56 @@ INSERT INTO `Units` (`id`, `title`) VALUES
 (2, 'см3'),
 (3, 'кг'),
 (4, 'граммы'),
-(5, 'милиграммы');
+(5, 'милиграммы'),
+(6, 'ляляля'),
+(7, 'дециметры'),
+(8, 'чопапало');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Структура таблицы `User`
 --
 
 CREATE TABLE IF NOT EXISTS `User` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(400) NOT NULL,
   `phone` varchar(400) NOT NULL,
+  `email` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User_RID`
+-- Структура таблицы `User_RID`
 --
 
 CREATE TABLE IF NOT EXISTS `User_RID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idUser` int(11) NOT NULL,
+  `emailUser` varchar(400) NOT NULL,
   `idRID` int(11) NOT NULL,
   `idACL` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `idUser` (`idUser`),
+  KEY `idUser` (`emailUser`(255)),
   KEY `idRID` (`idRID`),
-  KEY `idACL` (`idACL`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  KEY `idACL` (`idACL`),
+  KEY `idUser_2` (`emailUser`(255)),
+  KEY `idUser_3` (`emailUser`(255))
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `User_RID`
+--
+
+INSERT INTO `User_RID` (`id`, `emailUser`, `idRID`, `idACL`) VALUES
+(1, 'gdfgf@mail.ru', 63, 5),
+(2, 'kpb90@mail.ru', 63, 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ValueFieldRID`
+-- Структура таблицы `ValueFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `ValueFieldRID` (
@@ -386,43 +412,45 @@ CREATE TABLE IF NOT EXISTS `ValueFieldRID` (
   `idFieldRID` int(11) NOT NULL,
   `value` varchar(400) NOT NULL,
   `ord` int(11) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  PRIMARY KEY (`id`),
+  KEY `idFieldRID` (`idFieldRID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
--- Dumping data for table `ValueFieldRID`
+-- Дамп данных таблицы `ValueFieldRID`
 --
 
 INSERT INTO `ValueFieldRID` (`id`, `idFieldRID`, `value`, `ord`) VALUES
-(1, 82, 'fsdfsdfsd sdfsdf', 1),
-(2, 83, '80', 1);
+(31, 120, 'access.log.6.gz', 1),
+(32, 121, 'msmdfdsf', 1),
+(33, 123, 'gdfgdfg', 1);
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `AuthorTemplateRID`
+-- Ограничения внешнего ключа таблицы `AuthorTemplateRID`
 --
 ALTER TABLE `AuthorTemplateRID`
   ADD CONSTRAINT `AuthorTemplateRID` FOREIGN KEY (`idAuthor`) REFERENCES `Author` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Author_RID`
+-- Ограничения внешнего ключа таблицы `Author_RID`
 --
 ALTER TABLE `Author_RID`
   ADD CONSTRAINT `AuthorOfRID` FOREIGN KEY (`idAuthor`) REFERENCES `Author` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `RIDOfAuthor` FOREIGN KEY (`idRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Branch_RID`
+-- Ограничения внешнего ключа таблицы `Branch_RID`
 --
 ALTER TABLE `Branch_RID`
   ADD CONSTRAINT `BranchBranch_RID` FOREIGN KEY (`idBranch`) REFERENCES `Branch` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `RIDBranch_RID` FOREIGN KEY (`idRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `FieldRID`
+-- Ограничения внешнего ключа таблицы `FieldRID`
 --
 ALTER TABLE `FieldRID`
   ADD CONSTRAINT `ACLinFieldRID` FOREIGN KEY (`idACL`) REFERENCES `ACL` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -433,27 +461,27 @@ ALTER TABLE `FieldRID`
   ADD CONSTRAINT `UnitsRIDinFieldRID` FOREIGN KEY (`idUnits`) REFERENCES `Units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `inheritableRID`
+-- Ограничения внешнего ключа таблицы `inheritableRID`
 --
 ALTER TABLE `inheritableRID`
   ADD CONSTRAINT `inheritableRID` FOREIGN KEY (`idInheritableRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `mainInheritableRID` FOREIGN KEY (`idRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `RelativeRID`
+-- Ограничения внешнего ключа таблицы `RelativeRID`
 --
 ALTER TABLE `RelativeRID`
   ADD CONSTRAINT `mainRelativeRID` FOREIGN KEY (`idRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `relativeRID` FOREIGN KEY (`idRelativeRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `RID`
+-- Ограничения внешнего ключа таблицы `RID`
 --
 ALTER TABLE `RID`
   ADD CONSTRAINT `ACLRID` FOREIGN KEY (`idACL`) REFERENCES `ACL` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `TemplateFieldRID`
+-- Ограничения внешнего ключа таблицы `TemplateFieldRID`
 --
 ALTER TABLE `TemplateFieldRID`
   ADD CONSTRAINT `ACLTemplateFieldRID` FOREIGN KEY (`idACL`) REFERENCES `ACL` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -464,19 +492,24 @@ ALTER TABLE `TemplateFieldRID`
   ADD CONSTRAINT `UnitsTemplateFieldRID` FOREIGN KEY (`idUnits`) REFERENCES `Units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `TitleFieldRID_Units`
+-- Ограничения внешнего ключа таблицы `TitleFieldRID_Units`
 --
 ALTER TABLE `TitleFieldRID_Units`
   ADD CONSTRAINT `TitleFieldRIDTitleFieldRID_Units` FOREIGN KEY (`idTitleFieldRID`) REFERENCES `TitleFieldRID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `UnitsTitleFieldRID_Units` FOREIGN KEY (`idUnits`) REFERENCES `Units` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `User_RID`
+-- Ограничения внешнего ключа таблицы `User_RID`
 --
 ALTER TABLE `User_RID`
   ADD CONSTRAINT `ACLUser_RID` FOREIGN KEY (`idACL`) REFERENCES `ACL` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `RIDUser_RID` FOREIGN KEY (`idRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `UserUser_RID` FOREIGN KEY (`idUser`) REFERENCES `User` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `RIDUser_RID` FOREIGN KEY (`idRID`) REFERENCES `RID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `ValueFieldRID`
+--
+ALTER TABLE `ValueFieldRID`
+  ADD CONSTRAINT `FieldRIDValueFieldRID` FOREIGN KEY (`idFieldRID`) REFERENCES `FieldRID` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

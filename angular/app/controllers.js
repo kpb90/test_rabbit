@@ -38,7 +38,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     }
     $scope.form = {
         'dynamicFields': {'addField':[],'users':[],'selectionRelated':[],'selectionInheritable':[]},
-        'staticFields': {}
+        'staticFields': {'selectCommonSecurity':1}
     };
     
     $scope.init_form = angular.copy($scope.form);
@@ -64,7 +64,12 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 */
     function compareObj (obj1,obj2) {
         if (obj1.hasOwnProperty('value') && obj2.hasOwnProperty('value')) {
-            return obj1['value']==obj2['value'];
+            for (var i in obj1['value']) {
+                if(obj1['value'][i].value!=obj2['value'][i].value) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 
@@ -162,11 +167,11 @@ appControllers.controller('RIDFormCtrl', function($scope, $http) {
             if (typeof copyForm['dynamicFields'][i]['value'] != 'undefined') {
                 copyForm['dynamicFields'][i]['value'] = '';
             } else {
-                if (typeof copyForm['dynamicFields'][i]['value1'] != 'undefined') {
-                    copyForm['dynamicFields'][i]['value1'] = '';
+                if (typeof copyForm['dynamicFields'][i]['value'][0] != 'undefined') {
+                    copyForm['dynamicFields'][i]['value'][0] = '';
                 }
-                if (typeof copyForm['dynamicFields'][i]['value2'] != 'undefined') {
-                    copyForm['dynamicFields'][i]['value2'] = '';
+                if (typeof copyForm['dynamicFields'][i]['value'][1] != 'undefined') {
+                    copyForm['dynamicFields'][i]['value'][1] = '';
                 }
             }
         }

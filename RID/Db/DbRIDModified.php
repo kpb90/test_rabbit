@@ -10,6 +10,7 @@
 			$form = json_decode($params['form'], true);
 			$staticData = $form['staticFields'];
 			$modifiedForm = json_decode($_REQUEST['modifiedForm']);
+
 			if (isset ($staticData['r_id'])&&$staticData['r_id']) {
                 $idRID = $staticData['r_id'];
                 $params = array (':title' => $staticData['title'], ':short_descr' =>  $staticData['short_descr'], ':idACL'=>$staticData['selectCommonSecurity'],':id'=>$idRID);
@@ -29,7 +30,9 @@
 
 		private function applyChangeToDynamicField ($idRID, $modifiedForm) {
             $modifiedForm = (array) $modifiedForm;
-            foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
+            print_r($modifiedForm);
+            exit;
+              foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
                 foreach ($concreteTypeOfField as $operation => $concreteTypeOfFieldData) {
                     $method = 'applyChangeToDynamicField'.ucfirst($titleTypeOfConcreteField).ucfirst($operation);
                     if (method_exists($this, $method)!==false) {
@@ -39,9 +42,16 @@
             }
 		}
 
-        private function applyChangeToDynamicFieldAddFieldRemove ($idRID, $addField) {
-           // echo "remove";
-            //print_r($addField);
+        private function applyChangeToDynamicFieldAddFieldRemove ($idRID, $data) {
+            $queryFieldRIDDelete = "DELETE FROM `FieldRID` WHERE id = :id";
+            $typesFieldRIDDelete = array (':id' => \PDO::PARAM_INT);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $paramsFieldRIDDelete = array (':id' => $item->id);
+                $this->db->query ($queryFieldRIDDelete, $paramsFieldRIDDelete , $typesFieldRIDDelete);
+            } 
         }
 
         private function applyChangeToDynamicFieldAddFieldAdd ($idRID, $data) {
@@ -64,7 +74,7 @@
             $queryTitleFieldRID_Units = "INSERT INTO `TitleFieldRID_Units`(`idTitleFieldRID`, `idUnits`) VALUES (:idTitleFieldRID,:idUnits)"; 
             $typesTitleFieldRID_Units = array (':idTitleFieldRID' => \PDO::PARAM_INT, ':idUnits' => \PDO::PARAM_INT);
 
-            // для типа файл или текст: idTypeValueFieldRID = null, idUnits = null
+            // для типа файл или текст: idTypeValueFieldRID = null (значение, диапазон значений), idUnits = null
             foreach ($data as $item)  {
                 if (!$item) {
                     continue;
@@ -91,10 +101,9 @@
                  if (is_object($item->nameOfField)===true) {
                     $idTitleFieldRID = $item->nameOfField->id;
                 } else {
-                    $paramsTitleFieldRID = array (':title' => $item->unitsOfField);
+                    $paramsTitleFieldRID = array (':title' => $item->nameOfField);
                     $this->db->query ($queryTitleFieldRID, $paramsTitleFieldRID, $typesTitleFieldRID);
                     $idTitleFieldRID =$this->db->handler()->lastInsertId();
-                    $linkTitleFieldRIDUnitsField = true;
                 }
                 // создаем новую связь название поля -> единицы измерения
                 if ($linkTitleFieldRIDUnitsField===true) {
@@ -107,28 +116,48 @@
                 $this->db->query ($queryFieldRID, $paramsFieldRID, $typesFieldRID);
                 $idFieldRID = $this->db->handler()->lastInsertId();
                 if (property_exists($item, 'value')==true) {
-                    $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $item->value, ':ord' => 1);
-                    $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
+                    if (is_object($item->value)===false) {
+                        $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $item->value, ':ord' => 1);
+                        $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
+                    } else {
+                        $sch = 0;
+                        foreach ($item->value as $v) {
+                            $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $v->value, ':ord' => ++$sch);
+                            $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
+                        }
+                    }
                 }
             }
         }
 
-        private function applyChangeToDynamicFieldAddFieldUpdate ($idRID, $addField) {
-               // echo "update";
-               // print_r($addField);
-
+        private function applyChangeToDynamicFieldAddFieldUpdate ($idRID, $data) {
+            $queryValueFieldRIDUpdate = "UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id"; 
+            $typesValueFieldRIDUpdate = array (':value' => \PDO::PARAM_STR, ':id' => \PDO::PARAM_INT);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                foreach ($item->value as $key => $value) {
+                    $paramsValueFieldRIDUpdate = array (':value' => $value->value, ':id' => $value->valueId);
+                    $this->db->query ($queryValueFieldRIDUpdate, $paramsValueFieldRIDUpdate , $typesValueFieldRIDUpdate);
+                }
+            }   
         }
 
         private function applyChangeToDynamicFieldUsersRemove () {
 
         }
 
-        private function applyChangeToDynamicFieldUsersAdd () {
-
-        }
-
-        private function applyChangeToDynamicFieldUsersUpdate () {
-
+        private function applyChangeToDynamicFieldUsersAdd ($idRID, $data) {
+            $queryUser_RIDAdd = "INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)"; 
+            $typesUser_RIDAdd = array (':emailUser' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_INT, ':idACL' => \PDO::PARAM_INT);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $paramsUser_RIDAdd = array (':emailUser' => $item->email, ':idRID' => $idRID, ':idACL' => $item->idACL);
+                $this->db->query ($queryUser_RIDAdd, $paramsUser_RIDAdd , $typesUser_RIDAdd);
+            }   
         }
 
 		public function operation ($operation, $params) {
