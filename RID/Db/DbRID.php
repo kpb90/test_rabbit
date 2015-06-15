@@ -36,7 +36,7 @@
 			),
 			'staticFields'=>array());
 			
-            $r = $this->fetchAll($sql, array (':id' => intval($_REQUEST['id'])));
+            $r = $this->fetchAll($sql, array (':id' =>$_REQUEST['id']));
 
 	    	// отсчет нужен с 0 для js
 	    	$dynamicFieldsId = $Users = array();
@@ -86,7 +86,7 @@
 	        // replace mask by data
 	        $sql = vsprintf($sql, $context);
 	       //Logger::info("db: " . $sql);
-	        Logger::getLogger('DbRid','DbRid.txt')->log($sql."\r\n".print_r($context, true));
+	        Logger::getLogger('DbRid','DbRid.txt')->log($sql."\r\n".($context ? print_r($context, true) : ''));
 	    }
 	}
 ?>

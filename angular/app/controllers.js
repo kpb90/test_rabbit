@@ -38,7 +38,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     }
     $scope.form = {
         'dynamicFields': {'addField':[],'users':[],'selectionRelated':[],'selectionInheritable':[]},
-        'staticFields': {'selectCommonSecurity':1}
+        'staticFields': {'selectCommonSecurity':1,'r_id':null}
     };
     
     $scope.init_form = angular.copy($scope.form);
@@ -126,11 +126,16 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     }
 });
 
-appControllers.controller('RIDFormCtrl', function($scope, $http) {
+appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
     $scope.saveModelForm = function () {
          $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
                  // console.log ($scope.init_form.dynamicFields);
         var fd = new FormData();
+        
+        if ($scope.form.staticFields.r_id==null) {
+            $scope.form.staticFields.r_id = helper.guid();
+            $scope.form.staticFields.new_record = true;
+        }
         fd.append('form', JSON.stringify($scope.form));
         fd.append('modifiedForm', JSON.stringify($scope.modifiedForm));
 

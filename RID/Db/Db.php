@@ -101,7 +101,6 @@
 	        if (empty($this->handler)) {
 	            try {
 	                $this->checkConnect();
-	                $this->log("Connect to " . $this->connect['host']);
 	                $this->handler = new \PDO(
 	                    $this->connect['type'] . ":host=" . $this->connect['host'] . ";dbname=" . $this->connect['name'],
 	                    $this->connect['user'],
@@ -111,7 +110,6 @@
 	                foreach ($this->attributes as $attribute => $value) {
 	                    $this->handler->setAttribute($attribute, $value);
 	                }
-	                $this->log("ok");
 	            } catch (\Exception $e) {
 	                throw new DbException('Attempt connection to database is failed: '. $e->getMessage());
 	            }

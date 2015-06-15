@@ -1,5 +1,6 @@
 <?php
 	namespace RID\Db;
+	use RID\Logger\Logger;
 	abstract class DbRIDAction
 	{
 		protected $db;

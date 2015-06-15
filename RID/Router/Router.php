@@ -14,7 +14,6 @@
 		}
 
 		public function listen_request ($request) {
-			Logger::getLogger('DbRid','DbRid.txt')->log('123');
 			$dbRIDSelect = new Db\DbRIDSelect($this->dbRID);
  			$dbRIDModified = new Db\DbRIDModified($this->dbRID, $this->communicator);
 
@@ -59,7 +58,6 @@
 					default:
 					break;
 				}
-				exit;
 			}
 		}
 	}

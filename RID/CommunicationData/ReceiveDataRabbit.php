@@ -3,6 +3,7 @@
 
     use PhpAmqpLib\Connection\AMQPConnection;
     use PhpAmqpLib\Message\AMQPMessage;
+    use RID\Logger\Logger;
 
     class ReceiveDataRabbit extends CommunicationDataConnect implements ReceiveDataInterface
     {
@@ -21,6 +22,7 @@
         public function processMessage(AMQPMessage $msg)
         {
             $unserialize_msg_body = unserialize(base64_decode($msg->body));
+            Logger::getLogger('ReceiveDataRabbit','ReceiveDataRabbit.txt')->log('Получение сообщения из очереди '.print_r($unserialize_msg_body, true));
             $processFlag = call_user_func($this->callback, $unserialize_msg_body, $this->numConsumer);
             $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
         }

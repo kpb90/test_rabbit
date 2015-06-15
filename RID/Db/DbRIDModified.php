@@ -1,5 +1,6 @@
 <?php
 	namespace RID\Db;
+    use RID\Logger\Logger;
 	class DbRIDModified extends DbRIDAction
 	{
         private $communicator;
@@ -12,28 +13,26 @@
 			$form = json_decode($params['form'], true);
 			$staticData = $form['staticFields'];
 			$modifiedForm = json_decode($params['modifiedForm']);
-
-			if (isset ($staticData['r_id'])&&$staticData['r_id']) {
-                $idRID = $staticData['r_id'];
+            $idRID = $staticData['r_id'];
+			if (isset ($staticData['new_record'])&&$staticData['new_record']) {
+                $query = "INSERT INTO `RID`(`id`,`title`, `short_descr`, `idACL`) VALUES (:id, :title,:short_descr,:idACL)";
+                $params = array (':id'=>$idRID,':title' => $staticData['title'], ':short_descr' =>  $staticData['short_descr'], ':idACL'=>$staticData['selectCommonSecurity']);
+                $types = array (':id' => \PDO::PARAM_STR,':title' => \PDO::PARAM_STR, ':short_descr' => \PDO::PARAM_STR, ':idACL' => \PDO::PARAM_INT);
+                $this->db->query ($query, $params, $types);
+                $this->applyChangeToDynamicField($idRID, $modifiedForm);
+			} else {
                 $params = array (':title' => $staticData['title'], ':short_descr' =>  $staticData['short_descr'], ':idACL'=>$staticData['selectCommonSecurity'],':id'=>$idRID);
                 $types = array (':title' => \PDO::PARAM_STR, ':short_descr' => \PDO::PARAM_STR, ':idACL' => \PDO::PARAM_INT, ':id' => \PDO::PARAM_INT);
                 $query = "UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id";
                 $this->db->query ($query, $params, $types);
-                $this->applyChangeToDynamicField($idRID, $modifiedForm);
-			} else {
-				$query = "INSERT INTO `RID`(`title`, `short_descr`, `idACL`) VALUES (:title,:short_descr,:idACL)";
-				$params = array (':title' => $staticData['title'], ':short_descr' =>  $staticData['short_descr'], ':idACL'=>$staticData['selectCommonSecurity']);
-				$types = array (':title' => \PDO::PARAM_STR, ':short_descr' => \PDO::PARAM_STR, ':idACL' => \PDO::PARAM_INT);
-				$this->db->query ($query, $params, $types);
-				$idRID = $this->db->handler()->lastInsertId();
                 $this->applyChangeToDynamicField($idRID, $modifiedForm);
 			}
 		}
 
 		private function applyChangeToDynamicField ($idRID, $modifiedForm) {
             $modifiedForm = (array) $modifiedForm;
-           // print_r($modifiedForm);
-           // exit;
+            //print_r($modifiedForm);
+            //exit;
               foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
                 foreach ($concreteTypeOfField as $operation => $concreteTypeOfFieldData) {
                     $method = 'applyChangeToDynamicField'.ucfirst($titleTypeOfConcreteField).ucfirst($operation);
@@ -46,7 +45,7 @@
 
         private function applyChangeToDynamicFieldAddFieldRemove ($idRID, $data) {
             $queryFieldRIDDelete = "DELETE FROM `FieldRID` WHERE id = :id";
-            $typesFieldRIDDelete = array (':id' => \PDO::PARAM_INT);
+            $typesFieldRIDDelete = array (':id' => \PDO::PARAM_STR);
             foreach ($data as $item)  {
                 if (!$item) {
                     continue;
@@ -179,20 +178,37 @@
 					break;
 				}
                 
-                $this->communicator->connect();
-                if (method_exists($this->communicator, 'send')) {
-                   $this->communicator->send(array('msgBody' => base64_encode(serialize($params)), 'routingKey' => 'addRID'));  
-                }		
+                if (method_exists($this->communicator, 'send')===true) {
+                     $this->communicator->connect();
+                     $params = $this->fltrs_secret_params($params);
+                     Logger::getLogger('DbRIDModified','DbRIDModified.txt')->log('Отправка сообщения в очередь: '.print_r($params, true));
+                     $this->communicator->send(array('msgBody' => base64_encode(serialize($params)), 'routingKey' => 'addRID'));  
+                } 
         }
 
-		public function InsertToDB ($message, $consumer) {
-		        $date = date("Y-m-d H:i:s");
-			    $data = unserialize(base64_decode($message));
-			    $publisher = $data['publisher'];
-			    $message = $data['m'];
-			    $query = "INSERT INTO `level_2`(`data`, `date`,`publisher`,`consumer`) VALUES ('{$message}','$date','$publisher','$consumer')";
-			   // $GLOBALS['DB_CONNECTION']->query($query);
-			    var_dump($query);
-		}
+        private function fltrs_secret_params ($params) {
+            $form = json_decode($params['form'], true);
+            $modifiedForm = json_decode($params['modifiedForm']);
+
+            if ($form['staticFields']['selectCommonSecurity']==5) {
+                $form['staticFields']['title'] = "#secret#";
+                $form['staticFields']['short_descr'] = "#secret#";
+                $params['form'] = json_encode($form);
+            }
+
+             $modifiedForm = (array) $modifiedForm;
+           // print_r($modifiedForm);
+           // exit;
+              foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
+                foreach ($concreteTypeOfField as $concreteTypeOfFieldData) {
+                    foreach ($concreteTypeOfFieldData as $key => $value) {
+                        # code...
+                    }
+                }
+            }
+            $modifiedForm = json_encode((object)$modifiedForm);
+            $params['modifiedForm'] = $modifiedForm;
+            return $params;
+        }
 	}
 ?>
