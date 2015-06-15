@@ -38,20 +38,26 @@
             $r = $this->fetchAll($sql, array (':id' => intval($_REQUEST['id'])));
 
 	    	// отсчет нужен с 0 для js
-	    	$dynamicFieldsId = array();
-	    	$sch = 0;
+	    	$dynamicFieldsId = $Users = array();
+	    	$schDynamicFields = $schUsers = 0;
 	    	foreach ($r as $row) {
 	    		$nameOfField = array('id'=>$row['tfr_id'],'title'=> $row['tfr_title']);
 	    		$selectTypeOfField = array('id'=>$row['tfr_id'],'key'=>$row['type_fr_key'],'title'=> $row['type_fr_title']);
 	    		$unitsOfField = array ('tfru_title'=>$row['tfr_title'], 'u_id'=>$row['u_id'], 'u_title'=>$row['u_title']);
 		 		
-		 		if (array_key_exists($row['user_rid_emailUser'], $result['dynamicFields']['users']) === false) {
-					$result['dynamicFields']['users'][$row['user_rid_emailUser']] = array ('email'=> $row['user_rid_emailUser'], 'idACL' => $row['user_rid_idACL']);
-				} 
+		 		if ($row['user_rid_emailUser']) {
+		 			if (array_key_exists($row['user_rid_emailUser'],$Users)==false) {
+	    				$Users[$row['user_rid_emailUser']]=$schUsers++;
+	    			}
+
+			 		if (array_key_exists($row['user_rid_emailUser'], $result['dynamicFields']['users']) === false) {
+						$result['dynamicFields']['users'][$Users[$row['user_rid_emailUser']]] = array ('email'=> $row['user_rid_emailUser'], 'idACL' => $row['user_rid_idACL'], 'user_rid_id'=> $row['user_rid_id']);
+					} 
+		 		}
 
 	    		if ($row['fr_id']) {
 	    			if (array_key_exists($row['fr_id'],$dynamicFieldsId)==false) {
-	    				$dynamicFieldsId[$row['fr_id']]=$sch++;
+	    				$dynamicFieldsId[$row['fr_id']]=$schDynamicFields++;
 	    			}
 
 	    			if (array_key_exists($dynamicFieldsId[$row['fr_id']], $result['dynamicFields']['addField'])===false) {

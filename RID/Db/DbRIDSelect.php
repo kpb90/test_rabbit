@@ -26,7 +26,7 @@
 							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
 							 u.id as u_id, u.title as u_title,
 							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
 						FROM  `RID` AS r
 							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
 							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id

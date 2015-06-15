@@ -30,8 +30,8 @@
 
 		private function applyChangeToDynamicField ($idRID, $modifiedForm) {
             $modifiedForm = (array) $modifiedForm;
-            print_r($modifiedForm);
-            exit;
+           // print_r($modifiedForm);
+           // exit;
               foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
                 foreach ($concreteTypeOfField as $operation => $concreteTypeOfFieldData) {
                     $method = 'applyChangeToDynamicField'.ucfirst($titleTypeOfConcreteField).ucfirst($operation);
@@ -144,8 +144,16 @@
             }   
         }
 
-        private function applyChangeToDynamicFieldUsersRemove () {
-
+        private function applyChangeToDynamicFieldUsersRemove ($idRID, $data) {
+            $queryUser_RIDRemove = "DELETE FROM `User_RID` WHERE id=:id"; 
+            $typesUser_RIDRemove = array (':id' => \PDO::PARAM_INT);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $paramsUser_RIDRemove = array (':id' => $item->user_rid_id);
+                $this->db->query ($queryUser_RIDRemove, $paramsUser_RIDRemove, $typesUser_RIDRemove);
+            }   
         }
 
         private function applyChangeToDynamicFieldUsersAdd ($idRID, $data) {

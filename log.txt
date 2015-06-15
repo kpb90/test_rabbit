@@ -1,218 +1,82 @@
 
-======================================Дата логирования: 2015-06-12 15:38:54=================
+======================================Дата логирования: 2015-06-15 11:03:26=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:38:54=================
+======================================Дата логирования: 2015-06-15 11:03:26=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:38:54=================
-UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
-Array
-(
-    [:title] => Ляляz
-    [:short_descr] => ляляляsdf
-    [:idACL] => 1
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:38:54=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:39:45=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:39:45=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:39:45=================
-UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
-Array
-(
-    [:title] => Ляляz
-    [:short_descr] => ляляляsdf
-    [:idACL] => 1
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:39:45=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:39:45=================
-INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)
-Array
-(
-    [:emailUser] => 5345@mail.ru
-    [:idRID] => 63
-    [:idACL] => 
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:40=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:40=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:40=================
-UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
-Array
-(
-    [:title] => Ляляz
-    [:short_descr] => ляляляsdf
-    [:idACL] => 1
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:40=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:40=================
-INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)
-Array
-(
-    [:emailUser] => gdfgf@mail.ru
-    [:idRID] => 63
-    [:idACL] => 5
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:40=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:54=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:54=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:55=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:55=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:55=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:55=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 SELECT id, title FROM `Branch`
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 SELECT id, title FROM  `ACL` 
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
 							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
 							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
 							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
 							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
 						FROM  `RID` AS r
 							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
 							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
@@ -220,42 +84,43 @@ SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL
 							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
 							LEFT JOIN  `Units` as u on u.id = fr.idUnits
 							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
 						WHERE r.id =:id
-						LIMIT 0 , 30
 Array
 (
     [:id] => 0
 )
 
 
-======================================Дата логирования: 2015-06-12 15:41:55=================
+======================================Дата логирования: 2015-06-15 11:03:27=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:07=================
+======================================Дата логирования: 2015-06-15 11:03:29=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:07=================
+======================================Дата логирования: 2015-06-15 11:03:29=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:07=================
+======================================Дата логирования: 2015-06-15 11:03:29=================
 SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
 							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
 							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
 							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
 							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
 						FROM  `RID` AS r
 							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
 							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
@@ -263,36 +128,124 @@ SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL
 							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
 							LEFT JOIN  `Units` as u on u.id = fr.idUnits
 							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
 						WHERE r.id =:id
-						LIMIT 0 , 30
 Array
 (
     [:id] => 63
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:07=================
+======================================Дата логирования: 2015-06-15 11:03:29=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:36=================
+======================================Дата логирования: 2015-06-15 11:03:31=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:36=================
+======================================Дата логирования: 2015-06-15 11:03:31=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:36=================
+======================================Дата логирования: 2015-06-15 11:03:31=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 66
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:31=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:32=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:32=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:32=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:32=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:49=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:49=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:49=================
 UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
 Array
 (
@@ -303,167 +256,1984 @@ Array
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:36=================
+======================================Дата логирования: 2015-06-15 11:03:49=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:36=================
+======================================Дата логирования: 2015-06-15 11:03:51=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 66
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:53=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:53=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:53=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:03:53=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:12=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:12=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:12=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:13=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:15=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:15=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 66
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:16=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:16=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:04:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:32=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:32=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:32=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:32=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+INSERT INTO `Units`(`title`) VALUES (:title)
+Array
+(
+    [:title] => милиграммы
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+INSERT INTO `TitleFieldRID_Units`(`idTitleFieldRID`, `idUnits`) VALUES (:idTitleFieldRID,:idUnits)
+Array
+(
+    [:idTitleFieldRID] => 2
+    [:idUnits] => 9
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+INSERT INTO `FieldRID` (`idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`, `idTitleFieldRID`, `idACL`, `idRID`) 
+                               VALUES 
+                              (:idTypeFieldRID, :idUnits, :idTypeValueFieldRID, :idTitleFieldRID, :idACL, :idRID)
+Array
+(
+    [:idTypeFieldRID] => 1
+    [:idUnits] => 9
+    [:idTypeValueFieldRID] => 2
+    [:idTitleFieldRID] => 2
+    [:idACL] => 3
+    [:idRID] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+INSERT INTO `ValueFieldRID` (`idFieldRID`, `value`, `ord`) 
+                                    VALUES 
+                                    (:idFieldRID, :value, :ord)
+Array
+(
+    [:idFieldRID] => 124
+    [:value] => 534
+    [:ord] => 1
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+INSERT INTO `ValueFieldRID` (`idFieldRID`, `value`, `ord`) 
+                                    VALUES 
+                                    (:idFieldRID, :value, :ord)
+Array
+(
+    [:idFieldRID] => 124
+    [:value] => 6456456
+    [:ord] => 2
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 66
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 66
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:53=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:55=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:55=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:55=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:09:55=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:10:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:10:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:10:09=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:10:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:04=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:04=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:09=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:32=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:32=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:33=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:34=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:34=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:34=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:34=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:44=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:44=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:44=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:13:44=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:14:23=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:14:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:14:23=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:14:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:00=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:01=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:01=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:01=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:01=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:09=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:09=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 2
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:30=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:30=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:30=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:19:30=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:20:15=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:20:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:20:15=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:20:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:21:29=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:21:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:21:29=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:21:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:22=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:22=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:25=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:25=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:25=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:25=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:35=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:35=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:35=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:25:35=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:02=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:02=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:03=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:17=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:17=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:17=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:17=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:17=================
 INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)
 Array
 (
-    [:emailUser] => kpb90@mail.ru
+    [:emailUser] => tert@mail.ru
     [:idRID] => 63
     [:idACL] => 4
 )
 
 
-======================================Дата логирования: 2015-06-12 15:42:37=================
+======================================Дата логирования: 2015-06-15 11:26:17=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:44=================
+======================================Дата логирования: 2015-06-15 11:26:19=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:44=================
+======================================Дата логирования: 2015-06-15 11:26:19=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:44=================
+======================================Дата логирования: 2015-06-15 11:26:19=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:19=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:26:49=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:44=================
+======================================Дата логирования: 2015-06-15 11:26:49=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:56:45=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:56:45=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 SELECT id, title FROM `Branch`
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 0
-)
-
-
-======================================Дата логирования: 2015-06-12 15:56:45=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 SELECT id, title FROM  `ACL` 
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:45=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:56:49=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:49=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:49=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
 							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
 							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
 							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
 							 u.id as u_id, u.title as u_title,
 							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
 						FROM  `RID` AS r
 							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
 							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
@@ -473,671 +2243,41 @@ SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL
 							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
 							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
 						WHERE r.id =:id
-						LIMIT 0 , 30
 Array
 (
-    [:id] => 63
+    [:id] => 0
 )
 
 
-======================================Дата логирования: 2015-06-12 15:56:49=================
+======================================Дата логирования: 2015-06-15 11:26:50=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:57:15=================
+======================================Дата логирования: 2015-06-15 11:27:04=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:57:15=================
+======================================Дата логирования: 2015-06-15 11:27:04=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 15:57:15=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:57:15=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:57:59=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:57:59=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:57:59=================
+======================================Дата логирования: 2015-06-15 11:27:04=================
 SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
 							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
 							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
 							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
 							 u.id as u_id, u.title as u_title,
 							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:57:59=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:00=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:00=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:00=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:00=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:01=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:01=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:01=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 66
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:01=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:03=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:03=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:03=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:03=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:05=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:05=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:05=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 66
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:05=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:08=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:08=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:08=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:08=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:09=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:09=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:09=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 66
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:09=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:39=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:39=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:39=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 66
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:39=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:40=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:40=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:40=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:58:40=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:59:09=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:59:09=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 15:59:09=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 15:59:09=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:03=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:03=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:03=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:03=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:04=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:04=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:04=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 66
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:04=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:05=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:05=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:05=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
-						FROM  `RID` AS r
-							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
-							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
-							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
-							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
-							LEFT JOIN  `Units` as u on u.id = fr.idUnits
-							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
-							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
-						WHERE r.id =:id
-						LIMIT 0 , 30
-Array
-(
-    [:id] => 63
-)
-
-
-======================================Дата логирования: 2015-06-12 16:00:05=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:01:22=================
-Connect to localhost
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:01:22=================
-ok
-Array
-(
-)
-
-
-======================================Дата логирования: 2015-06-12 16:01:22=================
-SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
-							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
-							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
-							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
-							 u.id as u_id, u.title as u_title,
-							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
 						FROM  `RID` AS r
 							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
 							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
@@ -1153,28 +2293,172 @@ Array
 )
 
 
-======================================Дата логирования: 2015-06-12 16:01:22=================
+======================================Дата логирования: 2015-06-15 11:27:04=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:38=================
+======================================Дата логирования: 2015-06-15 11:27:27=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:38=================
+======================================Дата логирования: 2015-06-15 11:27:27=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:38=================
+======================================Дата логирования: 2015-06-15 11:27:27=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:28=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:28=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:28=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:28=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:35=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:35=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:35=================
 UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
 Array
 (
@@ -1185,35 +2469,50 @@ Array
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:38=================
+======================================Дата логирования: 2015-06-15 11:27:36=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:40=================
+======================================Дата логирования: 2015-06-15 11:27:36=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 3
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:36=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:38=================
 Connect to localhost
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:40=================
+======================================Дата логирования: 2015-06-15 11:27:38=================
 ok
 Array
 (
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:40=================
+======================================Дата логирования: 2015-06-15 11:27:38=================
 SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
 							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
 							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
 							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
 							 u.id as u_id, u.title as u_title,
 							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
-							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
 						FROM  `RID` AS r
 							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
 							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
@@ -1229,7 +2528,2436 @@ Array
 )
 
 
-======================================Дата логирования: 2015-06-12 16:02:40=================
+======================================Дата логирования: 2015-06-15 11:27:38=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:56=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:56=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:27:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:04=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:04=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:04=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:04=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:17=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:17=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:17=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:28:17=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:49=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:49=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:52=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:52=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:29:52=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:09=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:15=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:15=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:24=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:24=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:24=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:30:24=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:09=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:09=================
+INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)
+Array
+(
+    [:emailUser] => 6456@mail.ru
+    [:idRID] => 63
+    [:idACL] => 4
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:12=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:12=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:12=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:12=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 
+)
+
+
+======================================Дата логирования: 2015-06-15 11:31:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:15=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:15=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:16=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:17=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:17=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:17=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:17=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:43=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:43=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:43=================
+INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)
+Array
+(
+    [:emailUser] => 4576@mail.ru
+    [:idRID] => 63
+    [:idACL] => 3
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:43=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:45=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:45=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:45=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:45=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 
+)
+
+
+======================================Дата логирования: 2015-06-15 11:32:51=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:34:50=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:34:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:34:50=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:34:50=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:11=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:11=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:11=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:11=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:25=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:25=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:25=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:25=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:25=================
+INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)
+Array
+(
+    [:emailUser] => qwe@mail.ru
+    [:idRID] => 63
+    [:idACL] => 4
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:26=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:27=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:27=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:36=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 534
+    [:id] => 34
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+UPDATE `ValueFieldRID` SET `value`=:value WHERE id = :id
+Array
+(
+    [:value] => 6456456
+    [:id] => 35
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:37=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:48=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:48=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:48=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:48=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:56=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:56=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:59=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:59=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:59=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:35:59=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:05=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:05=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:05=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:09=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:14=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:14=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:14=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:14=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:19=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:19=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:19=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:19=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 5
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+DELETE FROM `User_RID` WHERE id=:id
+Array
+(
+    [:id] => 6
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:26=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:56=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:57=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:58=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:58=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:58=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:36:58=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:02=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:02=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:02=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:02=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:31=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:31=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:31=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:31=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:56=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:56=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:37:56=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:26=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:26=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:27=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:31=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:31=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:31=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:31=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:40=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:40=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:40=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:38:40=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:12=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:12=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:12=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:12=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:23=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:23=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:23=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:24=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:24=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:24=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:24=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:29=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:29=================
+UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id
+Array
+(
+    [:title] => Ляляz
+    [:short_descr] => ляляляsdf
+    [:idACL] => 1
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:29=================
+DELETE FROM `FieldRID` WHERE id = :id
+Array
+(
+    [:id] => 
+)
+
+
+======================================Дата логирования: 2015-06-15 11:43:29=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:44:55=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:44:55=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 11:44:55=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 63
+)
+
+
+======================================Дата логирования: 2015-06-15 11:44:55=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+SELECT id, title FROM `Branch`
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+SELECT id, title FROM  `ACL` 
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+Connect to localhost
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+ok
+Array
+(
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
+SELECT r.id AS r_id, r.title AS r_title, r.short_descr AS r_short_descr, r.idACL as r_idACL,
+							 tfr.id AS tfr_id, tfr.title AS tfr_title, fr.idACL AS fr_idACL, fr.id as fr_id,
+							 tvfr.id AS tvfr_id, tvfr.`key` AS tvfr_key, tvfr.value AS tvfr_value, 
+							 type_fr.id AS type_fr_id, type_fr.`key` AS type_fr_key, type_fr.title AS type_fr_title, 
+							 u.id as u_id, u.title as u_title,
+							 value_fr.id as value_fr_id, value_fr.value as value_fr_value,
+							 user_rid.emailUser as user_rid_emailUser, user_rid.idACL as user_rid_idACL, user_rid.id as user_rid_id
+						FROM  `RID` AS r
+							LEFT JOIN  `FieldRID` AS fr ON r.id = fr.idRID
+							LEFT JOIN  `TitleFieldRID` AS tfr ON fr.idTitleFieldRID = tfr.id
+							LEFT JOIN  `TypeValueFieldRID` AS tvfr ON tvfr.id = fr.idTypeValueFieldRID
+							LEFT JOIN  `TypeFieldRID` AS type_fr ON fr.idTypeFieldRID = type_fr.id
+							LEFT JOIN  `Units` as u on u.id = fr.idUnits
+							LEFT JOIN  `ValueFieldRID` as value_fr on fr.id = value_fr.idFieldRID
+							LEFT JOIN  `User_RID` as user_rid on user_rid.idRID = r.id
+						WHERE r.id =:id
+Array
+(
+    [:id] => 0
+)
+
+
+======================================Дата логирования: 2015-06-15 12:13:18=================
 ok
 Array
 (

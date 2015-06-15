@@ -33,6 +33,7 @@ var_dump($_FILES);
 					unlink('test_RID/'.$form->staticFields->title.'.txt');
 					addToLog($_REQUEST['form'],'test_RID/'.$form->staticFields->title.'.txt');
 				break;
+				
 				case 'saveTemplateRID':
 					$form = json_decode($_REQUEST['form']);
 					unlink('template_RID/'.$form->staticFields->title.'.txt');

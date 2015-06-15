@@ -22,7 +22,7 @@
                   <option  ng-repeat="(i, titleSecurity) in params.security" value = "{{i}}">{{titleSecurity}}</option>
                 </select>
               </div>
-              <button ng-click = "addUserForAcl(user.email, user.idACL)" type="submit" class="btn btn-default">Добавить</button>
+              <button ng-click = "addUserForAcl(user.email, user.idACL, user.user_rid_id)" type="submit" class="btn btn-default">Добавить</button>
             </form>
             <table class="table table-striped">
               <thead>

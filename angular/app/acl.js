@@ -40,7 +40,7 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
 		 $scope.params.users.splice (index,1);
 	}
 
-	$scope.addUserForAcl = function (email, idACL) {
+	$scope.addUserForAcl = function (email, idACL, user_rid_id) {
 		if (typeof $scope.params.users == 'undefined') {
 			$scope.params.users = [];
 		}
