@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-
-use RID;
 use RID\Db;
+use RID\Router;
+use RID\Logger\Logger;
 
 error_reporting(E_ALL);
 ini_set('display_errors','On');
@@ -12,63 +12,13 @@ var_dump(json_decode(file_get_contents('php://input'), true));
 var_dump(json_decode($_REQUEST['form'], true));
 var_dump($_FILES);
 */
+
+ $senderData = new RID\CommunicationData\SenderDataRabbit ();
  $dbRID = new Db\DbRID;
+ $router = new Router\Router($dbRID, $senderData);
+ $router->listen_request ($_REQUEST);
 
- $dbRIDSelect = new Db\DbRIDSelect($dbRID);
- $dbRIDModified = new Db\DbRIDModified($dbRID);
-
- if ($_REQUEST) {
-	switch ($_REQUEST['module']) {
-		case 'addRID':
-			switch ($_REQUEST['task']) {
-				case 'getInitDataForRID':
-					$initDataForRid = $dbRIDSelect->getInitDataForRID();		
-					if ($initDataForRid) {
-						echo json_encode($initDataForRid);
-					}
-				break;
-				case 'saveRID':
- 					$dbRIDModified->operation ('saveRID', $_REQUEST);
-					$form = json_decode($_REQUEST['form']);
-					unlink('test_RID/'.$form->staticFields->title.'.txt');
-					addToLog($_REQUEST['form'],'test_RID/'.$form->staticFields->title.'.txt');
-				break;
-				
-				case 'saveTemplateRID':
-					$form = json_decode($_REQUEST['form']);
-					unlink('template_RID/'.$form->staticFields->title.'.txt');
-					addToLog($_REQUEST['form'],'template_RID/'.rand(1,10000).'.txt');
-				break;
-				case 'getTemplateRID':
-					$file = 'template_RID/'.urldecode($_REQUEST['id']).'.txt';
-					echo file_get_contents($file);
-				break;
-				case 'getRID':
-						$RID = $dbRIDSelect->getRID();
-						echo json_encode($RID);
-						//$file = 'test_RID/ляляля.txt';
-						//echo file_get_contents($file);
-				break;
-
-				default:
-					# code...
-				break;
-			}
-		break;
-		default:
-		break;
-	}
-	exit;
-}
-
-function addToLog($message,$filename = "log.txt") {
-		$handle = fopen($filename, "a+");
-		var_dump($handle);
-		var_dump($filename);
-		fwrite($handle, $message . PHP_EOL);
-		fclose($handle);			
-	}
-echo  '<html>
+ echo  '<html>
 		<head lang="en">
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 			 <meta http-equiv="Cache-Control" content="no-cache">
@@ -111,7 +61,7 @@ echo  '<html>
 			<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.maskedinput/1.3.1/jquery.maskedinput.min.js"></script>
 			<script src="angular/app/angular-jquery-maskedinput.js"></script>
 			<div ng-app="myApp" ng-controller="AppCtrl">
-	<ng-include  src="\'RID_form.html\'"> </ng-include>
+				<ng-include  src="\'RID_form.html\'"> </ng-include>
 				<!--<a data-fancy href  = "/images/1.png"><img src = "/images/1.png"></a>-->
 			</div>
 		</body>

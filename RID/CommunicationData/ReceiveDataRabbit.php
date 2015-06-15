@@ -9,7 +9,7 @@
         private $callback;
         public $numConsumer;
 
-        public function __construct($paramConnection)
+        public function __construct($paramConnection=array())
         {
             parent ::__construct($paramConnection);
         }
@@ -20,14 +20,15 @@
 
         public function processMessage(AMQPMessage $msg)
         {
-            $processFlag = call_user_func($this->callback, $msg->body, $this->numConsumer);
+            $unserialize_msg_body = unserialize(base64_decode($msg->body));
+            $processFlag = call_user_func($this->callback, $unserialize_msg_body, $this->numConsumer);
             $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
         }
 
         public function connect() {
             $this->connection = new AMQPConnection($this->host, $this->port, $this->login, $this->pswd);
             $this->channel = $this->connection->channel();
-            echo "connect";
+           // echo "connect";
         }
 
         public function receive ($param) {

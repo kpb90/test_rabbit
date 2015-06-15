@@ -1,5 +1,6 @@
 <?php
 	namespace RID\Db;
+	use RID\Logger\Logger;
 	class DbRID extends Db
 	{
 		public function fetchGroupKeyVal($sql, $params)
@@ -78,24 +79,14 @@
 	        return $result;	
 	    }
 
-	    protected function log($sql, array $context = [])
+	    protected function log($sql, $context = array())
 	    {
 	        $sql = str_replace('%', '%%', $sql);
 	        $sql = preg_replace('/\?/', '"%s"', $sql, sizeof($context));
 	        // replace mask by data
 	        $sql = vsprintf($sql, $context);
 	       //Logger::info("db: " . $sql);
-	        $this->addToLog($sql."\r\n".print_r($context, true));
+	        Logger::getLogger('DbRid','DbRid.txt')->log($sql."\r\n".print_r($context, true));
 	    }
-
-	    protected function addToLog ($message, $file='log.txt') {
-			if ($file=='log.txt') {
-				$file= $_SERVER['DOCUMENT_ROOT'].'/log.txt';
-			}
-			$message = "\r\n======================================Дата логирования: ".date("Y-m-d H:i:s"). "=================\r\n".$message;
-			$handle = fopen($file, "a+");
-			fwrite($handle, $message . PHP_EOL);
-			fclose($handle);		
-		}
 	}
 ?>

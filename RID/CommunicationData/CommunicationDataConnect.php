@@ -12,8 +12,9 @@
 		protected $connection;
         protected $channel;
 
-        public function __construct($paramConnection)
+        public function __construct($paramConnection = array())
         {
+            $paramConnection = !$paramConnection ?  array('host'=>'192.168.10.102', 'port'=> 5672, 'login' => 'pk', 'pswd' => '123') : $paramConnection;
             $this->host = $paramConnection['host'];
             $this->port = $paramConnection['port'];
             $this->login = $paramConnection['login'];
@@ -29,7 +30,7 @@
                 $this->connection->close();
             }
 
-            echo "close";
+            //echo "close";
         }
 
 	}

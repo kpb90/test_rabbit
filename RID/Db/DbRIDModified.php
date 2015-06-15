@@ -2,14 +2,16 @@
 	namespace RID\Db;
 	class DbRIDModified extends DbRIDAction
 	{
-		public function __construct ($db) {
+        private $communicator;
+		public function __construct ($db, $communicator = array()) {
+            $this->communicator = $communicator;
 			parent ::__construct($db);
 		}
 
 		private function saveRID ($params) {
 			$form = json_decode($params['form'], true);
 			$staticData = $form['staticFields'];
-			$modifiedForm = json_decode($_REQUEST['modifiedForm']);
+			$modifiedForm = json_decode($params['modifiedForm']);
 
 			if (isset ($staticData['r_id'])&&$staticData['r_id']) {
                 $idRID = $staticData['r_id'];
@@ -176,8 +178,12 @@
 					default:
 					break;
 				}
-
-		}
+                
+                $this->communicator->connect();
+                if (method_exists($this->communicator, 'send')) {
+                   $this->communicator->send(array('msgBody' => base64_encode(serialize($params)), 'routingKey' => 'addRID'));  
+                }		
+        }
 
 		public function InsertToDB ($message, $consumer) {
 		        $date = date("Y-m-d H:i:s");

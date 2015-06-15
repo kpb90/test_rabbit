@@ -5,7 +5,7 @@
 
 	class SenderDataRabbit extends CommunicationDataConnect implements SenderDataInterface 
 	{
-		public function __construct($paramConnection)
+		public function __construct($paramConnection=array())
         {
             parent ::__construct($paramConnection);
         }
@@ -17,14 +17,14 @@
  		public function connect() {
 			$this->connection = new AMQPConnection($this->host, $this->port, $this->login, $this->pswd);
 			$this->channel = $this->connection->channel();
-			echo "connect";
+			//echo "connect";
  		}
 
 		 public function send ($param) {
 		 	$this->channel->queue_declare($param['routingKey'], false, true, false, false);
 			$msg = new AMQPMessage($param['msgBody'], array('delivery_mode' => 2) );
 			$this->channel->basic_publish($msg, '', $param['routingKey']);
-			echo "send";
+			//echo "send";
 		 }
 	}
 ?>

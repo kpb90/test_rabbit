@@ -21,7 +21,7 @@
 	        "host" => "localhost",
 	        "name" => "rabbitmq_test",
 	        "user" => "root",
-	        "pass" => "root",
+	        "pass" => "",
 	        "options" => array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 	    );
 	    /**
@@ -499,7 +499,7 @@
 	     * @param array $context
 	     * @return void
 	     */
-	    protected function log($sql, array $context = [])
+	    protected function log($sql, $context = array())
 	    {
 	        $sql = str_replace('%', '%%', $sql);
 	        $sql = preg_replace('/\?/', '"%s"', $sql, sizeof($context));
