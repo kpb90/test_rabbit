@@ -56,24 +56,24 @@
         }
 
         private function applyChangeToDynamicFieldAddFieldAdd ($idRID, $data) {
-            $queryFieldRID = "INSERT INTO `FieldRID` (`idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`, `idTitleFieldRID`, `idACL`, `idRID`) 
+            $queryFieldRID = "INSERT INTO `FieldRID` (`id`,`idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`, `idTitleFieldRID`, `idACL`, `idRID`) 
                                VALUES 
-                              (:idTypeFieldRID, :idUnits, :idTypeValueFieldRID, :idTitleFieldRID, :idACL, :idRID)";
-            $typesFieldRID = array (':idTypeFieldRID' => \PDO::PARAM_INT, ':idUnits' => \PDO::PARAM_INT, ':idTypeValueFieldRID' => \PDO::PARAM_INT, ':idTitleFieldRID' => \PDO::PARAM_INT, ':idACL' => \PDO::PARAM_INT, ':idRID' => \PDO::PARAM_INT);
+                              (:id, :idTypeFieldRID, :idUnits, :idTypeValueFieldRID, :idTitleFieldRID, :idACL, :idRID)";
+            $typesFieldRID = array (':id'=> \PDO::PARAM_STR,':idTypeFieldRID' => \PDO::PARAM_INT, ':idUnits' => \PDO::PARAM_INT, ':idTypeValueFieldRID' => \PDO::PARAM_INT, ':idTitleFieldRID' => \PDO::PARAM_INT, ':idACL' => \PDO::PARAM_INT, ':idRID' => \PDO::PARAM_INT);
 
-            $queryValueFieldRID = "INSERT INTO `ValueFieldRID` (`idFieldRID`, `value`, `ord`) 
+            $queryValueFieldRID = "INSERT INTO `ValueFieldRID` (`id`,`idFieldRID`, `value`, `ord`) 
                                     VALUES 
-                                    (:idFieldRID, :value, :ord)";
-            $typesValueFieldRID = array (':idFieldRID' => \PDO::PARAM_INT, ':value' => \PDO::PARAM_STR, ':ord' => \PDO::PARAM_INT);
+                                    (:id, :idFieldRID, :value, :ord)";
+            $typesValueFieldRID = array (':id'=> \PDO::PARAM_STR, ':idFieldRID' => \PDO::PARAM_STR, ':value' => \PDO::PARAM_STR, ':ord' => \PDO::PARAM_INT);
 
-            $queryUnits = "INSERT INTO `Units`(`title`) VALUES (:title)";
-            $typesUnits = array (':title' => \PDO::PARAM_STR);
+            $queryUnits = "INSERT INTO `Units`(`id`,`title`) VALUES (:id, :title)";
+            $typesUnits = array (':id' => \PDO::PARAM_STR,':title' => \PDO::PARAM_STR);
             
-            $queryTitleFieldRID = "INSERT INTO `TitleFieldRID`(`title`) VALUES (:title)"; 
-            $typesTitleFieldRID = array (':title' => \PDO::PARAM_STR);
+            $queryTitleFieldRID = "INSERT INTO `TitleFieldRID`(`id`,`title`) VALUES (:id,:title)"; 
+            $typesTitleFieldRID = array (':id'=>\PDO::PARAM_STR,':title' => \PDO::PARAM_STR);
 
-            $queryTitleFieldRID_Units = "INSERT INTO `TitleFieldRID_Units`(`idTitleFieldRID`, `idUnits`) VALUES (:idTitleFieldRID,:idUnits)"; 
-            $typesTitleFieldRID_Units = array (':idTitleFieldRID' => \PDO::PARAM_INT, ':idUnits' => \PDO::PARAM_INT);
+            $queryTitleFieldRID_Units = "INSERT INTO `TitleFieldRID_Units`(`id`,`idTitleFieldRID`, `idUnits`) VALUES (:id,:idTitleFieldRID,:idUnits)"; 
+            $typesTitleFieldRID_Units = array (':id'=> \PDO::PARAM_STR, ':idTitleFieldRID' => \PDO::PARAM_STR, ':idUnits' => \PDO::PARAM_STR);
 
             // для типа файл или текст: idTypeValueFieldRID = null (значение, диапазон значений), idUnits = null
             foreach ($data as $item)  {
@@ -83,52 +83,62 @@
                 $linkTitleFieldRIDUnitsField = false;
                 // тип поля: строка, файл, текст
                 $idTypeFieldRID = is_object($item->selectTypeOfField)===true ? $idTypeFieldRID = $item->selectTypeOfField->id : 0;
+                
                 // единицы измерения:см, кг
                 if (is_object($item->unitsOfField)===true) {
                     $idUnits = $item->unitsOfField->u_id;
-                } else {
-                    if ($item->unitsOfField) {
-                       $paramsUnits = array (':title' => $item->unitsOfField);
-                       $this->db->query ($queryUnits, $paramsUnits, $typesUnits);
-                       $idUnits =$this->db->handler()->lastInsertId();
-                       $linkTitleFieldRIDUnitsField = true;
-                    } else {
-                        $idUnits = null;
+                    if (property_exists ($item->unitsOfField,'new_record')&&$item->unitsOfField->new_record) {
+                        $paramsUnits = array (':id'=> $idUnits,':title' => $item->unitsOfField->u_title);
+                        $this->db->query ($queryUnits, $paramsUnits, $typesUnits);
+                        $linkTitleFieldRIDUnitsField = true;
                     }
-                }
-                
-                // Название поля: вязкость, вес
-                $idTypeValueFieldRID = $item->viewOfField ? $item->viewOfField : null;
-                 if (is_object($item->nameOfField)===true) {
-                    $idTitleFieldRID = $item->nameOfField->id;
                 } else {
-                    $paramsTitleFieldRID = array (':title' => $item->nameOfField);
-                    $this->db->query ($queryTitleFieldRID, $paramsTitleFieldRID, $typesTitleFieldRID);
-                    $idTitleFieldRID =$this->db->handler()->lastInsertId();
+                    $idUnits = null;
                 }
+
+                $idTypeValueFieldRID = $item->viewOfField ? $item->viewOfField : null;
+
+                // Название поля: вязкость, вес
+                if (is_object($item->nameOfField)===true) {
+                    $idTitleFieldRID = $item->nameOfField->id;
+                     if (property_exists ($item->nameOfField,'new_record')&&$item->nameOfField->new_record) {
+                        $paramsTitleFieldRID = array (':id'=>$idTitleFieldRID,':title' => $item->nameOfField->title);
+                        $this->db->query ($queryTitleFieldRID, $paramsTitleFieldRID, $typesTitleFieldRID);
+                     }
+                } else {
+                    $idTitleFieldRID = null;
+                }
+
                 // создаем новую связь название поля -> единицы измерения
                 if ($linkTitleFieldRIDUnitsField===true) {
-                    $paramsTitleFieldRID_Units = array (':idTitleFieldRID' => $idTitleFieldRID,':idUnits'=>$idUnits);
+                    $paramsTitleFieldRID_Units = array (':id'=> $this->guid(), ':idTitleFieldRID' => $idTitleFieldRID,':idUnits'=>$idUnits);
                     $this->db->query ($queryTitleFieldRID_Units, $paramsTitleFieldRID_Units, $typesTitleFieldRID_Units);
                 }
 
                 $idACL = $item->security;
-                $paramsFieldRID = array (':idTypeFieldRID' => $idTypeFieldRID, ':idUnits' => $idUnits, ':idTypeValueFieldRID' => $idTypeValueFieldRID, ':idTitleFieldRID' => $idTitleFieldRID, ':idACL' => $idACL, ':idRID' => $idRID);
+                $idFieldRID = $item->id;
+                $paramsFieldRID = array ('id'=> $idFieldRID, ':idTypeFieldRID' => $idTypeFieldRID, ':idUnits' => $idUnits, ':idTypeValueFieldRID' => $idTypeValueFieldRID, ':idTitleFieldRID' => $idTitleFieldRID, ':idACL' => $idACL, ':idRID' => $idRID);
                 $this->db->query ($queryFieldRID, $paramsFieldRID, $typesFieldRID);
-                $idFieldRID = $this->db->handler()->lastInsertId();
+                
                 if (property_exists($item, 'value')==true) {
-                    if (is_object($item->value)===false) {
-                        $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $item->value, ':ord' => 1);
+                    $sch = 0;
+                    foreach ($item->value as $v) {
+                        $paramsValueFieldRID = array (':id'=> $v->valueId, ':idFieldRID' => $idFieldRID, ':value' => $v->value, ':ord' => ++$sch);
                         $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
-                    } else {
-                        $sch = 0;
-                        foreach ($item->value as $v) {
-                            $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $v->value, ':ord' => ++$sch);
-                            $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
-                        }
                     }
+
                 }
             }
+        }
+
+        private function guid()
+        {
+            if (function_exists('com_create_guid') === true)
+            {
+                return trim(com_create_guid(), '{}');
+            }
+
+            return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
         }
 
         private function applyChangeToDynamicFieldAddFieldUpdate ($idRID, $data) {

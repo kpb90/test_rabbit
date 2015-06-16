@@ -1,6 +1,5 @@
  <div class="col-sm-12">
- 	<label ng-if="dynamicField['nameOfField']['id']" class="control-label">{{dynamicField['nameOfField']['title']}}</label>
-	<label ng-if="!dynamicField['nameOfField']['id']" class="control-label">{{dynamicField['nameOfField']}}</label>
+ 	<label class="control-label">{{dynamicField['nameOfField']['title']}}</label>
  </div>
  <div class="col-sm-11">
  	<textarea class="form-control" ng-model="dynamicField.value[0].value"></textarea>

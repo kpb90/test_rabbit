@@ -1,6 +1,5 @@
 <div class="col-sm-12">
-	<label ng-if="dynamicField['nameOfField']['id']" class="control-label">{{dynamicField['nameOfField']['title']}}</label>
-	<label ng-if="!dynamicField['nameOfField']['id']" class="control-label">{{dynamicField['nameOfField']}}</label></div>
+	<label class="control-label">{{dynamicField['nameOfField']['title']}}</label>
 <div class="col-sm-11">
 	<input ng-if = "!dynamicField.value[0].value" class="form-control" name = "uploadfile[]" type="file" fileread="dynamicField.value[0].value">
 	<span ng-if = "dynamicField.value[0].value">{{dynamicField.value[0].value}}</span>
