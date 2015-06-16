@@ -161,13 +161,13 @@ INSERT INTO `FieldRID` (`id`, `idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `inheritableRID` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` char(36) NOT NULL,
   `idRID` char(36) NOT NULL,
   `idInheritableRID` char(36) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idRID` (`idRID`),
   KEY `idInheritableRID` (`idInheritableRID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -176,14 +176,14 @@ CREATE TABLE IF NOT EXISTS `inheritableRID` (
 --
 
 CREATE TABLE IF NOT EXISTS `RelativeRID` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` char(36) NOT NULL AUTO_INCREMENT,
   `idRID` char(36) NOT NULL,
   `idRelativeRID` char(36) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_RID` (`idRID`),
   KEY `id_RID_2` (`idRID`),
   KEY `id_RelativeRID` (`idRelativeRID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -381,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `User` (
 --
 
 CREATE TABLE IF NOT EXISTS `User_RID` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` char(36) NOT NULL,
   `emailUser` varchar(400) NOT NULL,
   `idRID` char(36) NOT NULL,
   `idACL` int(11) NOT NULL,
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `User_RID` (
   KEY `idACL` (`idACL`),
   KEY `idUser_2` (`emailUser`(255)),
   KEY `idUser_3` (`emailUser`(255))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `User_RID`

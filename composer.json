@@ -1,8 +1,6 @@
 {
     "require": {
-        "videlalvaro/php-amqplib": "v2.1.0",
-        "gargron/fileupload": "*",
-        "katzgrau/klogger": "dev-master"
+        "videlalvaro/php-amqplib": "v2.1.0"
     },
      "autoload": {
         "psr-0": { "RID": [""] }

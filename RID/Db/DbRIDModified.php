@@ -1,6 +1,7 @@
 <?php
 	namespace RID\Db;
     use RID\Logger\Logger;
+    use RID\FileUpload\FileUpload;
 	class DbRIDModified extends DbRIDAction
 	{
         private $communicator;
@@ -8,6 +9,10 @@
             $this->communicator = $communicator;
 			parent ::__construct($db);
 		}
+
+        private function saveTemplateRID ($params) {
+            
+        }
 
 		private function saveRID ($params) {
 			$form = json_decode($params['form'], true);
@@ -42,6 +47,54 @@
                 }
             }
 		}
+
+        private function applyChangeToDynamicFieldSelectionInheritableRemove ($idRID, $data) {
+            $query = "DELETE FROM `inheritableRID` WHERE id = :id";
+            $types = array (':id' => \PDO::PARAM_STR);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $params = array (':id' => $item->id);
+                $this->db->query ($query, $params , $types);
+            } 
+        }
+
+        private function applyChangeToDynamicFieldSelectionInheritableAdd ($idRID, $data) {
+           $query = "INSERT INTO `inheritableRID`(`id`, `idRID`, `idInheritableRID`) VALUES (:id,:idRID,:idInheritableRID)";
+            $types = array (':id' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_STR, ':idInheritableRID' => \PDO::PARAM_STR);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $params = array (':id' => $item->id, ':idRID' => $idRID, ':idInheritableRID' => $item->idLinkRid);
+                $this->db->query ($query, $params , $types);
+            } 
+        }
+
+        private function applyChangeToDynamicFieldSelectionRelatedRemove ($idRID, $data) {
+            $query = "DELETE FROM `RelativeRID` WHERE id = :id";
+            $types = array (':id' => \PDO::PARAM_STR);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $params = array (':id' => $item->id);
+                $this->db->query ($query, $params , $types);
+            } 
+        }
+
+        private function applyChangeToDynamicFieldSelectionRelatedAdd ($idRID, $data) {
+            $query = "INSERT INTO `RelativeRID`(`id`, `idRID`, `idRelativeRID`) VALUES (:id,:idRID,:idRelativeRID)";
+            $types = array (':id' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_STR, ':idRelativeRID' => \PDO::PARAM_STR);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $params = array (':id' => $item->id, ':idRID' => $idRID, ':idRelativeRID' => $item->idLinkRid);
+                $this->db->query ($query, $params , $types);
+            } 
+        }
 
         private function applyChangeToDynamicFieldAddFieldRemove ($idRID, $data) {
             $queryFieldRIDDelete = "DELETE FROM `FieldRID` WHERE id = :id";
@@ -115,7 +168,7 @@
                     $this->db->query ($queryTitleFieldRID_Units, $paramsTitleFieldRID_Units, $typesTitleFieldRID_Units);
                 }
 
-                $idACL = $item->security;
+                $idACL = $item->idACL;
                 $idFieldRID = $item->id;
                 $paramsFieldRID = array ('id'=> $idFieldRID, ':idTypeFieldRID' => $idTypeFieldRID, ':idUnits' => $idUnits, ':idTypeValueFieldRID' => $idTypeValueFieldRID, ':idTitleFieldRID' => $idTitleFieldRID, ':idACL' => $idACL, ':idRID' => $idRID);
                 $this->db->query ($queryFieldRID, $paramsFieldRID, $typesFieldRID);
@@ -157,24 +210,24 @@
 
         private function applyChangeToDynamicFieldUsersRemove ($idRID, $data) {
             $queryUser_RIDRemove = "DELETE FROM `User_RID` WHERE id=:id"; 
-            $typesUser_RIDRemove = array (':id' => \PDO::PARAM_INT);
+            $typesUser_RIDRemove = array (':id' => \PDO::PARAM_STR);
             foreach ($data as $item)  {
                 if (!$item) {
                     continue;
                 }
-                $paramsUser_RIDRemove = array (':id' => $item->user_rid_id);
+                $paramsUser_RIDRemove = array (':id' => $item->id);
                 $this->db->query ($queryUser_RIDRemove, $paramsUser_RIDRemove, $typesUser_RIDRemove);
             }   
         }
 
         private function applyChangeToDynamicFieldUsersAdd ($idRID, $data) {
-            $queryUser_RIDAdd = "INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)"; 
-            $typesUser_RIDAdd = array (':emailUser' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_INT, ':idACL' => \PDO::PARAM_INT);
+            $queryUser_RIDAdd = "INSERT INTO `User_RID`(`id`,`emailUser`, `idRID`, `idACL`) VALUES (:id, :emailUser,:idRID,:idACL)"; 
+            $typesUser_RIDAdd = array (':id'=>  \PDO::PARAM_STR, ':emailUser' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_INT, ':idACL' => \PDO::PARAM_INT);
             foreach ($data as $item)  {
                 if (!$item) {
                     continue;
                 }
-                $paramsUser_RIDAdd = array (':emailUser' => $item->email, ':idRID' => $idRID, ':idACL' => $item->idACL);
+                $paramsUser_RIDAdd = array (':id'=>$item->id,':emailUser' => $item->email, ':idRID' => $idRID, ':idACL' => $item->idACL);
                 $this->db->query ($queryUser_RIDAdd, $paramsUser_RIDAdd , $typesUser_RIDAdd);
             }   
         }
@@ -184,6 +237,10 @@
 					case 'saveRID':
 						$this->saveRID($params);
 					break;
+                    case 'saveTemplateRID':
+                        $this->saveTemplateRID($params);
+                    break;
+                    
 					default:
 					break;
 				}
@@ -191,7 +248,7 @@
                 if (method_exists($this->communicator, 'send')===true) {
                      $this->communicator->connect();
                      $params = $this->fltrs_secret_params($params);
-                     Logger::getLogger('DbRIDModified','DbRIDModified.txt')->log('Отправка сообщения в очередь: '.print_r($params, true));
+                     Logger::getLogger('DbRIDModified','queues.txt')->log('Отправка сообщения в очередь: '.print_r($params, true));
                      $this->communicator->send(array('msgBody' => base64_encode(serialize($params)), 'routingKey' => 'addRID'));  
                 } 
         }
@@ -207,12 +264,21 @@
             }
 
              $modifiedForm = (array) $modifiedForm;
-           // print_r($modifiedForm);
-           // exit;
-              foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
-                foreach ($concreteTypeOfField as $concreteTypeOfFieldData) {
-                    foreach ($concreteTypeOfFieldData as $key => $value) {
-                        # code...
+              foreach ($modifiedForm as $titleTypeOfConcreteField=>&$concreteTypeOfField ) {
+                foreach ($concreteTypeOfField as &$concreteTypeOfFieldData) {
+                    foreach ($concreteTypeOfFieldData as $key => &$item) {
+                        if (!$item) {
+                            continue;
+                        }
+  
+                        if (property_exists ($item,'idACL')&&$item->idACL==5) {
+                            if (property_exists($item, 'value')==true) {
+                                foreach ($item->value as $v) {
+                                     $v->value = "#secret#";
+                                }
+
+                            }
+                        }
                     }
                 }
             }

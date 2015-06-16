@@ -20,8 +20,18 @@ app.factory('helper', function() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
       s4() + '-' + s4() + s4() + s4();
   }
+
+  var findWithAttr =  function (array, attr, value) {
+    for(var i = 0; i < array.length; i += 1) {
+        if(array[i][attr] === value) {
+            return i;
+        }
+    }
+    return -1;
+  }
   return {
-   'guid': guid
+   'guid': guid,
+   'findWithAttr':findWithAttr
   };
 });
 

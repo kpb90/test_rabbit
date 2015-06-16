@@ -12,7 +12,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
             $scope.initDataForStaticFields = data['initDataForStaticFields'];
             data['initDataForDynamicFields']['nameOfField'] = objToArray(data['initDataForDynamicFields']['nameOfField']);
             $scope.initDataForDynamicFields = data['initDataForDynamicFields'];
-            $scope.initDataForDynamicFields['security'] = $scope.initDataForStaticFields['security'];
+            $scope.initDataForDynamicFields['idACL'] = $scope.initDataForStaticFields['idACL'];
             $scope.allRID = data['allRID'];
             console.log (data);
         }).error(function (data,status){
@@ -64,6 +64,11 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 */
     function compareObj (obj1,obj2) {
         if (obj1.hasOwnProperty('value') && obj2.hasOwnProperty('value')) {
+            
+            if (obj1['value'].length != obj2['value'].length) {
+                return false;
+            }
+
             for (var i in obj1['value']) {
                 if(obj1['value'][i].value!=obj2['value'][i].value) {
                     return false;
@@ -138,7 +143,7 @@ appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
         }
         fd.append('form', JSON.stringify($scope.form));
         fd.append('modifiedForm', JSON.stringify($scope.modifiedForm));
-
+        console.log ($scope.modifiedForm);
         if ($("input[type='file']")) {
             var files = $("input[type='file']");//.files[0];
             for (var i = 0; i < files.length; i++) {

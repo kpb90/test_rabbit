@@ -9,7 +9,7 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
             controller: 'ModalInstanceAclOfRIDCtrl',
             resolve: {
                 params: function() {
-                    return {'security':$scope.initDataForStaticFields.security,'users':$scope.form.dynamicFields['users'],'selectCommonSecurity':$scope.form.staticFields['selectCommonSecurity']};
+                    return {'idACL':$scope.initDataForStaticFields.idACL,'users':$scope.form.dynamicFields['users'],'selectCommonSecurity':$scope.form.staticFields['selectCommonSecurity']};
                 },
             }
         });
@@ -24,7 +24,7 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
 	}
 })
 
-.controller('ModalInstanceAclOfRIDCtrl', function($scope, $modalInstance, params) {
+.controller('ModalInstanceAclOfRIDCtrl', function($scope, $modalInstance, params, helper) {
    console.log (params);
     $scope.user = {'email':'','idACL':''};
     $scope.params = JSON.parse( JSON.stringify( params) ) ;
@@ -40,11 +40,11 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
 		 $scope.params.users.splice (index,1);
 	}
 
-	$scope.addUserForAcl = function (email, idACL, user_rid_id) {
+	$scope.addUserForAcl = function (email, idACL, id) {
 		if (typeof $scope.params.users == 'undefined') {
 			$scope.params.users = [];
 		}
-		$scope.params.users.push ({'email':email,'idACL':idACL});
+		$scope.params.users.push ({'email':email,'idACL':idACL,'id':helper.guid()});
 		$scope.user.email = '';
 		$scope.user.idACL = '';
 	}

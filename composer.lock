@@ -4,126 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "759907ff143dc7dfddb4e7b848130a4a",
+    "hash": "846299a6febb2dbb5d9fc483606a2ccc",
     "packages": [
-        {
-            "name": "gargron/fileupload",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Gargron/fileupload.git",
-                "reference": "0883a61b614fff96ddc5b1d39b646eafe470e7f2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Gargron/fileupload/zipball/0883a61b614fff96ddc5b1d39b646eafe470e7f2",
-                "reference": "0883a61b614fff96ddc5b1d39b646eafe470e7f2",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "FileUpload\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "File uploading library capable of handling large/chunked/multiple file uploads",
-            "time": "2014-02-20 14:23:50"
-        },
-        {
-            "name": "katzgrau/klogger",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/katzgrau/KLogger.git",
-                "reference": "609527e67b455aa17cdb4e869fb6d04c84c35814"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/katzgrau/KLogger/zipball/609527e67b455aa17cdb4e869fb6d04c84c35814",
-                "reference": "609527e67b455aa17cdb4e869fb6d04c84c35814",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "psr/log": "1.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.0.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Katzgrau\\KLogger\\": "src/"
-                },
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kenny Katzgrau",
-                    "email": "katzgrau@gmail.com"
-                },
-                {
-                    "name": "Dan Horrigan",
-                    "email": "dan@dhorrigan.com"
-                }
-            ],
-            "description": "A Simple Logging Class",
-            "keywords": [
-                "logging"
-            ],
-            "time": "2015-04-14 14:38:19"
-        },
-        {
-            "name": "psr/log",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "time": "2012-12-21 11:40:51"
-        },
         {
             "name": "videlalvaro/php-amqplib",
             "version": "v2.1.0",
@@ -170,16 +52,16 @@
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119"
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/f976e5de371104877ebc89bd8fecb0019ed9c119",
-                "reference": "f976e5de371104877ebc89bd8fecb0019ed9c119",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
                 "shasum": ""
             },
             "require": {
@@ -190,7 +72,7 @@
                 "ext-pdo": "*",
                 "ext-phar": "*",
                 "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "2.0.*@ALPHA"
+                "squizlabs/php_codesniffer": "~2.0"
             },
             "type": "library",
             "extra": {
@@ -199,8 +81,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Instantiator\\": "src"
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -220,7 +102,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2014-10-13 12:58:55"
+            "time": "2015-06-14 21:17:01"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -486,16 +368,16 @@
         },
         {
             "name": "phpunit/php-timer",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "19689d4354b295ee3d8c54b4f42c3efb69cbc17c"
+                "reference": "83fe1bdc5d47658b727595c14da140da92b3d66d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/19689d4354b295ee3d8c54b4f42c3efb69cbc17c",
-                "reference": "19689d4354b295ee3d8c54b4f42c3efb69cbc17c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/83fe1bdc5d47658b727595c14da140da92b3d66d",
+                "reference": "83fe1bdc5d47658b727595c14da140da92b3d66d",
                 "shasum": ""
             },
             "require": {
@@ -504,13 +386,10 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "PHP/"
+                    "src/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                ""
-            ],
             "license": [
                 "BSD-3-Clause"
             ],
@@ -526,20 +405,20 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2013-08-02 07:42:54"
+            "time": "2015-06-13 07:35:30"
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "eab81d02569310739373308137284e0158424330"
+                "reference": "db63be1159c81df649cd0260e30249a586d4129e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/eab81d02569310739373308137284e0158424330",
-                "reference": "eab81d02569310739373308137284e0158424330",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/db63be1159c81df649cd0260e30249a586d4129e",
+                "reference": "db63be1159c81df649cd0260e30249a586d4129e",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +454,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-04-08 04:46:07"
+            "time": "2015-06-12 07:34:24"
         },
         {
             "name": "phpunit/phpunit",
@@ -651,16 +530,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "253c005852591fd547fc18cd5b7b43a1ec82d8f7"
+                "reference": "92408bb1968a81b3217a6fdf6c1a198da83caa35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/253c005852591fd547fc18cd5b7b43a1ec82d8f7",
-                "reference": "253c005852591fd547fc18cd5b7b43a1ec82d8f7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/92408bb1968a81b3217a6fdf6c1a198da83caa35",
+                "reference": "92408bb1968a81b3217a6fdf6c1a198da83caa35",
                 "shasum": ""
             },
             "require": {
@@ -702,7 +581,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-05-29 05:19:18"
+            "time": "2015-06-11 15:55:48"
         },
         {
             "name": "sebastian/comparator",
@@ -1077,16 +956,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "4a29a5248aed4fb45f626a7bbbd330291492f5c3"
+                "reference": "9808e75c609a14f6db02f70fccf4ca4aab53c160"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/4a29a5248aed4fb45f626a7bbbd330291492f5c3",
-                "reference": "4a29a5248aed4fb45f626a7bbbd330291492f5c3",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/9808e75c609a14f6db02f70fccf4ca4aab53c160",
+                "reference": "9808e75c609a14f6db02f70fccf4ca4aab53c160",
                 "shasum": ""
             },
             "require": {
@@ -1122,14 +1001,12 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-02 15:21:08"
+            "time": "2015-06-10 15:30:22"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "katzgrau/klogger": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

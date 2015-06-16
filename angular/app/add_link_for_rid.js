@@ -25,18 +25,23 @@ var appAddLinkForRID = angular.module('appAddLinkForRID', ['ui.bootstrap'])
 
 })
 
-.controller('ModalInstanceLinkRIDCtrl', function($scope, $modalInstance, params) {
+.controller('ModalInstanceLinkRIDCtrl', function($scope, $modalInstance, params, helper) {
   $scope.paramsModalInstanceLink = JSON.parse( JSON.stringify( params) );
-  $scope.toggleSelection = function toggleSelection(i) {
-    var idx = $scope.paramsModalInstanceLink.selection.indexOf(i);
+  $scope.toggleSelection = function toggleSelection(v) {
+    //var idx = $scope.paramsModalInstanceLink.selection.indexOf(i);
+    var idx = helper.findWithAttr($scope.paramsModalInstanceLink.selection, 'idLinkRid', v.id)
     if (idx > -1) {
       $scope.paramsModalInstanceLink.selection.splice(idx, 1);
     }
     else {
-      $scope.paramsModalInstanceLink.selection.push(i);
+      $scope.paramsModalInstanceLink.selection.push({'id':helper.guid(), 'idLinkRid':v.id});
     }
   };
   
+  $scope.isSelection = function (v) {
+    return helper.findWithAttr($scope.paramsModalInstanceLink.selection, 'idLinkRid', v.id) > -1;
+  }
+
   $scope.ok = function() {
     $modalInstance.close({'selection':$scope.paramsModalInstanceLink['selection']});
   };

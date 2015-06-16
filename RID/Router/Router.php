@@ -29,15 +29,10 @@
 							break;
 							case 'saveRID':
 			 					$dbRIDModified->operation ('saveRID', $request);
-								$form = json_decode($request['form']);
-								//unlink('test_RID/'.$form->staticFields->title.'.txt');
-								//addToLog($request['form'],'test_RID/'.$form->staticFields->title.'.txt');
 							break;
 							
 							case 'saveTemplateRID':
-								$form = json_decode($request['form']);
-								//unlink('template_RID/'.$form->staticFields->title.'.txt');
-								//addToLog($request['form'],'template_RID/'.rand(1,10000).'.txt');
+								$dbRIDModified->operation ('saveTemplateRID', $request);
 							break;
 							case 'getTemplateRID':
 								$file = 'template_RID/'.urldecode($request['id']).'.txt';

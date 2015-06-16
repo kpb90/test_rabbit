@@ -26,7 +26,7 @@
           <div class="form-group" ng-repeat="(indexDynamicField, dynamicField) in form.dynamicFields['addField']" ng-controller = "DynamicFieldsCtrl">
             <div ng-switch on="dynamicField.selectTypeOfField['key']">
               <div style = "position: absolute;float: right;right: 0;margin-right: 0;">
-                (видимость: <span style = "color: blue;">{{initDataForDynamicFields['security'][dynamicField['security']]}}</span>)
+                (видимость: <span style = "color: blue;">{{initDataForDynamicFields['idACL'][dynamicField['idACL']]}}</span>)
               </div>
               <div ng-switch-when="string" class = "row">
                 <div ng-include src='"angular/templates/string.html"'></div>
@@ -71,11 +71,11 @@
               <a href="#" class="list-group-item active" ng-if = "form.dynamicFields.selectionRelated.length">
                 Связанные РИД
               </a>         
-              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in form.dynamicFields.selectionRelated" ng-click = "getConcreteRID(allRID[v])">{{allRID[v]}}</a>
+              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in form.dynamicFields.selectionRelated" ng-click = "getConcreteRID(v.idLinkRid)">{{allRID[v.idLinkRid].title}}</a>
               <a href="#" class="list-group-item active" ng-if = "form.dynamicFields.selectionInheritable.length">
                 Наследуемые РИД  
               </a>         
-              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in form.dynamicFields.selectionInheritable" ng-click = "getConcreteRID(allRID[v])">{{allRID[v]}}</a>
+              <a href="#" class="list-group-item" ng-repeat  = "(i, v) in form.dynamicFields.selectionInheritable" ng-click = "getConcreteRID(v.idLinkRid)">{{allRID[v.idLinkRid].title}}</a>
          </div>
       </div>
     </div>

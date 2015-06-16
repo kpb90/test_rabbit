@@ -29,30 +29,50 @@
 
 	    public function getDataGroupByRID ($sql, $params) {
 	    	$result = array ('dynamicFields'=>array(	
-				'addField' => array(),
-				'selectionInheritable' => array (),
-				'selectionRelated' => array (),
-				'users' => array (),
-			),
-			'staticFields'=>array());
+													'addField' => array(),
+													'selectionInheritable' => array (),
+													'selectionRelated' => array (),
+													'users' => array (),
+											),
+							'staticFields'=>array());
 			
             $r = $this->fetchAll($sql, array (':id' =>$_REQUEST['id']));
 
 	    	// отсчет нужен с 0 для js
-	    	$dynamicFieldsId = $Users = array();
-	    	$schDynamicFields = $schUsers = 0;
+	    	$dynamicFieldsId = $Users = $SelectionInheritable = $SelectionRelated = array();
+	    	$schDynamicFields = $schUsers = $schSelectionInheritable = $schSelectionRelated =  0;
 	    	foreach ($r as $row) {
 	    		$nameOfField = array('id'=>$row['tfr_id'],'title'=> $row['tfr_title']);
 	    		$selectTypeOfField = array('id'=>$row['tfr_id'],'key'=>$row['type_fr_key'],'title'=> $row['type_fr_title']);
 	    		$unitsOfField = array ('tfru_title'=>$row['tfr_title'], 'u_id'=>$row['u_id'], 'u_title'=>$row['u_title']);
-		 		
+
+		 		if ($row['inheritable_rid_id']) {
+			 		if (array_key_exists($row['inheritable_rid_id'], $SelectionInheritable) === false) {
+						$SelectionInheritable[$row['inheritable_rid_id']]=$schSelectionInheritable++;
+					} 
+
+					if (array_key_exists($SelectionInheritable[$row['inheritable_rid_id']], $result['dynamicFields']['selectionInheritable']) === false) {
+						$result['dynamicFields']['selectionInheritable'][$SelectionInheritable[$row['inheritable_rid_id']]] = array ('id'=>$row['inheritable_rid_id'], 'idLinkRid'=>$row['idInheritableRID']);
+					} 
+				}
+
+				if ($row['relative_rid_id']) {
+			 		if (array_key_exists($row['relative_rid_id'], $SelectionRelated) === false) {
+						$SelectionRelated[$row['relative_rid_id']]=$schSelectionRelated++;
+					} 
+
+					if (array_key_exists($SelectionRelated[$row['relative_rid_id']], $result['dynamicFields']['selectionRelated']) === false) {
+						$result['dynamicFields']['selectionRelated'][$SelectionRelated[$row['relative_rid_id']]] = array ('id'=>$row['relative_rid_id'], 'idLinkRid'=>$row['idRelativeRID']);
+					} 
+				}
+
 		 		if ($row['user_rid_emailUser']) {
 		 			if (array_key_exists($row['user_rid_emailUser'],$Users)==false) {
 	    				$Users[$row['user_rid_emailUser']]=$schUsers++;
 	    			}
 
-			 		if (array_key_exists($row['user_rid_emailUser'], $result['dynamicFields']['users']) === false) {
-						$result['dynamicFields']['users'][$Users[$row['user_rid_emailUser']]] = array ('email'=> $row['user_rid_emailUser'], 'idACL' => $row['user_rid_idACL'], 'user_rid_id'=> $row['user_rid_id']);
+			 		if (array_key_exists($Users[$row['user_rid_emailUser']], $result['dynamicFields']['users']) === false) {
+						$result['dynamicFields']['users'][$Users[$row['user_rid_emailUser']]] = array ('email'=> $row['user_rid_emailUser'], 'idACL' => $row['user_rid_idACL'], 'id'=> $row['user_rid_id']);
 					} 
 		 		}
 
@@ -65,7 +85,7 @@
 	   	    			$result['dynamicFields']['addField'][$dynamicFieldsId[$row['fr_id']]] = array(
 							'id' => $row['fr_id'],
 							'nameOfField'=>$nameOfField, 
-							'security'=> $row['fr_idACL'], 
+							'idACL'=> $row['fr_idACL'], 
 							'selectTypeOfField'=>$selectTypeOfField,
 							'unitsOfField'=>$unitsOfField,
 							'value'=>array(array('valueId'=>$row['value_fr_id'], 'value' =>$row['value_fr_value'])),
