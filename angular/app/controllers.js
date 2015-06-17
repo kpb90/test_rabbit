@@ -5,7 +5,7 @@ appControllers.controller('AppCtrl', function($scope, $parse, $http, $location) 
 
 });
 
-appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http) {
+appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http, helper) {
 
     (function () {
        $http.get('/index.php?module=addRID&task=getInitDataForRID').success(function (data,status) {
@@ -29,6 +29,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     })();
     function objToArray(myObj) {
         var arr = [];
+        var count = 0;
         for( var i in myObj ) {
             if (myObj.hasOwnProperty(i)){
                     arr[i] = myObj[i];
@@ -49,7 +50,15 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
                 'users':{'remove':[],'update':[],'add':[]},
                 'selectionRelated':{'remove':[],'update':[],'add':[]},
                 'selectionInheritable':{'remove':[],'update':[],'add':[]},
+                'selectBranch':{'remove':[],'update':[],'add':[]}
             };
+    }
+
+    $scope.changeBranch = function () {
+        if (!$scope.form.dynamicFields.selectBranch[0].id) {
+            $scope.form.dynamicFields.selectBranch[0]['id'] = helper.guid();
+            $scope.form.dynamicFields.selectBranch[0]['new_record'] =true;
+        }
     }
   
 /*
@@ -114,6 +123,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
                 if (data) {
                     $scope.form = data;
                     $scope.form.dynamicFields.addField = objToArray($scope.form.dynamicFields.addField);
+                    //$scope.form.dynamicFields.selectBranch = objToArray($scope.form.dynamicFields.selectBranch);
                     $scope.init_form=angular.copy($scope.form);
                     console.log ($scope.form);
                 }
@@ -132,9 +142,14 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 });
 
 appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
-    $scope.saveModelForm = function () {
-         $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
+    $scope.saveModelForm = function (addRidForm) {
+        if (!addRidForm.$valid) {
+            return;
+        }
+
+        $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
                  // console.log ($scope.init_form.dynamicFields);
+        
         var fd = new FormData();
         
         if ($scope.form.staticFields.r_id==null) {

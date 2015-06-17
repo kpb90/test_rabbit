@@ -1,4 +1,5 @@
 <script type="text/ng-template" id="addDynamicFields.html">
+  <form name = "modal_dynamic_fields">
   <div class="modal-header">
     <h3 class="modal-title">Параметры создаваемого поля</h3>
   </div>
@@ -6,7 +7,7 @@
     <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     <div class="container" style="width:100%;">
       <div class="row">
-        <form class = "col-sm-6">
+        <div class = "col-sm-6">
          <div ng-switch on="paramsConstruct.selectTypeOfField.key">
           <div ng-switch-when="string" class = "row">
             <div ng-include src='"angular/templates/modal_string.html"'></div>
@@ -21,18 +22,19 @@
          <div class = "row">
            <div class="form-group">
             <label>Уровень доступа</label>
-            <select class="form-control" ng-model = "selectParamsConstruct.idACL">
+            <select class="form-control" ng-model = "selectParamsConstruct.idACL" required>
               <option value=''>Выберите уровень доступа</option>
               <option  ng-repeat="(i, titlesecurityOfField) in paramsConstruct.idACL" value = "{{i}}">{{titlesecurityOfField}}</option>
             </select>
           </div>
         </div>
        </div>
-     </form>
+     </div>
    </div>
  </div>
  <div class="modal-footer">
-  <button class="btn btn-primary" ng-click="ok()">Добавить</button>
+  <button class="btn btn-primary" ng-click="ok(modal_dynamic_fields)">Добавить</button>
   <button class="btn btn-warning" ng-click="cancel()">Отмена</button>
 </div>
+</form>
 </script>

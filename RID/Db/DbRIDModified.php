@@ -48,6 +48,33 @@
             }
 		}
 
+        private function applyChangeToDynamicFieldSelectBranchUpdate ($idRID, $data) {
+            $query = "UPDATE `branch_rid` SET `idRID`=:idRID,`idBranch`=:idBranch WHERE  `id`=:id";
+            $types = array (':id' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_STR, ':idBranch' => \PDO::PARAM_STR);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                $params = array (':id' => $item->id, ':idRID' => $idRID, ':idBranch' => $item->value[0]->value);
+                $this->db->query ($query, $params , $types);
+            } 
+        }
+
+        private function applyChangeToDynamicFieldSelectBranchAdd ($idRID, $data) {
+            $query = "INSERT INTO `branch_rid`(`id`, `idRID`, `idBranch`) VALUES (:id,:idRID,:idBranch)";
+            $types = array (':id' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_STR, ':idBranch' => \PDO::PARAM_STR);
+            foreach ($data as $item)  {
+                if (!$item) {
+                    continue;
+                }
+                if (!$item->value[0]->value) {
+                    $item->value[0]->value = null;
+                }
+                $params = array (':id' => $item->id, ':idRID' => $idRID, ':idBranch' => $item->value[0]->value);
+                $this->db->query ($query, $params , $types);
+            } 
+        }
+
         private function applyChangeToDynamicFieldSelectionInheritableRemove ($idRID, $data) {
             $query = "DELETE FROM `inheritableRID` WHERE id = :id";
             $types = array (':id' => \PDO::PARAM_STR);

@@ -42,8 +42,8 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
 	$scope.paramsConstruct = paramsConstruct;
 	$scope.selectParamsConstruct['selectTypeOfField'] = paramsConstruct['selectTypeOfField'];
 
-    $scope.ok = function() {
-        if (isValid()) {
+    $scope.ok = function(modal_dynamic_fields) {
+        if (modal_dynamic_fields.$valid) {
             $scope.selectParamsConstruct ['id'] = helper.guid();
             if (angular.isObject($scope.selectParamsConstruct ['nameOfField'])===false) {
                 $scope.selectParamsConstruct ['nameOfField'] = {'id':helper.guid(),'title':$scope.selectParamsConstruct ['nameOfField'], 'new_record':true};
@@ -66,26 +66,14 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
         } else {
         	$scope.alerts = [{
                 type: 'danger',
-                msg: 'Все поля должны быть выбраны!'
+                msg: 'Форма заполнена неверно'
             }];
         }
     };
 
-    var isValid = function () {
-    	switch ($scope.selectParamsConstruct['selectTypeOfField']['key']) {
-    		case 'string':
-    			return $scope.selectParamsConstruct['nameOfField'] != '' && $scope.selectParamsConstruct['viewOfField'] != ''
-    		case 'text':
-    			return $scope.selectParamsConstruct['nameOfField'] != ''
-    		case 'file':
-    			return $scope.selectParamsConstruct['nameOfField'] != ''
-    	}
-    	return false;
-    }
-
     $scope.cancel = function() {
         console.log ($scope.selectParamsConstruct);
-       // $modalInstance.dismiss('cancel');
+        $modalInstance.dismiss('cancel');
     };
 
     $scope.closeAlert = function(index) {

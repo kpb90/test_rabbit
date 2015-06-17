@@ -94,7 +94,8 @@
 	    				$result['dynamicFields']['addField'][$dynamicFieldsId[$row['fr_id']]]['value'][] = array('valueId'=>$row['value_fr_id'], 'value' =>$row['value_fr_value']);
 	    			}
 	    		}
-	    	}
+	    	} 
+	    	$result['dynamicFields']['selectBranch']=array(array('id'=>$row['branch_rid_id'], 'value' => array(array ('value'=>$row['branch_rid_idBranch']))));
 	    	$result['staticFields'] = array ('r_id'=>$row['r_id'],'title'=>$row['r_title'], 'short_descr'=>$row['r_short_descr'],'selectCommonSecurity'=>$row['r_idACL']);
 	        return $result;	
 	    }

@@ -1,10 +1,10 @@
 <div class="form-group">
 	<label>Название поля</label>
-	 <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField as titleNameOfField.title for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus > 
+	 <input placeholder = "Выберите название поля" class="form-control" type="text" ng-model="selectParamsConstruct.nameOfField" typeahead="titleNameOfField as titleNameOfField.title for titleNameOfField in paramsConstruct.nameOfField | filter:$viewValue:emptyOrMatch | limitTo:8" typeahead-focus required> 
 </div>
 <div class="form-group">
 	<label>Тип поля</label>
-	<select class="form-control" ng-model = "selectParamsConstruct.viewOfField">
+	<select class="form-control" ng-model = "selectParamsConstruct.viewOfField" required>
 		<option value = "">Выберите тип поля</option>
 		<option ng-repeat="(i, titleNameOfField) in paramsConstruct.viewOfField" value = "{{titleNameOfField.id}}">{{titleNameOfField.value}}</option>
 	</select>

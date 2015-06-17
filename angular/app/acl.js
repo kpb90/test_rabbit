@@ -40,12 +40,14 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
 		 $scope.params.users.splice (index,1);
 	}
 
-	$scope.addUserForAcl = function (email, idACL, id) {
-		if (typeof $scope.params.users == 'undefined') {
-			$scope.params.users = [];
-		}
-		$scope.params.users.push ({'email':email,'idACL':idACL,'id':helper.guid()});
-		$scope.user.email = '';
-		$scope.user.idACL = '';
+	$scope.addUserForAcl = function (acl_form, email, idACL, id) {
+        if (acl_form.$valid) {
+            if (typeof $scope.params.users == 'undefined') {
+                $scope.params.users = [];
+            }
+            $scope.params.users.push ({'email':email,'idACL':idACL,'id':helper.guid()});
+            $scope.user.email = '';
+            $scope.user.idACL = '';
+        }
 	}
 });

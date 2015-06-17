@@ -6,10 +6,10 @@
   <div class="panel-body">
     <div class="container" style="width:100%;">
       <div class="row">
-        <form ng-controller = "RIDFormCtrl" class = "col-sm-6" method="POST" enctype="multipart/form-data">
+        <form name = "addRidForm" ng-controller = "RIDFormCtrl" class = "col-sm-6" method="POST" enctype="multipart/form-data">
           <div class="form-group">
             <label>Название</label>
-            <input type="text" class="form-control" placeholder="Введите название" ng-model = "form.staticFields.title">
+            <input type="text" class="form-control" placeholder="Введите название" ng-model = "form.staticFields.title" required>
           </div>
           <div class="form-group">
             <label>Краткое описание</label>
@@ -17,7 +17,7 @@
           </div>
           <div class="form-group">
               <label>Отрасли</label>
-              <select class="form-control" ng-model = "form.staticFields.selectBranch">
+              <select class="form-control" ng-change = "changeBranch()" ng-model = "form.dynamicFields.selectBranch[0].value[0].value" required>
                 <option value = "">Выберите отрасль</option>
                 <option  ng-repeat="(i, titleBranch) in initDataForStaticFields.branches" value = "{{i}}">{{titleBranch}}</option>
               </select>
@@ -51,7 +51,7 @@
               <button  type="button" class="btn btn-primary" ng-click="addLinkRID('selectionRelated')">Связанные РИД</button>
               <button  type="button" class="btn btn-primary" ng-click="addLinkRID('selectionInheritable')">Наследуемые РИД</button>
           </div>
-              <button type="submit" class="btn btn-default" ng-click = "saveModelForm()">Продолжить</button>
+              <button type="submit" class="btn btn-default" ng-click = "saveModelForm(addRidForm)">Продолжить</button>
               <button type="submit" class="btn btn-default" ng-click = "saveTemplateForm()">Сохранить шаблон</button>
         </form>
          <div class = "col-sm-2">

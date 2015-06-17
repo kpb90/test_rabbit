@@ -114,13 +114,13 @@ INSERT INTO `Branch` (`id`, `title`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Branch_RID` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` char(36) NOT NULL,
   `idRID` char(36) NOT NULL,
   `idBranch` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idRID` (`idRID`),
   UNIQUE KEY `idBranch` (`idBranch`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
