@@ -34,7 +34,7 @@ var appAddLinkForRID = angular.module('appAddLinkForRID', ['ui.bootstrap'])
       $scope.paramsModalInstanceLink.selection.splice(idx, 1);
     }
     else {
-      $scope.paramsModalInstanceLink.selection.push({'id':helper.guid(), 'idLinkRid':v.id});
+      $scope.paramsModalInstanceLink.selection.push({'idLinkRid':v.id});
     }
   };
   

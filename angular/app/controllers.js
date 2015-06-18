@@ -37,6 +37,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
         }
         return arr;
     }
+
     $scope.form = {
         'dynamicFields': {'addField':[],'users':[],'selectionRelated':[],'selectionInheritable':[],'selectBranch':[]},
         'staticFields': {'selectCommonSecurity':1,'r_id':null,'short_descr':''}
@@ -55,22 +56,13 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
     }
 
     $scope.changeBranch = function () {
+        
         if (!$scope.form.dynamicFields.selectBranch[0].id) {
-            $scope.form.dynamicFields.selectBranch[0]['id'] = helper.guid();
             $scope.form.dynamicFields.selectBranch[0]['new_record'] =true;
         }
+
     }
-  
-/*
-    $scope.$watch(function() { return angular.toJson($scope.form);}, function(new_val, old_val) {
-        console.log (new_val);
-        console.log (old_val);
-        debugger;
-         //console.log ($scope.init_form);
-         // console.log ($scope.form);
-         //   console.log (difference($scope.init_form, $scope.form));
-    });
-*/
+
     function compareObj (obj1,obj2) {
         if (obj1.hasOwnProperty('value') && obj2.hasOwnProperty('value')) {
             
@@ -144,13 +136,13 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
     $scope.saveModelForm = function (addRidForm) {
         if (addRidForm.$valid) {
+            console.log ("init_form");
+            console.log ($scope.init_form.dynamicFields);
             $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
-                     // console.log ($scope.init_form.dynamicFields);
             
             var fd = new FormData();
             
             if ($scope.form.staticFields.r_id==null) {
-                $scope.form.staticFields.r_id = helper.guid();
                 $scope.form.staticFields.new_record = true;
             }
             fd.append('form', JSON.stringify($scope.form));
@@ -170,8 +162,10 @@ appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
                          transformRequest: angular.identity
             }).success(function (data,status) {
                 console.log (data);
-                $scope.init_form = angular.copy($scope.form);
-                $scope.initModifiedForm ();
+                 $scope.getConcreteRID($scope.form.staticFields.r_id);
+                if (data.indexOf ('Memory') > -1) {
+                    $('.error').html(data);
+                }
             }).error(function (data,status){
                 console.log (data);
                 console.log ('Ошибка соедениения с сервером при обновлении');

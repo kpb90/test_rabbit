@@ -45,7 +45,7 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
             if (typeof $scope.params.users == 'undefined') {
                 $scope.params.users = [];
             }
-            $scope.params.users.push ({'email':email,'idACL':idACL,'id':helper.guid()});
+            $scope.params.users.push ({'email':email,'idACL':idACL});
             $scope.user.email = '';
             $scope.user.idACL = '';
         }

@@ -11,16 +11,6 @@ angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCac
 }]);
 
 app.factory('helper', function() {
- var guid =  function () {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-      s4() + '-' + s4() + s4() + s4();
-  }
-
   var findWithAttr =  function (array, attr, value) {
     for(var i = 0; i < array.length; i += 1) {
         if(array[i][attr] === value) {
@@ -30,7 +20,6 @@ app.factory('helper', function() {
     return -1;
   }
   return {
-   'guid': guid,
    'findWithAttr':findWithAttr
   };
 });

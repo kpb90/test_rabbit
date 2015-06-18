@@ -43,7 +43,7 @@
 	    	$schDynamicFields = $schUsers = $schSelectionInheritable = $schSelectionRelated =  0;
 	    	foreach ($r as $row) {
 	    		$nameOfField = array('id'=>$row['tfr_id'],'title'=> $row['tfr_title']);
-	    		$selectTypeOfField = array('id'=>$row['tfr_id'],'key'=>$row['type_fr_key'],'title'=> $row['type_fr_title']);
+	    		$selectTypeOfField = array('id'=>$row['type_fr_id'],'key'=>$row['type_fr_key'],'title'=> $row['type_fr_title']);
 	    		$unitsOfField = array ('tfru_title'=>$row['tfr_title'], 'u_id'=>$row['u_id'], 'u_title'=>$row['u_title']);
 
 		 		if ($row['inheritable_rid_id']) {

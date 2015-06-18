@@ -44,23 +44,22 @@ var appDynamicFieldsOfread = angular.module('appDynamicFieldsOfread', ['ui.boots
 
     $scope.ok = function(modal_dynamic_fields) {
         if (modal_dynamic_fields.$valid) {
-            $scope.selectParamsConstruct ['id'] = helper.guid();
             if (angular.isObject($scope.selectParamsConstruct ['nameOfField'])===false) {
-                $scope.selectParamsConstruct ['nameOfField'] = {'id':helper.guid(),'title':$scope.selectParamsConstruct ['nameOfField'], 'new_record':true};
+                $scope.selectParamsConstruct ['nameOfField'] = {'title':$scope.selectParamsConstruct ['nameOfField'], 'new_record':true};
             }
 
             if (typeof $scope.selectParamsConstruct ['unitsOfField'] != 'undefined') {
                 if (angular.isObject($scope.selectParamsConstruct ['unitsOfField'])===false) {
-                    $scope.selectParamsConstruct ['unitsOfField'] = {'u_id':helper.guid(),'tfru_title':$scope.selectParamsConstruct ['nameOfField']['title'], 'u_title':$scope.selectParamsConstruct ['unitsOfField'], 'new_record':true};
+                    $scope.selectParamsConstruct ['unitsOfField'] = {'tfru_title':$scope.selectParamsConstruct ['nameOfField']['title'], 'u_title':$scope.selectParamsConstruct ['unitsOfField'], 'new_record':true};
                 }
             }
             // viewOfField = 2 - 2 editbox
             // viewOfField = 1 - 1 editbox
             // viewOfField = "" - вид уже определен в template
             if ($scope.selectParamsConstruct ['viewOfField']==2) {
-            $scope.selectParamsConstruct ['value'] = [{'value':"", 'valueId': helper.guid()}, {'value':"", 'valueId': helper.guid()}];
+            $scope.selectParamsConstruct ['value'] = [{'value':""}, {'value':""}];
             } else {
-                $scope.selectParamsConstruct ['value'] = [{'value':"", 'valueId': helper.guid()}];
+                $scope.selectParamsConstruct ['value'] = [{'value':""}];
             }
             $modalInstance.close($scope.selectParamsConstruct);
         } else {
