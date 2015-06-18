@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `AuthorTemplateRID` (
 
 CREATE TABLE IF NOT EXISTS `Author_RID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idRID` char(36) NOT NULL,
+  `idRID` int(11) NOT NULL,
   `idAuthor` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idRID` (`idRID`),
@@ -114,13 +114,13 @@ INSERT INTO `Branch` (`id`, `title`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Branch_RID` (
-  `id` char(36) NOT NULL,
-  `idRID` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idRID` int(11) NOT NULL,
   `idBranch` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idRID` (`idRID`),
   KEY `idBranch` (`idBranch`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -129,13 +129,13 @@ CREATE TABLE IF NOT EXISTS `Branch_RID` (
 --
 
 CREATE TABLE IF NOT EXISTS `FieldRID` (
-  `id` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idTypeFieldRID` int(11) DEFAULT NULL,
-  `idUnits` char(36) DEFAULT NULL,
+  `idUnits` int(11) DEFAULT NULL,
   `idTypeValueFieldRID` int(11) DEFAULT NULL,
-  `idTitleFieldRID` char(36) NOT NULL,
+  `idTitleFieldRID` int(11) NOT NULL,
   `idACL` int(11) NOT NULL,
-  `idRID` char(36) NOT NULL,
+  `idRID` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idTypeFieldRID` (`idTypeFieldRID`),
   KEY `idUnits` (`idUnits`),
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `FieldRID` (
   KEY `idTitleFieldRID` (`idTitleFieldRID`),
   KEY `idACL` (`idACL`),
   KEY `idRID` (`idRID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=124 ;
 
 --
 -- Дамп данных таблицы `FieldRID`
@@ -161,13 +161,13 @@ INSERT INTO `FieldRID` (`id`, `idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`
 --
 
 CREATE TABLE IF NOT EXISTS `inheritableRID` (
-  `id` char(36) NOT NULL,
-  `idRID` char(36) NOT NULL,
-  `idInheritableRID` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idRID` int(11) NOT NULL,
+  `idInheritableRID` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idRID` (`idRID`),
   KEY `idInheritableRID` (`idInheritableRID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -176,14 +176,14 @@ CREATE TABLE IF NOT EXISTS `inheritableRID` (
 --
 
 CREATE TABLE IF NOT EXISTS `RelativeRID` (
-  `id` char(36) NOT NULL,
-  `idRID` char(36) NOT NULL,
-  `idRelativeRID` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idRID` int(11) NOT NULL,
+  `idRelativeRID` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_RID` (`idRID`),
   KEY `id_RID_2` (`idRID`),
   KEY `id_RelativeRID` (`idRelativeRID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -192,13 +192,13 @@ CREATE TABLE IF NOT EXISTS `RelativeRID` (
 --
 
 CREATE TABLE IF NOT EXISTS `RID` (
-  `id` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(300) NOT NULL,
   `short_descr` text NOT NULL,
   `idACL` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `idACL` (`idACL`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
 
 --
 -- Дамп данных таблицы `RID`
@@ -218,9 +218,9 @@ CREATE TABLE IF NOT EXISTS `TemplateFieldRID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idAuthorTemplateRID` int(11) NOT NULL,
   `idTypeFieldRID` int(11) NOT NULL,
-  `idUnits` char(36) NOT NULL,
+  `idUnits` int(11) NOT NULL,
   `idTypeValueFieldRID` int(11) NOT NULL,
-  `idTitleFieldRID` char(36) NOT NULL,
+  `idTitleFieldRID` int(11) NOT NULL,
   `idACL` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idTypeFieldRID` (`idTypeFieldRID`),
@@ -238,10 +238,10 @@ CREATE TABLE IF NOT EXISTS `TemplateFieldRID` (
 --
 
 CREATE TABLE IF NOT EXISTS `TitleFieldRID` (
-  `id` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Дамп данных таблицы `TitleFieldRID`
@@ -268,13 +268,13 @@ INSERT INTO `TitleFieldRID` (`id`, `title`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `TitleFieldRID_Units` (
-  `id` char(36) NOT NULL,
-  `idTitleFieldRID` char(36) NOT NULL,
-  `idUnits` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idTitleFieldRID` int(11) NOT NULL,
+  `idUnits` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idTitleFieldRID` (`idTitleFieldRID`),
   KEY `idUnits` (`idUnits`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `TitleFieldRID_Units`
@@ -341,10 +341,10 @@ INSERT INTO `TypeValueFieldRID` (`id`, `key`, `value`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Units` (
-  `id` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Дамп данных таблицы `Units`
@@ -381,9 +381,9 @@ CREATE TABLE IF NOT EXISTS `User` (
 --
 
 CREATE TABLE IF NOT EXISTS `User_RID` (
-  `id` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `emailUser` varchar(400) NOT NULL,
-  `idRID` char(36) NOT NULL,
+  `idRID` int(11) NOT NULL,
   `idACL` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idUser` (`emailUser`(255)),
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `User_RID` (
   KEY `idACL` (`idACL`),
   KEY `idUser_2` (`emailUser`(255)),
   KEY `idUser_3` (`emailUser`(255))
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Дамп данных таблицы `User_RID`
@@ -408,13 +408,13 @@ INSERT INTO `User_RID` (`id`, `emailUser`, `idRID`, `idACL`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `ValueFieldRID` (
-  `id` char(36) NOT NULL,
-  `idFieldRID` char(36) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idFieldRID` int(11) NOT NULL,
   `value` varchar(400) NOT NULL,
   `ord` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `idFieldRID` (`idFieldRID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Дамп данных таблицы `ValueFieldRID`
