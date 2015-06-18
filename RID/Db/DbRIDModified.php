@@ -15,38 +15,38 @@
         }
 
         public function saveRID ($params) {
+            $params = unserialize($params);
+            //Logger::getLogger('tra','tra.txt')->log(print_r($params, true));
             $form = json_decode($params['form'], true);
-            $staticData = $form['staticFields'];
             $modifiedForm = json_decode($params['modifiedForm']);
-            if (!$staticData['r_id']) {
+            if (!$form['staticFields']['r_id']) {
                 $query = "INSERT INTO `RID`(`title`, `short_descr`, `idACL`) VALUES (:title,:short_descr,:idACL)";
-                $params = array (':title' => $staticData['title'], ':short_descr' =>  $staticData['short_descr'], ':idACL'=>$staticData['selectCommonSecurity']);
+                $params = array (':title' => $form['staticFields']['title'], ':short_descr' =>  $form['staticFields']['short_descr'], ':idACL'=>$form['staticFields']['selectCommonSecurity']);
                 $types = array (':title' => \PDO::PARAM_STR, ':short_descr' => \PDO::PARAM_STR, ':idACL' => \PDO::PARAM_INT);
                 $this->db->query ($query, $params, $types);
-                $idRID = $this->db->handler()->lastInsertId();
-                $this->applyChangeToDynamicField($idRID, $modifiedForm);
+                $idRID = $form['staticFields']['r_id'] = $this->db->handler()->lastInsertId();
+                $modifiedForm = $this->applyChangeToDynamicField($idRID, $modifiedForm);
             } else {
-                $idRID = $staticData['r_id'];
-                $params = array (':title' => $staticData['title'], ':short_descr' =>  $staticData['short_descr'], ':idACL'=>$staticData['selectCommonSecurity'],':id'=>$idRID);
+                $idRID = $form['staticFields']['r_id'];
+                $params = array (':title' => $form['staticFields']['title'], ':short_descr' =>  $form['staticFields']['short_descr'], ':idACL'=>$form['staticFields']['selectCommonSecurity'],':id'=>$idRID);
                 $types = array (':title' => \PDO::PARAM_STR, ':short_descr' => \PDO::PARAM_STR, ':idACL' => \PDO::PARAM_INT, ':id' => \PDO::PARAM_INT);
                 $query = "UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE id=:id";
                 $this->db->query ($query, $params, $types);
-                $this->applyChangeToDynamicField($idRID, $modifiedForm);
+                $modifiedForm = $this->applyChangeToDynamicField($idRID, $modifiedForm);
             }
+            return array ('form'=>$form, 'modifiedForm' => $modifiedForm);
         }
 
         private function applyChangeToDynamicField ($idRID, $modifiedForm) {
-            $modifiedForm = (array) $modifiedForm;
-            //print_r($modifiedForm);
-            //exit;
-              foreach ($modifiedForm as $titleTypeOfConcreteField=>$concreteTypeOfField ) {
-                foreach ($concreteTypeOfField as $operation => $concreteTypeOfFieldData) {
+            foreach ($modifiedForm as $titleTypeOfConcreteField=>&$concreteTypeOfField ) {
+                foreach ($concreteTypeOfField as $operation => &$concreteTypeOfFieldData) {
                     $method = 'applyChangeToDynamicField'.ucfirst($titleTypeOfConcreteField).ucfirst($operation);
                     if (method_exists($this, $method)!==false) {
-                        $this->$method($idRID, $concreteTypeOfFieldData);
+                        $concreteTypeOfFieldData = $this->$method($idRID, $concreteTypeOfFieldData);
                     }
                 }
             }
+            return $modifiedForm;
         }
 
         private function applyChangeToDynamicFieldSelectBranchUpdate ($idRID, $data) {
@@ -64,22 +64,24 @@
         private function applyChangeToDynamicFieldSelectBranchAdd ($idRID, $data) {
             $query = "INSERT INTO `Branch_RID`(`idRID`, `idBranch`) VALUES (:idRID,:idBranch)";
             $types = array (':idRID' => \PDO::PARAM_INT, ':idBranch' => \PDO::PARAM_INT);
-            foreach ($data as $item)  {
+            foreach ($data as &$item)  {
                 if (!$item) {
                     continue;
                 }
                  if (property_exists($item, 'value')==true) {
                     $sch = 0;
-                    foreach ($item->value as $v) {
+                    foreach ($item->value as &$v) {
                         if (!$v->value) {
                            $v->value = null;
                         }
                         $params = array (':idRID' => $idRID, ':idBranch' => $v->value);
                         $this->db->query ($query, $params , $types);
+                        $v->id = $this->db->handler()->lastInsertId();
                     }
 
                 }
             } 
+            return $data;
         }
 
         private function applyChangeToDynamicFieldSelectionInheritableRemove ($idRID, $data) {
@@ -95,15 +97,17 @@
         }
 
         private function applyChangeToDynamicFieldSelectionInheritableAdd ($idRID, $data) {
-           $query = "INSERT INTO `inheritableRID`(`idRID`, `idInheritableRID`) VALUES (:idRID,:idInheritableRID)";
+            $query = "INSERT INTO `inheritableRID`(`idRID`, `idInheritableRID`) VALUES (:idRID,:idInheritableRID)";
             $types = array (':idRID' => \PDO::PARAM_INT, ':idInheritableRID' => \PDO::PARAM_INT);
-            foreach ($data as $item)  {
+            foreach ($data as &$item)  {
                 if (!$item) {
                     continue;
                 }
                 $params = array (':idRID' => $idRID, ':idInheritableRID' => $item->idLinkRid);
                 $this->db->query ($query, $params , $types);
+                $item->id = $this->db->handler()->lastInsertId();
             } 
+            return $data;
         }
 
         private function applyChangeToDynamicFieldSelectionRelatedRemove ($idRID, $data) {
@@ -121,13 +125,15 @@
         private function applyChangeToDynamicFieldSelectionRelatedAdd ($idRID, $data) {
             $query = "INSERT INTO `RelativeRID`(`idRID`, `idRelativeRID`) VALUES (:idRID,:idRelativeRID)";
             $types = array (':idRID' => \PDO::PARAM_INT, ':idRelativeRID' => \PDO::PARAM_INT);
-            foreach ($data as $item)  {
+            foreach ($data as &$item)  {
                 if (!$item) {
                     continue;
                 }
                 $params = array (':idRID' => $idRID, ':idRelativeRID' => $item->idLinkRid);
                 $this->db->query ($query, $params , $types);
+                $item->id = $this->db->handler()->lastInsertId();
             } 
+            return $data;
         }
 
         private function applyChangeToDynamicFieldAddFieldRemove ($idRID, $data) {
@@ -137,7 +143,6 @@
                 if (!$item) {
                     continue;
                 }
-                Logger::getLogger('BranchAdd','345.txt')->log(print_r($item, true));
                 $paramsFieldRIDDelete = array (':id' => $item->id);
                 $this->db->query ($queryFieldRIDDelete, $paramsFieldRIDDelete , $typesFieldRIDDelete);
             } 
@@ -164,7 +169,7 @@
             $typesTitleFieldRID_Units = array (':idTitleFieldRID' => \PDO::PARAM_INT, ':idUnits' => \PDO::PARAM_INT);
 
             // для типа файл или текст: idTypeValueFieldRID = null (значение, диапазон значений), idUnits = null
-            foreach ($data as $item)  {
+            foreach ($data as &$item)  {
                 if (!$item) {
                     continue;
                 }
@@ -178,7 +183,7 @@
                         $paramsUnits = array (':title' => $item->unitsOfField->u_title);
                         $this->db->query ($queryUnits, $paramsUnits, $typesUnits);
                         $linkTitleFieldRIDUnitsField = true;
- 						$idUnits = $this->db->handler()->lastInsertId();
+ 						$item->unitsOfField->u_id = $idUnits = $this->db->handler()->lastInsertId();
                     } else {
                         $idUnits = $item->unitsOfField->u_id;
                     }
@@ -193,7 +198,7 @@
                      if (property_exists ($item->nameOfField,'new_record')&&$item->nameOfField->new_record) {
                         $paramsTitleFieldRID = array (':title' => $item->nameOfField->title);
                         $this->db->query ($queryTitleFieldRID, $paramsTitleFieldRID, $typesTitleFieldRID);
-						$idTitleFieldRID = $this->db->handler()->lastInsertId();
+						$item->nameOfField->id = $idTitleFieldRID = $this->db->handler()->lastInsertId();
                      } else {
                         $idTitleFieldRID =  $item->nameOfField->id;
                      }
@@ -210,16 +215,19 @@
                 $idACL = $item->idACL;
                 $paramsFieldRID = array (':idTypeFieldRID' => $idTypeFieldRID, ':idUnits' => $idUnits, ':idTypeValueFieldRID' => $idTypeValueFieldRID, ':idTitleFieldRID' => $idTitleFieldRID, ':idACL' => $idACL, ':idRID' => $idRID);
                 $this->db->query ($queryFieldRID, $paramsFieldRID, $typesFieldRID);
-                $idFieldRID = $this->db->handler()->lastInsertId();
+                $item->id = $idFieldRID = $this->db->handler()->lastInsertId();
                 if (property_exists($item, 'value')==true) {
                     $sch = 0;
-                    foreach ($item->value as $v) {
+                    foreach ($item->value as &$v) {
                         $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $v->value, ':ord' => ++$sch);
                         $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
+                        $v->valueId = $this->db->handler()->lastInsertId();
                     }
 
                 }
             }
+
+            return $data;
         }
 
         private function applyChangeToDynamicFieldAddFieldUpdate ($idRID, $data) {
@@ -251,20 +259,23 @@
         private function applyChangeToDynamicFieldUsersAdd ($idRID, $data) {
             $queryUser_RIDAdd = "INSERT INTO `User_RID`(`emailUser`, `idRID`, `idACL`) VALUES (:emailUser,:idRID,:idACL)"; 
             $typesUser_RIDAdd = array (':emailUser' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_INT, ':idACL' => \PDO::PARAM_INT);
-            foreach ($data as $item)  {
+            foreach ($data as &$item)  {
                 if (!$item) {
                     continue;
                 }
                 $paramsUser_RIDAdd = array (':emailUser' => $item->email, ':idRID' => $idRID, ':idACL' => $item->idACL);
                 $this->db->query ($queryUser_RIDAdd, $paramsUser_RIDAdd , $typesUser_RIDAdd);
-            }   
+                $item->id = $this->db->handler()->lastInsertId();
+            } 
+            return $data;  
         }
 
         public function operation ($operation, $params) {
                 switch ($operation) {
                     case 'saveRID':
-                         // $this->db->transaction(array($this, 'saveRID'),$params);
-                            $this->saveRID($params);
+                         $params = $this->db->transaction(array($this, 'saveRID'),$params);
+                          //  $this->saveRID($params);
+                         $ret = $params['form']['staticFields']['r_id'];
                     break;
                     case 'saveTemplateRID':
                         $this->saveTemplateRID($params);
@@ -275,11 +286,12 @@
                 }
                 
                 if (method_exists($this->communicator, 'send')===true) {
-                     $this->communicator->connect();
-                     $params = $this->fltrs_secret_params($params);
+                    // $this->communicator->connect();
+                     //$params = $this->fltrs_secret_params($params);
                      Logger::getLogger('DbRIDModified','queues.txt')->log('Отправка сообщения в очередь: '.print_r($params, true));
-                     $this->communicator->send(array('msgBody' => base64_encode(serialize($params)), 'routingKey' => 'addRID'));  
+                    // $this->communicator->send(array('msgBody' => base64_encode(serialize($params)), 'routingKey' => 'addRID'));  
                 } 
+                return $ret;
         }
 
         private function fltrs_secret_params ($params) {

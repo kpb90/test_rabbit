@@ -147,7 +147,9 @@ appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
             }
             fd.append('form', JSON.stringify($scope.form));
             fd.append('modifiedForm', JSON.stringify($scope.modifiedForm));
+            console.log ("modifiedForm");
             console.log ($scope.modifiedForm);
+            console.log ("form");
             console.log ($scope.form);
             if ($("input[type='file']")) {
                 var files = $("input[type='file']");//.files[0];
@@ -161,7 +163,7 @@ appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
                          headers: {'Content-Type': undefined },
                          transformRequest: angular.identity
             }).success(function (data,status) {
-                console.log (data);
+                $scope.form.staticFields.r_id = data;
                  $scope.getConcreteRID($scope.form.staticFields.r_id);
                 if (data.indexOf ('Memory') > -1) {
                     $('.error').html(data);

@@ -28,7 +28,7 @@
 								}
 							break;
 							case 'saveRID':
-			 					$dbRIDModified->operation ('saveRID', $request);
+			 					echo $dbRIDModified->operation ('saveRID', $request);
 							break;
 							
 							case 'saveTemplateRID':

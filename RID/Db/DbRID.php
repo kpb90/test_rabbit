@@ -114,10 +114,11 @@
 	    {
 	        try {
 	            $this->handler()->beginTransaction();
-	            call_user_func_array($process, $params);
+	            $data = call_user_func_array($process, array(serialize($params)));
 	            $this->handler()->commit();
-	            return true;
+	            return $data;
 	        } catch (\PDOException $e) {
+	        	Logger::getLogger('DbRid','errorDbRid.txt')->log(print_r($e, true));
 	            $this->handler()->rollBack();
 	            return false;
 	        }
