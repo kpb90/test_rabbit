@@ -38,8 +38,8 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
         return arr;
     }
     $scope.form = {
-        'dynamicFields': {'addField':[],'users':[],'selectionRelated':[],'selectionInheritable':[]},
-        'staticFields': {'selectCommonSecurity':1,'r_id':null}
+        'dynamicFields': {'addField':[],'users':[],'selectionRelated':[],'selectionInheritable':[],'selectBranch':[]},
+        'staticFields': {'selectCommonSecurity':1,'r_id':null,'short_descr':''}
     };
     
     $scope.init_form = angular.copy($scope.form);
@@ -112,7 +112,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
                 i--;
             }
 
-            for (var j = 0; j < destination[key].length; j++) {
+            for (var j in destination[key]) {
                 $scope.modifiedForm[key].add.push(destination[key][j]);
             }
         }
@@ -143,41 +143,40 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 
 appControllers.controller('RIDFormCtrl', function($scope, $http, helper) {
     $scope.saveModelForm = function (addRidForm) {
-        if (!addRidForm.$valid) {
-            return;
-        }
-
-        $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
-                 // console.log ($scope.init_form.dynamicFields);
-        
-        var fd = new FormData();
-        
-        if ($scope.form.staticFields.r_id==null) {
-            $scope.form.staticFields.r_id = helper.guid();
-            $scope.form.staticFields.new_record = true;
-        }
-        fd.append('form', JSON.stringify($scope.form));
-        fd.append('modifiedForm', JSON.stringify($scope.modifiedForm));
-        console.log ($scope.modifiedForm);
-        if ($("input[type='file']")) {
-            var files = $("input[type='file']");//.files[0];
-            for (var i = 0; i < files.length; i++) {
-                fd.append("uploadfile[]", files[i].files[0]);
+        if (addRidForm.$valid) {
+            $scope.differenceDynamicFields($scope.init_form.dynamicFields, $scope.form.dynamicFields);
+                     // console.log ($scope.init_form.dynamicFields);
+            
+            var fd = new FormData();
+            
+            if ($scope.form.staticFields.r_id==null) {
+                $scope.form.staticFields.r_id = helper.guid();
+                $scope.form.staticFields.new_record = true;
             }
-        }
+            fd.append('form', JSON.stringify($scope.form));
+            fd.append('modifiedForm', JSON.stringify($scope.modifiedForm));
+            console.log ($scope.modifiedForm);
+            console.log ($scope.form);
+            if ($("input[type='file']")) {
+                var files = $("input[type='file']");//.files[0];
+                for (var i = 0; i < files.length; i++) {
+                    fd.append("uploadfile[]", files[i].files[0]);
+                }
+            }
 
-        $http.post('index.php?module=addRID&task=saveRID', fd, {
-                     withCredentials: true,
-                     headers: {'Content-Type': undefined },
-                     transformRequest: angular.identity
-        }).success(function (data,status) {
-            console.log (data);
-            $scope.init_form = angular.copy($scope.form);
-            $scope.initModifiedForm ();
-        }).error(function (data,status){
-            console.log (data);
-            console.log ('Ошибка соедениения с сервером при обновлении');
-        });
+            $http.post('index.php?module=addRID&task=saveRID', fd, {
+                         withCredentials: true,
+                         headers: {'Content-Type': undefined },
+                         transformRequest: angular.identity
+            }).success(function (data,status) {
+                console.log (data);
+                $scope.init_form = angular.copy($scope.form);
+                $scope.initModifiedForm ();
+            }).error(function (data,status){
+                console.log (data);
+                console.log ('Ошибка соедениения с сервером при обновлении');
+            });
+        }
     }
 
     $scope.saveTemplateForm = function () {

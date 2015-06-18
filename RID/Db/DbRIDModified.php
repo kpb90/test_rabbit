@@ -14,7 +14,7 @@
             
         }
 
-		private function saveRID ($params) {
+		public function saveRID ($params) {
 			$form = json_decode($params['form'], true);
 			$staticData = $form['staticFields'];
 			$modifiedForm = json_decode($params['modifiedForm']);
@@ -49,7 +49,7 @@
 		}
 
         private function applyChangeToDynamicFieldSelectBranchUpdate ($idRID, $data) {
-            $query = "UPDATE `branch_rid` SET `idRID`=:idRID,`idBranch`=:idBranch WHERE  `id`=:id";
+            $query = "UPDATE `Branch_RID` SET `idRID`=:idRID,`idBranch`=:idBranch WHERE  `id`=:id";
             $types = array (':id' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_STR, ':idBranch' => \PDO::PARAM_STR);
             foreach ($data as $item)  {
                 if (!$item) {
@@ -61,17 +61,24 @@
         }
 
         private function applyChangeToDynamicFieldSelectBranchAdd ($idRID, $data) {
-            $query = "INSERT INTO `branch_rid`(`id`, `idRID`, `idBranch`) VALUES (:id,:idRID,:idBranch)";
+            $query = "INSERT INTO `Branch_RID`(`id`, `idRID`, `idBranch`) VALUES (:id,:idRID,:idBranch)";
             $types = array (':id' => \PDO::PARAM_STR, ':idRID' => \PDO::PARAM_STR, ':idBranch' => \PDO::PARAM_STR);
             foreach ($data as $item)  {
                 if (!$item) {
                     continue;
                 }
-                if (!$item->value[0]->value) {
-                    $item->value[0]->value = null;
+                Logger::getLogger('BranchAdd','345.txt')->log(print_r($item, true));
+                 if (property_exists($item, 'value')==true) {
+                    $sch = 0;
+                    foreach ($item->value as $v) {
+                        if (!$v->value) {
+                           $v->value = null;
+                        }
+                        $params = array (':id' => $item->id, ':idRID' => $idRID, ':idBranch' => $v->value);
+                        $this->db->query ($query, $params , $types);
+                    }
+
                 }
-                $params = array (':id' => $item->id, ':idRID' => $idRID, ':idBranch' => $item->value[0]->value);
-                $this->db->query ($query, $params , $types);
             } 
         }
 
@@ -262,7 +269,7 @@
 		public function operation ($operation, $params) {
 				switch ($operation) {
 					case 'saveRID':
-						$this->saveRID($params);
+						  $this->db->transaction(array($this, 'saveRID'),$params);
 					break;
                     case 'saveTemplateRID':
                         $this->saveTemplateRID($params);

@@ -109,5 +109,18 @@
 	       //Logger::info("db: " . $sql);
 	        Logger::getLogger('DbRid','DbRid.txt')->log($sql."\r\n".($context ? print_r($context, true) : ''));
 	    }
+
+	    public function transaction($process, $params = array())
+	    {
+	        try {
+	            $this->handler()->beginTransaction();
+	            call_user_func_array($process, $params);
+	            $this->handler()->commit();
+	            return true;
+	        } catch (\PDOException $e) {
+	            $this->handler()->rollBack();
+	            return false;
+	        }
+	    }
 	}
 ?>
