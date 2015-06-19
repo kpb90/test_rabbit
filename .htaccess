@@ -1,3 +1,4 @@
+allow from all
 php_value allow_call_time_pass_reference true
 php_value display_errors on
 

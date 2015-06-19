@@ -27,6 +27,18 @@
 	        return $result;
 	    }
 
+	    public function fetchAllInArray ($sql, $column, $params, $addCondition = '', $addParam = '') {
+	    	$qMarks = str_repeat('?,', count($params) - 1) . '?';
+			$stmt = $this->handler()->prepare($sql." WHERE {$column} IN ($qMarks) ".$addCondition);
+			if ($addParam) {
+				$params[] = $addParam;
+			}
+			$stmt->execute($params);
+			$result = $stmt->fetchAll(\PDO::FETCH_COLUMN);
+	        $this->log("ok");
+	        return $result;
+	    }
+
 	    public function getDataGroupByRID ($sql, $params) {
 	    	$result = array ('dynamicFields'=>array(	
 													'addField' => array(),
@@ -116,11 +128,11 @@
 	            $this->handler()->beginTransaction();
 	            $data = call_user_func_array($process, array(serialize($params)));
 	            $this->handler()->commit();
-	            return $data;
+	            return array ('response'=>$data);
 	        } catch (\PDOException $e) {
 	        	Logger::getLogger('DbRid','errorDbRid.txt')->log(print_r($e, true));
 	            $this->handler()->rollBack();
-	            return false;
+	            return array ('response'=>false, 'error'=>$e);
 	        }
 	    }
 	}

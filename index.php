@@ -18,7 +18,7 @@ var_dump($_FILES);
   $dbRID = new Db\DbRID;
  $router = new Router\Router($dbRID, $senderData);
  if ($_REQUEST) {
-	$router->listen_request ($_REQUEST);
+	echo $router->listen_request ($_REQUEST);
  } else {
  	echo  '<html>
 			<head lang="en">
