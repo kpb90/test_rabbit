@@ -24,7 +24,7 @@
             $unserialize_msg_body = unserialize(base64_decode($msg->body));
             Logger::getLogger('queues','queues.txt')->log('Получение сообщения из очереди '.print_r($unserialize_msg_body, true));
             $processFlag = call_user_func($this->callback, $unserialize_msg_body, $this->numConsumer);
-            if ($processFlag == false) {
+            if ($processFlag === false) {
                  Logger::getLogger('error_queues','error_queues.txt')->log("Не удалось обработать сообщение:\n".print_r($unserialize_msg_body, true)."\n=====================");
             } else {
                 $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);

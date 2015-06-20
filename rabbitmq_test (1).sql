@@ -240,6 +240,7 @@ CREATE TABLE IF NOT EXISTS `TemplateFieldRID` (
 CREATE TABLE IF NOT EXISTS `TitleFieldRID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
+  `own` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
@@ -247,19 +248,19 @@ CREATE TABLE IF NOT EXISTS `TitleFieldRID` (
 -- Дамп данных таблицы `TitleFieldRID`
 --
 
-INSERT INTO `TitleFieldRID` (`id`, `title`) VALUES
-(1, 'Вязкость'),
-(2, 'Вес'),
-(3, 'Объем'),
-(4, 'ляляля'),
-(5, 'дециметры'),
-(6, 'Тяжесть 2'),
-(7, 'czxczxc'),
-(8, 'mmm'),
-(9, 'mmmm'),
-(10, 'fmlsdmfl'),
-(11, 'лля'),
-(12, 'аыва');
+INSERT INTO `TitleFieldRID` (`id`, `title`, `own`) VALUES
+(1, 'Вязкость', 0),
+(2, 'Вес', 0),
+(3, 'Объем', 0),
+(4, 'ляляля', 0),
+(5, 'дециметры', 0),
+(6, 'Тяжесть 2', 0),
+(7, 'czxczxc', 0),
+(8, 'mmm', 0),
+(9, 'mmmm', 0),
+(10, 'fmlsdmfl', 0),
+(11, 'лля', 0),
+(12, 'аыва', 0);
 
 -- --------------------------------------------------------
 
@@ -343,6 +344,7 @@ INSERT INTO `TypeValueFieldRID` (`id`, `key`, `value`) VALUES
 CREATE TABLE IF NOT EXISTS `Units` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
+  `own` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
@@ -350,15 +352,15 @@ CREATE TABLE IF NOT EXISTS `Units` (
 -- Дамп данных таблицы `Units`
 --
 
-INSERT INTO `Units` (`id`, `title`) VALUES
-(1, 'м3'),
-(2, 'см3'),
-(3, 'кг'),
-(4, 'граммы'),
-(5, 'милиграммы'),
-(6, 'ляляля'),
-(7, 'дециметры'),
-(8, 'чопапало');
+INSERT INTO `Units` (`id`, `title`, `own`) VALUES
+(1, 'м3', 0),
+(2, 'см3', 0),
+(3, 'кг', 0),
+(4, 'граммы', 0),
+(5, 'милиграммы', 0),
+(6, 'ляляля', 0),
+(7, 'дециметры', 0),
+(8, 'чопапало', 0);
 
 -- --------------------------------------------------------
 

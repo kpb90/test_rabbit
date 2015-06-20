@@ -47,11 +47,11 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 
     $scope.initModifiedForm = function  () {
         return {
-                'addField':{'remove':[],'update':[],'add':[]},
-                'users':{'remove':[],'update':[],'add':[]},
-                'selectionRelated':{'remove':[],'update':[],'add':[]},
-                'selectionInheritable':{'remove':[],'update':[],'add':[]},
-                'selectBranch':{'remove':[],'update':[],'add':[]}
+                'addField':{'remove':{},'update':{},'add':{}},
+                'users':{'remove':{},'update':{},'add':{}},
+                'selectionRelated':{'remove':{},'update':{},'add':{}},
+                'selectionInheritable':{'remove':{},'update':{},'add':{}},
+                'selectBranch':{'remove':{},'update':{},'add':{}}
             };
     }
 
@@ -90,7 +90,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
                 for (var j in destination[key]) {
                     if (source[key][i].id==destination[key][j].id) {
                         if (compareObj(source[key][i],destination[key][j])===false) {
-                            $scope.modifiedForm[key].update.push(destination[key][j]);
+                            $scope.modifiedForm[key].update[j] = destination[key][j];
                         }
                         delete destination[key][j];
                         founded = true;
@@ -98,14 +98,14 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
                     }
                 }
                 if (founded == false) {
-                    $scope.modifiedForm[key].remove.push(source[key][i]);
+                    $scope.modifiedForm[key].remove[i] = source[key][i];
                 }
                 delete source[key][i];
                 i--;
             }
 
             for (var j in destination[key]) {
-                $scope.modifiedForm[key].add.push(destination[key][j]);
+                $scope.modifiedForm[key].add[j] = destination[key][j];
             }
         }
     }

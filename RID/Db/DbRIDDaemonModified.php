@@ -18,7 +18,7 @@
                 if (!$item) {
                     continue;
                 }
-                $idsPrivate[] = $item->id;
+                $idsPrivate[] = $item['id'];
             }    
             return  $idsPrivate;     
         }
@@ -38,6 +38,21 @@
                 }
             }
             Logger::getLogger('DbRIDDaemon','remove.txt')->log("{$table} ids:".print_r($ids, true));
+        }
+
+        public function removeRID ($params) {
+            $params = unserialize($params);
+            $idRidPrivate = $params['idRID'];
+            $idRID = $this->db->fetchOne ("SELECT id FROM RID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$idRidPrivate,':idPublisher'=>$this->idPublisher));
+
+            $queryRIDDelete = "DELETE FROM `RID` WHERE id = :id";
+            $typesRIDDelete = array (':id' => \PDO::PARAM_INT);
+            $paramsRIDDelete = array (':id' => $idRID);
+            $this->db->query ($queryRIDDelete, $paramsRIDDelete,  $typesRIDDelete);
+
+
+            Logger::getLogger('DbRIDDaemon','remove.txt')->log("remove RID:". print_r($params, true));
+            return true;
         }
 
         public function saveRID ($params) {
@@ -72,7 +87,7 @@
                 if (!$item) {
                     continue;
                 }
-                $params = array (':idPrivate' => $item->id, ':idPublisher' => $this->idPublisher, ':idRID' => $idRID, ':idBranch' => $item->value[0]->value);
+                $params = array (':idPrivate' => $item['id'], ':idPublisher' => $this->idPublisher, ':idRID' => $idRID, ':idBranch' => $item['value'][0]['value']);
                 $this->db->query ($query, $params , $types);
             } 
             return $data;
@@ -85,15 +100,15 @@
                 if (!$item) {
                     continue;
                 }
-                 if (property_exists($item, 'value')==true) {
+                 if (array_key_exists('value', $item)==true) {
                     $sch = 0;
-                    foreach ($item->value as &$v) {
-                        if (!$v->value) {
-                           $v->value = null;
+                    foreach ($item['value'] as &$v) {
+                        if (!$v['value']) {
+                           $v['value'] = null;
                         }
-                        $params = array (':idRID' => $idRID, ':idBranch' => $v->value, ':idPrivate' => $v->id, ':idPublisher' => $this->idPublisher);
+                        $params = array (':idRID' => $idRID, ':idBranch' => $v['value'], ':idPrivate' => $item['id'], ':idPublisher' => $this->idPublisher);
                         $this->db->query ($query, $params , $types);
-                        $v->id = $this->db->handler()->lastInsertId();
+                        $v['id'] = $this->db->handler()->lastInsertId();
                     }
 
                 }
@@ -112,8 +127,8 @@
                 if (!$item) {
                     continue;
                 }
-                $idLinkRid = $this->db->fetchOne ("SELECT id FROM RID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$item->idLinkRid,':idPublisher'=>$this->idPublisher));
-                $params = array (':idRID' => $idRID, ':idInheritableRID' => $idLinkRid, ':idPrivate' => $item->id, ':idPublisher' => $this->idPublisher);
+                $idLinkRid = $this->db->fetchOne ("SELECT id FROM RID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$item['idLinkRid'],':idPublisher'=>$this->idPublisher));
+                $params = array (':idRID' => $idRID, ':idInheritableRID' => $idLinkRid, ':idPrivate' => $item['id'], ':idPublisher' => $this->idPublisher);
                 $this->db->query ($query, $params , $types);
             } 
             return $data;
@@ -130,8 +145,8 @@
                 if (!$item) {
                     continue;
                 }
-                $idLinkRid = $this->db->fetchOne ("SELECT id FROM RID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$item->idLinkRid,':idPublisher'=>$this->idPublisher));
-                $params = array (':idRID' => $idRID, ':idRelativeRID' =>$idLinkRid, ':idPrivate' => $item->id, ':idPublisher' => $this->idPublisher);
+                $idLinkRid = $this->db->fetchOne ("SELECT id FROM RID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$item['idLinkRid'],':idPublisher'=>$this->idPublisher));
+                $params = array (':idRID' => $idRID, ':idRelativeRID' =>$idLinkRid, ':idPrivate' => $item['id'], ':idPublisher' => $this->idPublisher);
                 $this->db->query ($query, $params , $types);
             } 
             return $data;
@@ -153,11 +168,11 @@
                                     (:idPrivate, :idPublisher, :idFieldRID, :value, :ord)";
             $typesValueFieldRID = array (':idPrivate' => \PDO::PARAM_INT, ':idPublisher' => \PDO::PARAM_INT, ':idFieldRID' => \PDO::PARAM_INT, ':value' => \PDO::PARAM_STR, ':ord' => \PDO::PARAM_INT);
 
-            $queryUnits = "INSERT INTO `Units`(`idPrivate`, `idPublisher`, `title`) VALUES (:idPrivate, :idPublisher, :title)";
-            $typesUnits = array (':idPrivate' => \PDO::PARAM_INT, ':idPublisher' => \PDO::PARAM_INT, ':title' => \PDO::PARAM_STR);
+            $queryUnits = "INSERT INTO `Units`(`idPrivate`, `idPublisher`, `title`, `own`) VALUES (:idPrivate, :idPublisher, :title, :own)";
+            $typesUnits = array (':idPrivate' => \PDO::PARAM_INT, ':idPublisher' => \PDO::PARAM_INT, ':title' => \PDO::PARAM_STR, ':own' => \PDO::PARAM_INT);
             
-            $queryTitleFieldRID = "INSERT INTO `TitleFieldRID`(`idPrivate`, `idPublisher`, `title`) VALUES (:idPrivate, :idPublisher, :title)"; 
-            $typesTitleFieldRID = array (':idPrivate' => \PDO::PARAM_INT, ':idPublisher' => \PDO::PARAM_INT, ':title' => \PDO::PARAM_STR);
+            $queryTitleFieldRID = "INSERT INTO `TitleFieldRID`(`idPrivate`, `idPublisher`, `title`,`own`) VALUES (:idPrivate, :idPublisher, :title, :own)"; 
+            $typesTitleFieldRID = array (':idPrivate' => \PDO::PARAM_INT, ':idPublisher' => \PDO::PARAM_INT, ':title' => \PDO::PARAM_STR, ':own' => \PDO::PARAM_INT);
 
             $queryTitleFieldRID_Units = "INSERT INTO `TitleFieldRID_Units`(`idPublisher`, `idTitleFieldRID`, `idUnits`) VALUES (:idPublisher, :idTitleFieldRID,:idUnits)"; 
             $typesTitleFieldRID_Units = array (':idPublisher' => \PDO::PARAM_INT, ':idTitleFieldRID' => \PDO::PARAM_INT, ':idUnits' => \PDO::PARAM_INT);
@@ -169,38 +184,51 @@
                 }
                 $linkTitleFieldRIDUnitsField = false;
                 // тип поля: строка, файл, текст
-                $idTypeFieldRID = is_object($item->selectTypeOfField)===true ? $idTypeFieldRID = $item->selectTypeOfField->id : 0;
+                $idTypeFieldRID = is_array($item['selectTypeOfField'])===true ? $idTypeFieldRID = $item['selectTypeOfField']['id'] : 0;
                 
                 // единицы измерения:см, кг
-                $idUnitsPrivate = $item->unitsOfField->u_id;
-                if (is_object($item->unitsOfField)===true) {
-                    if (property_exists ($item->unitsOfField,'new_record')&&$item->unitsOfField->new_record) {
-                        $paramsUnits = array (':idPrivate' => $idUnitsPrivate, ':idPublisher' => $this->idPublisher, ':title' => $item->unitsOfField->u_title);
+                $idUnitsPrivate = $item['unitsOfField']['u_id'];
+                $idUnits = null;
+                //if (is_array($item['unitsOfField'])===true&&$item['unitsOfField']['u_title']) {
+                if (is_array($item['unitsOfField'])===true) {
+                    // если запись была добавлена на приватном сервере
+                    if (array_key_exists('own', $item['unitsOfField'])) {
+                        if ($item['unitsOfField']['own']) {
+                            $idUnits = $this->db->fetchOne ("SELECT id FROM Units WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$idUnitsPrivate,':idPublisher'=>$this->idPublisher));
+                        } else {
+                            $idUnits = $idUnitsPrivate;
+                        }    
+                    }
+                    
+                    if (!$idUnits) {
+                        $paramsUnits = array (':idPrivate' => $idUnitsPrivate, ':idPublisher' => $this->idPublisher, ':title' => $item['unitsOfField']['u_title'], ':own'=>0);
                         $this->db->query ($queryUnits, $paramsUnits, $typesUnits);
                         $linkTitleFieldRIDUnitsField = true;
  						$idUnits = $this->db->handler()->lastInsertId();
-                    } else {
-                        $idUnits = $this->db->fetchOne ("SELECT id FROM Units WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$idUnitsPrivate,':idPublisher'=>$this->idPublisher));
-                    }
-                } else {
-                    $idUnits = null;
+                    } 
                 }
 
-                $idTypeValueFieldRID = $item->viewOfField ? $item->viewOfField : null;
+                $idTypeValueFieldRID = $item['viewOfField'] ? $item['viewOfField'] : null;
 
                 // Название поля: вязкость, вес
-                $idTitleFieldRIDPrivate = $item->nameOfField->id;
-                if (is_object($item->nameOfField)===true) {
-                     if (property_exists ($item->nameOfField,'new_record')&&$item->nameOfField->new_record) {
-                        $paramsTitleFieldRID = array (':idPrivate' => $idTitleFieldRIDPrivate, ':idPublisher' => $this->idPublisher,':title' => $item->nameOfField->title);
+                $idTitleFieldRIDPrivate = $item['nameOfField']['id'];
+                $idTitleFieldRID = null;
+                if (is_array($item['nameOfField'])===true) {
+                    // если запись была добавлена на приватном сервере
+                    if (array_key_exists('own', $item['nameOfField'])) {
+                        if ($item['nameOfField']['own']) {
+                            $idTitleFieldRID = $this->db->fetchOne ("SELECT id FROM TitleFieldRID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$idTitleFieldRIDPrivate,':idPublisher'=>$this->idPublisher));
+                        } else {
+                            $idTitleFieldRID = $idTitleFieldRIDPrivate;
+                        }
+                    }
+
+                    if (!$idTitleFieldRID) {
+                        $paramsTitleFieldRID = array (':idPrivate' => $idTitleFieldRIDPrivate, ':idPublisher' => $this->idPublisher,':title' => $item['nameOfField']['title'], ':own'=>0);
                         $this->db->query ($queryTitleFieldRID, $paramsTitleFieldRID, $typesTitleFieldRID);
 						$idTitleFieldRID = $this->db->handler()->lastInsertId();
-                     } else {
-                        $idTitleFieldRID = $this->db->fetchOne ("SELECT id FROM TitleFieldRID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$idTitleFieldRIDPrivate,':idPublisher'=>$this->idPublisher));
-                     }
-                } else {
-                    $idTitleFieldRID = null;
-                }
+                    }
+                } 
 
                 // создаем новую связь название поля -> единицы измерения
                 if ($linkTitleFieldRIDUnitsField===true) {
@@ -208,16 +236,16 @@
                     $this->db->query ($queryTitleFieldRID_Units, $paramsTitleFieldRID_Units, $typesTitleFieldRID_Units);
                 }
 
-                $idACL = $item->idACL;
-                $idFieldRIDPrivate = $item->id;
+                $idACL = $item['idACL'];
+                $idFieldRIDPrivate = $item['id'];
                 $paramsFieldRID = array (':idPrivate' => $idFieldRIDPrivate, ':idPublisher' => $this->idPublisher,':idTypeFieldRID' => $idTypeFieldRID, ':idUnits' => $idUnits, ':idTypeValueFieldRID' => $idTypeValueFieldRID, ':idTitleFieldRID' => $idTitleFieldRID, ':idACL' => $idACL, ':idRID' => $idRID);
                 $this->db->query ($queryFieldRID, $paramsFieldRID, $typesFieldRID);
                 $idFieldRID = $this->db->handler()->lastInsertId();
-                if (property_exists($item, 'value')==true) {
+                if (array_key_exists('value', $item)==true) {
                     $sch = 0;
-                    foreach ($item->value as &$v) {
-                        $idValuePrivate = $v->valueId;
-                        $paramsValueFieldRID = array (':idPrivate' => $idValuePrivate, ':idPublisher' => $this->idPublisher, ':idFieldRID' => $idFieldRID, ':value' => $v->value, ':ord' => ++$sch);
+                    foreach ($item['value'] as &$v) {
+                        $idValuePrivate = $v['valueId'];
+                        $paramsValueFieldRID = array (':idPrivate' => $idValuePrivate, ':idPublisher' => $this->idPublisher, ':idFieldRID' => $idFieldRID, ':value' => $v['value'], ':ord' => ++$sch);
                         $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
                     }
                 }
@@ -232,8 +260,8 @@
                 if (!$item) {
                     continue;
                 }
-                foreach ($item->value as $key => $value) {
-                    $paramsValueFieldRIDUpdate = array (':value' => $value->value, ':idPrivate' => $value->valueId, ':idPublisher' => $this->idPublisher);
+                foreach ($item['value'] as $key => $value) {
+                    $paramsValueFieldRIDUpdate = array (':value' => $value['value'], ':idPrivate' => $value['valueId'], ':idPublisher' => $this->idPublisher);
                     $this->db->query ($queryValueFieldRIDUpdate, $paramsValueFieldRIDUpdate , $typesValueFieldRIDUpdate);
                 }
             }   
@@ -251,7 +279,7 @@
                 if (!$item) {
                     continue;
                 }
-                $paramsUser_RIDAdd = array (':idPrivate' => $item->id, ':idPublisher' => $this->idPublisher, ':emailUser' => $item->email, ':idRID' => $idRID, ':idACL' => $item->idACL);
+                $paramsUser_RIDAdd = array (':idPrivate' => $item['id'], ':idPublisher' => $this->idPublisher, ':emailUser' => $item['email'], ':idRID' => $idRID, ':idACL' => $item['idACL']);
                 $this->db->query ($queryUser_RIDAdd, $paramsUser_RIDAdd , $typesUser_RIDAdd);
             } 
             return $data;  

@@ -17,7 +17,7 @@
         public function saveRID ($params) {
             $params = unserialize($params);
             $form = json_decode($params['form'], true);
-            $modifiedForm = json_decode($params['modifiedForm']);
+            $modifiedForm = json_decode($params['modifiedForm'], true);
             if (!$form['staticFields']['r_id']) {
                 $queryRID = "INSERT INTO `RID`(`title`, `short_descr`, `idACL`) VALUES (:title,:short_descr,:idACL)";
                 $paramsRID = array (':title' => $form['staticFields']['title'], ':short_descr' =>  $form['staticFields']['short_descr'], ':idACL'=>$form['staticFields']['selectCommonSecurity']);
@@ -43,7 +43,7 @@
                 if (!$item) {
                     continue;
                 }
-                $params = array (':id' => $item->id, ':idRID' => $idRID, ':idBranch' => $item->value[0]->value);
+                $params = array (':id' => $item['id'], ':idRID' => $idRID, ':idBranch' => $item['value'][0]['value']);
                 $this->db->query ($query, $params , $types);
             } 
             return $data;
@@ -56,15 +56,15 @@
                 if (!$item) {
                     continue;
                 }
-                 if (property_exists($item, 'value')==true) {
+                 if (array_key_exists('value', $item)==true) {
                     $sch = 0;
-                    foreach ($item->value as &$v) {
-                        if (!$v->value) {
-                           $v->value = null;
+                    foreach ($item['value'] as &$v) {
+                        if (!$v['value']) {
+                           $v['value'] = null;
                         }
-                        $params = array (':idRID' => $idRID, ':idBranch' => $v->value);
+                        $params = array (':idRID' => $idRID, ':idBranch' => $v['value']);
                         $this->db->query ($query, $params , $types);
-                        $v->id = $this->db->handler()->lastInsertId();
+                        $item['id'] = $this->db->handler()->lastInsertId();
                     }
 
                 }
@@ -79,7 +79,7 @@
                 if (!$item) {
                     continue;
                 }
-                $params = array (':id' => $item->id);
+                $params = array (':id' => $item['id']);
                 $this->db->query ($query, $params , $types);
             } 
             return $data;
@@ -92,9 +92,9 @@
                 if (!$item) {
                     continue;
                 }
-                $params = array (':idRID' => $idRID, ':idInheritableRID' => $item->idLinkRid);
+                $params = array (':idRID' => $idRID, ':idInheritableRID' => $item['idLinkRid']);
                 $this->db->query ($query, $params , $types);
-                $item->id = $this->db->handler()->lastInsertId();
+                $item['id'] = $this->db->handler()->lastInsertId();
             } 
             return $data;
         }
@@ -106,7 +106,7 @@
                 if (!$item) {
                     continue;
                 }
-                $params = array (':id' => $item->id);
+                $params = array (':id' => $item['id']);
                 $this->db->query ($query, $params , $types);
             } 
             return $data;
@@ -119,9 +119,9 @@
                 if (!$item) {
                     continue;
                 }
-                $params = array (':idRID' => $idRID, ':idRelativeRID' => $item->idLinkRid);
+                $params = array (':idRID' => $idRID, ':idRelativeRID' => $item['idLinkRid']);
                 $this->db->query ($query, $params , $types);
-                $item->id = $this->db->handler()->lastInsertId();
+                $item['id'] = $this->db->handler()->lastInsertId();
             } 
             return $data;
         }
@@ -133,7 +133,7 @@
                 if (!$item) {
                     continue;
                 }
-                $paramsFieldRIDDelete = array (':id' => $item->id);
+                $paramsFieldRIDDelete = array (':id' => $item['id']);
                 $this->db->query ($queryFieldRIDDelete, $paramsFieldRIDDelete , $typesFieldRIDDelete);
             } 
             return $data;
@@ -166,53 +166,51 @@
                 }
                 $linkTitleFieldRIDUnitsField = false;
                 // тип поля: строка, файл, текст
-                $idTypeFieldRID = is_object($item->selectTypeOfField)===true ? $idTypeFieldRID = $item->selectTypeOfField->id : 0;
+                $idTypeFieldRID = is_array($item['selectTypeOfField'])===true ? $idTypeFieldRID = $item['selectTypeOfField']['id'] : 0;
                 
                 // единицы измерения:см, кг
-                if (is_object($item->unitsOfField)===true) {
-                    if (property_exists ($item->unitsOfField,'new_record')&&$item->unitsOfField->new_record) {
-                        $paramsUnits = array (':title' => $item->unitsOfField->u_title);
+                $idUnits = null;
+                if (is_array($item['unitsOfField'])===true&&$item['unitsOfField']['u_title']) {
+                    if (array_key_exists ('new_record', $item['unitsOfField'])&&$item['unitsOfField']['new_record']) {
+                        $paramsUnits = array (':title' => $item['unitsOfField']['u_title']);
                         $this->db->query ($queryUnits, $paramsUnits, $typesUnits);
                         $linkTitleFieldRIDUnitsField = true;
- 						$item->unitsOfField->u_id = $idUnits = $this->db->handler()->lastInsertId();
+ 						$item['unitsOfField']['u_id'] = $idUnits = $this->db->handler()->lastInsertId();
                     } else {
-                        $idUnits = $item->unitsOfField->u_id;
+                        $idUnits = $item['unitsOfField']['u_id'];
                     }
-                } else {
-                    $idUnits = null;
                 }
 
-                $idTypeValueFieldRID = $item->viewOfField ? $item->viewOfField : null;
+                $idTypeValueFieldRID = $item['viewOfField'] ? $item['viewOfField'] : null;
 
                 // Название поля: вязкость, вес
-                if (is_object($item->nameOfField)===true) {
-                     if (property_exists ($item->nameOfField,'new_record')&&$item->nameOfField->new_record) {
-                        $paramsTitleFieldRID = array (':title' => $item->nameOfField->title);
+                $idTitleFieldRID = null;
+                if (is_array($item['nameOfField'])===true) {
+                     if (array_key_exists ('new_record', $item['nameOfField'])&&$item['nameOfField']['new_record']) {
+                        $paramsTitleFieldRID = array (':title' => $item['nameOfField']['title']);
                         $this->db->query ($queryTitleFieldRID, $paramsTitleFieldRID, $typesTitleFieldRID);
-						$item->nameOfField->id = $idTitleFieldRID = $this->db->handler()->lastInsertId();
+						$item['nameOfField']['id'] = $idTitleFieldRID = $this->db->handler()->lastInsertId();
                      } else {
-                        $idTitleFieldRID =  $item->nameOfField->id;
+                        $idTitleFieldRID =  $item['nameOfField']['id'];
                      }
-                } else {
-                    $idTitleFieldRID = null;
                 }
-
+                
                 // создаем новую связь название поля -> единицы измерения
                 if ($linkTitleFieldRIDUnitsField===true) {
                     $paramsTitleFieldRID_Units = array (':idTitleFieldRID' => $idTitleFieldRID,':idUnits'=>$idUnits);
                     $this->db->query ($queryTitleFieldRID_Units, $paramsTitleFieldRID_Units, $typesTitleFieldRID_Units);
                 }
 
-                $idACL = $item->idACL;
+                $idACL = $item['idACL'];
                 $paramsFieldRID = array (':idTypeFieldRID' => $idTypeFieldRID, ':idUnits' => $idUnits, ':idTypeValueFieldRID' => $idTypeValueFieldRID, ':idTitleFieldRID' => $idTitleFieldRID, ':idACL' => $idACL, ':idRID' => $idRID);
                 $this->db->query ($queryFieldRID, $paramsFieldRID, $typesFieldRID);
-                $item->id = $idFieldRID = $this->db->handler()->lastInsertId();
-                if (property_exists($item, 'value')==true) {
+                $item['id'] = $idFieldRID = $this->db->handler()->lastInsertId();
+                if (array_key_exists('value', $item)==true) {
                     $sch = 0;
-                    foreach ($item->value as &$v) {
-                        $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $v->value, ':ord' => ++$sch);
+                    foreach ($item['value'] as &$v) {
+                        $paramsValueFieldRID = array (':idFieldRID' => $idFieldRID, ':value' => $v['value'], ':ord' => ++$sch);
                         $this->db->query ($queryValueFieldRID, $paramsValueFieldRID , $typesValueFieldRID);
-                        $v->valueId = $this->db->handler()->lastInsertId();
+                        $v['valueId'] = $this->db->handler()->lastInsertId();
                     }
 
                 }
@@ -228,8 +226,8 @@
                 if (!$item) {
                     continue;
                 }
-                foreach ($item->value as $key => $value) {
-                    $paramsValueFieldRIDUpdate = array (':value' => $value->value, ':id' => $value->valueId);
+                foreach ($item['value'] as $key => $value) {
+                    $paramsValueFieldRIDUpdate = array (':value' => $value['value'], ':id' => $value['valueId']);
                     $this->db->query ($queryValueFieldRIDUpdate, $paramsValueFieldRIDUpdate , $typesValueFieldRIDUpdate);
                 }
             }  
@@ -243,7 +241,7 @@
                 if (!$item) {
                     continue;
                 }
-                $paramsUser_RIDRemove = array (':id' => $item->id);
+                $paramsUser_RIDRemove = array (':id' => $item['id']);
                 $this->db->query ($queryUser_RIDRemove, $paramsUser_RIDRemove, $typesUser_RIDRemove);
             }   
 
@@ -257,35 +255,49 @@
                 if (!$item) {
                     continue;
                 }
-                $paramsUser_RIDAdd = array (':emailUser' => $item->email, ':idRID' => $idRID, ':idACL' => $item->idACL);
+                $paramsUser_RIDAdd = array (':emailUser' => $item['email'], ':idRID' => $idRID, ':idACL' => $item['idACL']);
                 $this->db->query ($queryUser_RIDAdd, $paramsUser_RIDAdd , $typesUser_RIDAdd);
-                $item->id = $this->db->handler()->lastInsertId();
+                $item['id'] = $this->db->handler()->lastInsertId();
             } 
             return $data;  
         }
 
         protected function fltrs_secret_params ($params) {
-            $form = json_decode($params['form'], true);
-            $modifiedForm = json_decode($params['modifiedForm']);
-
-            if ($form['staticFields']['selectCommonSecurity']==5) {
-                $form['staticFields']['title'] = "#secret#";
-                $form['staticFields']['short_descr'] = "#secret#";
-                $params['form'] = json_encode($form);
+            // сохранить предыдущее значение секретности, если отличается собирать РИД
+            $prevSelectCommonSecurity = $params['form']['staticFields']['prevSelectCommonSecurity'];
+            $selectCommonSecurity = $params['form']['staticFields']['selectCommonSecurity']; 
+            if ($selectCommonSecurity == 5 && $selectCommonSecurity != $prevSelectCommonSecurity) {
+                return array ('module'=> 'addRID', 'task' => 'removeRID', 'idRID' => $params['form']['staticFields']['r_id']);
+            } else if ($prevSelectCommonSecurity == 5 && $selectCommonSecurity != $prevSelectCommonSecurity){
+                //$params['modifiedForm'] = array ();
+                $modifiedForm = array ();
+                foreach ($params['form']['dynamicFields'] as $dynamicFieldsK => $dynamicFieldsV) {
+                    if (is_array($params['modifiedForm'][$dynamicFieldsK]['add'])&&count($params['modifiedForm'][$dynamicFieldsK]['add'])) {
+                        foreach ($params['modifiedForm'][$dynamicFieldsK]['add'] as $k => $v) {
+                            $dynamicFieldsV[$k]['id'] = $v['id'];
+                        }
+                    }
+                    $modifiedForm[$dynamicFieldsK] = array ('add' => $dynamicFieldsV);
+                }
+                $params['modifiedForm'] = $modifiedForm;
+                $params['form']['staticFields']['new_record'] = true;
+                //return array ('module' => $params['module'], 'task'=> $params['task'], 'form'=>$form, 'modifiedForm' => $modifiedForm);
             }
+            return $params;
 
-             $modifiedForm = (array) $modifiedForm;
-              foreach ($modifiedForm as $titleTypeOfConcreteField=>&$concreteTypeOfField ) {
+/*
+            $modifiedForm = (array) $modifiedForm;
+            foreach ($modifiedForm as $titleTypeOfConcreteField=>&$concreteTypeOfField ) {
                 foreach ($concreteTypeOfField as &$concreteTypeOfFieldData) {
                     foreach ($concreteTypeOfFieldData as $key => &$item) {
                         if (!$item) {
                             continue;
                         }
   
-                        if (property_exists ($item,'idACL')&&$item->idACL==5) {
+                        if (property_exists ($item,'idACL')&&$item['idACL']==5) {
                             if (property_exists($item, 'value')==true) {
-                                foreach ($item->value as $v) {
-                                     $v->value = "#secret#";
+                                foreach ($item['value'] as $v) {
+                                     $v['value'] = "#secret#";
                                 }
 
                             }
@@ -296,6 +308,7 @@
             $modifiedForm = json_encode((object)$modifiedForm);
             $params['modifiedForm'] = $modifiedForm;
             return $params;
+                */
         }
     }
 ?>

@@ -24,7 +24,7 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
 	}
 })
 
-.controller('ModalInstanceAclOfRIDCtrl', function($scope, $modalInstance, params, helper) {
+.controller('ModalInstanceAclOfRIDCtrl', function($scope, $modalInstance, $timeout, params, helper) {
    console.log (params);
     $scope.user = {'email':'','idACL':''};
     $scope.params = JSON.parse( JSON.stringify( params) ) ;
@@ -46,8 +46,11 @@ var appAcl = angular.module('appAcl', ['ui.bootstrap'])
                 $scope.params.users = [];
             }
             $scope.params.users.push ({'email':email,'idACL':idACL});
+            
+        }
+        $timeout(function () {
             $scope.user.email = '';
             $scope.user.idACL = '';
-        }
+        }, 500)
 	}
 });

@@ -45,18 +45,19 @@
 													'selectionInheritable' => array (),
 													'selectionRelated' => array (),
 													'users' => array (),
+													'selectBranch' => array (),
 											),
 							'staticFields'=>array());
 			
             $r = $this->fetchAll($sql, array (':id' =>$_REQUEST['id']));
 
 	    	// отсчет нужен с 0 для js
-	    	$dynamicFieldsId = $Users = $SelectionInheritable = $SelectionRelated = array();
-	    	$schDynamicFields = $schUsers = $schSelectionInheritable = $schSelectionRelated =  0;
+	    	$dynamicFieldsId = $Users = $SelectionInheritable = $SelectionRelated = $Branch = array();
+	    	$schDynamicFields = $schUsers = $schSelectionInheritable = $schSelectionRelated = $schBranch = 0;
 	    	foreach ($r as $row) {
-	    		$nameOfField = array('id'=>$row['tfr_id'],'title'=> $row['tfr_title']);
+	    		$nameOfField = array('id'=>$row['tfr_id'],'title'=> $row['tfr_title'], 'own' => $row['tfr_own']);
 	    		$selectTypeOfField = array('id'=>$row['type_fr_id'],'key'=>$row['type_fr_key'],'title'=> $row['type_fr_title']);
-	    		$unitsOfField = array ('tfru_title'=>$row['tfr_title'], 'u_id'=>$row['u_id'], 'u_title'=>$row['u_title']);
+	    		$unitsOfField = array ('tfru_title'=>$row['tfr_title'], 'u_id'=>$row['u_id'], 'u_title'=>$row['u_title'], 'own' => $row['u_own']);
 
 		 		if ($row['inheritable_rid_id']) {
 			 		if (array_key_exists($row['inheritable_rid_id'], $SelectionInheritable) === false) {
@@ -88,6 +89,17 @@
 					} 
 		 		}
 
+		 		if ($row['branch_rid_id']) {
+			 		if (array_key_exists($row['branch_rid_id'], $Branch) === false) {
+						$Branch[$row['branch_rid_id']]=$schBranch++;
+					} 
+
+					if (array_key_exists($Branch[$row['branch_rid_id']], $result['dynamicFields']['selectBranch']) === false) {
+						$result['dynamicFields']['selectBranch'][$Branch[$row['branch_rid_id']]] = array ('id'=>$row['branch_rid_id'], 'value'=>array(array ('value'=>$row['branch_rid_idBranch'])));
+					} 
+					//$result['dynamicFields']['selectBranch']=array(array('id'=>$row['branch_rid_id'], 'value' => array(array ('value'=>$row['branch_rid_idBranch']))));
+				}
+
 	    		if ($row['fr_id']) {
 	    			if (array_key_exists($row['fr_id'],$dynamicFieldsId)==false) {
 	    				$dynamicFieldsId[$row['fr_id']]=$schDynamicFields++;
@@ -107,8 +119,7 @@
 	    			}
 	    		}
 	    	} 
-	    	$result['dynamicFields']['selectBranch']=array(array('id'=>$row['branch_rid_id'], 'value' => array(array ('value'=>$row['branch_rid_idBranch']))));
-	    	$result['staticFields'] = array ('r_id'=>$row['r_id'],'title'=>$row['r_title'], 'short_descr'=>$row['r_short_descr'],'selectCommonSecurity'=>$row['r_idACL']);
+	    	$result['staticFields'] = array ('r_id'=>$row['r_id'],'title'=>$row['r_title'], 'short_descr'=>$row['r_short_descr'],'selectCommonSecurity'=>$row['r_idACL'], 'prevSelectCommonSecurity' => $row['r_idACL']);
 	        return $result;	
 	    }
 

@@ -260,6 +260,7 @@ CREATE TABLE IF NOT EXISTS `TemplateFieldRID` (
 CREATE TABLE IF NOT EXISTS `TitleFieldRID` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
+  `own` int(11) NOT NULL DEFAULT '1',
   `idPrivate` int(11) DEFAULT NULL,
   `idPublisher` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -371,6 +372,7 @@ INSERT INTO `TypeValueFieldRID` (`id`, `key`, `value`) VALUES
 CREATE TABLE IF NOT EXISTS `Units` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(400) NOT NULL,
+  `own` int(11) NOT NULL DEFAULT '1',
   `idPrivate` int(11) DEFAULT NULL,
   `idPublisher` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)

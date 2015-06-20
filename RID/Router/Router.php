@@ -35,6 +35,9 @@
 			 					$response =  $dbRIDModified->operation ('saveRID', $request);
 			 					return $response['response'] ? $response['response']['form']['staticFields']['r_id'] : $response['response'];
 							break;
+							case 'removeRID':
+								$response =  $dbRIDModified->operation ('removeRID', $request);
+							break;
 							
 							case 'saveTemplateRID':
 								return $dbRIDModified->operation ('saveTemplateRID', $request);

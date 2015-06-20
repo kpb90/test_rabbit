@@ -28,7 +28,9 @@
                     case 'saveRID':
                          $response = $this->db->transaction(array($this, 'saveRID'),$params);
                     break;
-                    case 'saveTemplateRID':
+
+                    case 'removeRID':
+                        $response = $this->db->transaction(array($this, 'removeRID'),$params);
                      //   $this->saveTemplateRID($params);
                     break;
                     
@@ -37,10 +39,12 @@
                 }
                 
                 if (method_exists($this->communicator, 'send')===true) {
-                     $this->communicator->connect();
-                     //$response['response'] = $this->fltrs_secret_params($response['response']);
-                     Logger::getLogger('DbRIDModified','queues.txt')->log('Отправка сообщения в очередь: '.print_r($response['response'], true));
-                     $this->communicator->send(array('msgBody' => base64_encode(serialize($response['response'])), 'routingKey' => 'addRID'));  
+                    $this->communicator->connect();
+                    $public_params = $this->fltrs_secret_params($response['response']);
+                    if ($public_params) {
+                         Logger::getLogger('DbRIDModified','queues.txt')->log('Отправка сообщения в очередь: '.print_r($public_params, true));
+                         $this->communicator->send(array('msgBody' => base64_encode(serialize($public_params)), 'routingKey' => 'addRID'));  
+                    }
                 } 
                 return $response;
         }
