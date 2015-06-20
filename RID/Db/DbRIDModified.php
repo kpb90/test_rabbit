@@ -194,7 +194,7 @@
                         $idTitleFieldRID =  $item['nameOfField']['id'];
                      }
                 }
-                
+
                 // создаем новую связь название поля -> единицы измерения
                 if ($linkTitleFieldRIDUnitsField===true) {
                     $paramsTitleFieldRID_Units = array (':idTitleFieldRID' => $idTitleFieldRID,':idUnits'=>$idUnits);
@@ -263,14 +263,13 @@
         }
 
         protected function fltrs_secret_params ($params) {
-            // сохранить предыдущее значение секретности, если отличается собирать РИД
             $prevSelectCommonSecurity = $params['form']['staticFields']['prevSelectCommonSecurity'];
             $selectCommonSecurity = $params['form']['staticFields']['selectCommonSecurity']; 
+            $modifiedForm = array ();
             if ($selectCommonSecurity == 5 && $selectCommonSecurity != $prevSelectCommonSecurity) {
                 return array ('module'=> 'addRID', 'task' => 'removeRID', 'idRID' => $params['form']['staticFields']['r_id']);
             } else if ($prevSelectCommonSecurity == 5 && $selectCommonSecurity != $prevSelectCommonSecurity){
                 //$params['modifiedForm'] = array ();
-                $modifiedForm = array ();
                 foreach ($params['form']['dynamicFields'] as $dynamicFieldsK => $dynamicFieldsV) {
                     if (is_array($params['modifiedForm'][$dynamicFieldsK]['add'])&&count($params['modifiedForm'][$dynamicFieldsK]['add'])) {
                         foreach ($params['modifiedForm'][$dynamicFieldsK]['add'] as $k => $v) {
@@ -282,33 +281,24 @@
                 $params['modifiedForm'] = $modifiedForm;
                 $params['form']['staticFields']['new_record'] = true;
                 //return array ('module' => $params['module'], 'task'=> $params['task'], 'form'=>$form, 'modifiedForm' => $modifiedForm);
-            }
-            return $params;
-
-/*
-            $modifiedForm = (array) $modifiedForm;
-            foreach ($modifiedForm as $titleTypeOfConcreteField=>&$concreteTypeOfField ) {
-                foreach ($concreteTypeOfField as &$concreteTypeOfFieldData) {
-                    foreach ($concreteTypeOfFieldData as $key => &$item) {
-                        if (!$item) {
-                            continue;
-                        }
-  
-                        if (property_exists ($item,'idACL')&&$item['idACL']==5) {
-                            if (property_exists($item, 'value')==true) {
-                                foreach ($item['value'] as $v) {
-                                     $v['value'] = "#secret#";
+            } else {
+                foreach ($params['modifiedForm'] as $titleTypeOfConcreteField=>&$concreteTypeOfField ) {
+                    foreach ($concreteTypeOfField as $operation => &$concreteTypeOfFieldData) {
+                        if ($operation == 'add' || $operation == 'update') {
+                            foreach ($concreteTypeOfFieldData as $key => &$item) {
+                                if (!$item) {
+                                    continue;
                                 }
-
+                                if (array_key_exists('idACL', $item)&&$item['idACL']==5) {
+                                    $concreteTypeOfField['remove'][] = array ('id'=>$item['id']);
+                                    unset ($concreteTypeOfFieldData[$key]);
+                                }
                             }
                         }
                     }
                 }
             }
-            $modifiedForm = json_encode((object)$modifiedForm);
-            $params['modifiedForm'] = $modifiedForm;
             return $params;
-                */
         }
     }
 ?>

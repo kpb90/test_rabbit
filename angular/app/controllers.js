@@ -40,7 +40,7 @@ appControllers.controller('AddRIDFormCtrl', function($scope, $modal, $log, $http
 
     $scope.form = {
         'dynamicFields': {'addField':[],'users':[],'selectionRelated':[],'selectionInheritable':[],'selectBranch':[]},
-        'staticFields': {'selectCommonSecurity':1,'r_id':null,'short_descr':''}
+        'staticFields': {'selectCommonSecurity':1, 'prevSelectCommonSecurity':1, 'r_id':null,'short_descr':''}
     };
     
     $scope.init_form = angular.copy($scope.form);

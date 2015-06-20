@@ -189,8 +189,8 @@
                 // единицы измерения:см, кг
                 $idUnitsPrivate = $item['unitsOfField']['u_id'];
                 $idUnits = null;
-                //if (is_array($item['unitsOfField'])===true&&$item['unitsOfField']['u_title']) {
-                if (is_array($item['unitsOfField'])===true) {
+
+                if (is_array($item['unitsOfField'])===true&&$item['unitsOfField']['u_title']) {
                     // если запись была добавлена на приватном сервере
                     if (array_key_exists('own', $item['unitsOfField'])) {
                         if ($item['unitsOfField']['own']) {
