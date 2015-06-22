@@ -276,6 +276,11 @@
                             $dynamicFieldsV[$k]['id'] = $v['id'];
                         }
                     }
+                    foreach ($dynamicFieldsV as $dynamicFieldsV_K => $dynamicFieldsV_V) {
+                        if (array_key_exists('idACL', $dynamicFieldsV_V)&&$dynamicFieldsV_V['idACL']==5) {
+                            unset ($dynamicFieldsV[$dynamicFieldsV_K]);
+                        }
+                    }
                     $modifiedForm[$dynamicFieldsK] = array ('add' => $dynamicFieldsV);
                 }
                 $params['modifiedForm'] = $modifiedForm;
