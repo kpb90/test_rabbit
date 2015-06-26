@@ -73,7 +73,6 @@
                 $types = array (':title' => \PDO::PARAM_STR, ':short_descr' => \PDO::PARAM_STR, ':idACL' => \PDO::PARAM_INT, ':idPrivate' => \PDO::PARAM_INT, ':idPublisher' => \PDO::PARAM_INT);
                 $query = "UPDATE `RID` SET `title`=:title,`short_descr`=:short_descr,`idACL`=:idACL WHERE idPrivate=:idPrivate and idPublisher = :idPublisher";
                 $this->db->query ($query, $params, $types);
-
                 $idRID = $this->db->fetchOne ("SELECT id FROM RID WHERE idPrivate=:idPrivate and idPublisher = :idPublisher", array (':idPrivate'=>$idRidPrivate,':idPublisher'=>$this->idPublisher));
                 $modifiedForm = $this->applyChangeToDynamicField($idRID, $modifiedForm);
             }
@@ -157,7 +156,6 @@
         }
 
         protected function applyChangeToDynamicFieldAddFieldAdd ($idRID, $data) {
-
             $queryFieldRID = "INSERT INTO `FieldRID` (`idPrivate`, `idPublisher`, `idTypeFieldRID`, `idUnits`, `idTypeValueFieldRID`, `idTitleFieldRID`, `idACL`, `idRID`) 
                                VALUES 
                               (:idPrivate, :idPublisher, :idTypeFieldRID, :idUnits, :idTypeValueFieldRID, :idTitleFieldRID, :idACL, :idRID)";
@@ -188,8 +186,8 @@
                 
                 // единицы измерения:см, кг
                 $idUnitsPrivate = $item['unitsOfField']['u_id'];
+                
                 $idUnits = null;
-
                 if (is_array($item['unitsOfField'])===true&&$item['unitsOfField']['u_title']) {
                     // если запись была добавлена на приватном сервере
                     if (array_key_exists('own', $item['unitsOfField'])) {

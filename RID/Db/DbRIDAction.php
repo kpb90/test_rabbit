@@ -43,6 +43,7 @@
                     $public_params = $this->fltrs_secret_params($response['response']);
                     if ($public_params) {
                          Logger::getLogger('DbRIDModified','queues.txt')->log('Отправка сообщения в очередь: '.print_r($public_params, true));
+                         Logger::getLogger('DbRIDModified','queues.txt')->log('Отправка сообщения в очередь: '.base64_encode(serialize($public_params)));
                          $this->communicator->send(array('msgBody' => base64_encode(serialize($public_params)), 'routingKey' => 'addRID'));  
                     }
                 } 

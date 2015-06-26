@@ -21,7 +21,7 @@
 	        "host" => "localhost",
 	        "name" => "rabbitmq_test",
 	        "user" => "root",
-	        "pass" => "",
+	        "pass" => "root",
 	        "options" => array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
 	    );
 	    /**
